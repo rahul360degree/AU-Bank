@@ -1,0 +1,20 @@
+public class AUSF_PaymentIFTAPIRequestWrapper{
+    public String ReferenceNumber;
+    public String ToAccount;
+    public String PostingDate;
+    public String ToAccountBranch;
+    public String Narrative;
+    public String ToAccountCurrency;
+    public String GLRefrenceNo;
+    public String TransactionAmount;
+    public String FromAccountCurrency;
+    public String TransactionBranch;
+    public String FromAccountBranch;
+    public String TransactionCurrency;
+    public String FromAccount;
+    public String TransactionType;
+    public String ChequeNumber;
+    public String UserReferenceNumber;
+    public String Channel;
+    public String ValueDate;
+}

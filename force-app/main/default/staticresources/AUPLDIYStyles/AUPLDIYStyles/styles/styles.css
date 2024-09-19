@@ -1,0 +1,1456 @@
+.containerDiv {
+    width: 100%;
+    min-height: calc(100vh - 75px);
+    height: -webkit-fill-available;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contentDiv {
+    margin: auto;
+    width: 70%;
+    position: relative;
+    top: 8%;
+    --slds-c-card-radius-border: 0px;
+    --sds-c-card-radius-border: 0px;
+}
+
+.contentDivResp {
+    margin: auto;
+    width: 100%;
+    position: relative;
+    top: 8%;
+    --slds-c-card-radius-border: 0px;
+    --sds-c-card-radius-border: 0px;
+}
+
+.headerDiv {
+    font-size: 30px;
+    color: #002EDC;
+    text-align: center;
+    line-height: 31px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.titleDiv {
+    width: 60%;
+    margin: auto;
+}
+
+.titleDiv-Wide{
+    width: 88%;
+    margin: auto;
+}
+
+.inputDiv {
+    font-size: 16px;
+    font-weight: 400;
+    width: 95%;
+    margin: auto;
+    min-height: 500px;
+    --lwc-colorTextError: #ED1F47;
+    --lwc-colorTextLabel: #455360;
+    --lwc-formLabelFontSize: 14px;
+    --slds-c-input-color-background: transparent;
+    --slds-c-input-color-border-focus: transparent;
+    --slds-c-input-color-border: transparent;
+    --sds-c-input-color-background-focus: transparent;
+    --sds-c-input-color-border-focus: transparent;
+    --lwc-heightInput: 48px;
+    --slds-c-input-text-color: #333333;
+    --sds-c-input-text-color: #333333;
+    --slds-c-input-spacing-horizontal-start: 20px;
+    --sds-c-input-spacing-horizontal-start: 20px;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-line-height: 48px;
+    --sds-c-button-line-height: 48px;
+    --slds-c-button-text-color: white;
+    --sds-c-button-text-color: white;
+    --slds-c-button-destructive-text-color-active: white;
+    --sds-c-button-destructive-text-color-active: white;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    --slds-c-input-shadow-focus: none;
+    --lwc-colorBackgroundInputDisabled: transparent;
+}
+
+.inputDiv .slds-has-error .slds-input, .inputDiv .slds-input {
+    --slds-c-input-color-border: transarent;
+    --sds-c-input-color-border-focus: transparent;
+    --slds-c-input-color-background: transparent;
+    --sds-c-input-color-background-focus: transparent;
+    border-bottom: 1px solid #BDBEC8;
+}
+
+.inputDiv .slds-input:focus, .inputDivLeftAlign .slds-input:active {
+    border-bottom: 1px solid #002EDC;
+}
+
+.inputDiv .slds-has-error .slds-input, .inputDiv .slds-has-error .slds-input:focus, .inputDiv .slds-has-error .slds-input:active {
+    border-bottom: 1px solid #ED1F47;
+    --slds-c-input-color-border: transparent;
+    --slds-c-input-shadow: transparent;
+}
+
+.inputDiv .slds-has-error .slds-input_faux {
+    border-color: transparent;
+    border-bottom: 1px solid #ED1F47;
+}
+
+.inputDivLeftAlign {
+    font-size: 16px;
+    font-weight: 400;
+    --sds-c-input-radius-border: 0px;
+    --lwc-colorTextError: #ED1F47;
+    --lwc-colorTextLabel: #455360;
+    --lwc-formLabelFontSize: 14px;
+    --slds-c-input-color-background: transparent;
+    --slds-c-input-color-border-focus: transparent;
+    --slds-c-input-spacing-horizontal-start: 5px;
+    --sds-c-input-spacing-horizontal-start: 5px;
+    --slds-c-input-color-border: transparent;
+    --sds-c-input-color-background-focus: transparent;
+    --sds-c-input-color-border-focus: #EAEAEA;
+    --lwc-heightInput: 48px;
+    --slds-c-input-text-color: #333333;
+    --sds-c-input-text-color: #333333;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-line-height: 48px;
+    --sds-c-button-line-height: 48px;
+    --slds-c-button-text-color: white;
+    --sds-c-button-text-color: white;
+    --slds-c-button-destructive-text-color-active: white;
+    --sds-c-button-destructive-text-color-active: white;
+    --lwc-colorTextInputDisabled: black;
+    --lwc-brandDisabled: #005F9A;
+    --lwc-colorBackgroundButtonDefaultDisabled: #BDBFC7;
+    --lwc-colorTextButtonDefaultDisabled: white;
+    --lwc-colorBorderInputDisabled: transparent;
+    --lwc-colorBackgroundInputDisabled: transparent;
+    --slds-c-input-shadow-focus: transparent;
+    --lwc-colorTextBrandPrimary: white;
+}
+
+.inputDivLeftAlign .slds-input, .inputDivLeftAlign .slds-combobox__input, .inputDivLeftAlign [role=combobox] input[readonly], input[readonly][role=combobox],
+[role=combobox] input[readonly][disabled], input[readonly][role=combobox][disabled] {
+    border-color: transparent;
+    border-bottom: 1px solid #BDBEC8;
+}
+
+.inputDivLeftAlign .slds-has-error .slds-input_faux {
+    border-color: transparent;
+    border-bottom: 1px solid #ED1F47;
+}
+
+.inputDivLeftAlign .slds-input:focus, .inputDivLeftAlign .slds-input:active {
+    border-bottom: 1px solid #002EDC;
+}
+
+.inputDivLeftAlign [role=combobox] input[readonly]:focus, [role=combobox] input[readonly].slds-has-focus, input[readonly][role=combobox]:focus, input[readonly][role=combobox].slds-has-focus {
+    border-color: transparent;
+    border-bottom: 1px solid #BDBEC8;
+    box-shadow: none;
+}
+
+.slds-combobox__input:focus, .slds-combobox__input.slds-has-focus {
+    border-bottom: 1px solid #002EDC;
+    box-shadow: none;
+}
+
+.inputDivLeftAlign .slds-has-error .slds-input, .inputDivLeftAlign .slds-has-error .slds-input:focus, .inputDivLeftAlign .slds-has-error .slds-input:active {
+    border-bottom: 1px solid #ED1F47;
+    --slds-c-input-color-border: transparent;
+    --slds-c-input-shadow: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.slds-modal__content {
+    overflow: visible;
+}
+
+.commonButtonStyles button {
+    width: 187px;
+    border-radius: 28px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-text-color-hover: white;
+}
+
+.commonButtonStylesCustom button {
+    width: 187px;
+    height: 40px;
+    font-size: 20px;
+    color: #ED1F47;
+    border-radius: 28px;
+    --slds-c-button-color-border: #ED1F47;
+    --slds-c-button-destructive-color-background: trasparent;
+    --sds-c-button-destructive-color-background: trasparent;
+    --slds-c-button-color-background-active: trasparent;
+    --sds-c-button-destructive-color-background-active: trasparent;
+    --slds-c-button-destructive-color-background-hover: trasparent;
+    --sds-c-button-destructive-color-background-hover: trasparent;
+    --sds-c-button-destructive-text-color-hover: #ED1F47;
+    --slds-c-button-destructive-text-color: #ED1F47;
+}
+
+.commonButtonStylesSaveAndNext button {
+    width: 187px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 28px;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-color-background-hover: #ED1F47;
+}
+
+.loginBackgroundStyles {
+    background-color: #FAFAFA;
+    min-height: calc(100vh - 75px);
+    height: -webkit-fill-available;
+}
+
+.loginBackgroundStyles .slds-modal__content {
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.headerWrapperDiv {
+    --slds-c-icon-color-foreground-default: #002EDC;
+    --sds-c-icon-color-foreground-default: #002EDC;
+}
+
+.headerWrapperDiv .floatLeft {
+    float: left;
+    padding-left: 1rem;
+}
+
+.headerWrapperDiv .floatRight {
+    float: right;
+    padding-right: 3rem;
+    padding-top: 1rem;
+}
+
+.customerDetailsButton button, .customerDetailsButton button:hover, .customerDetailsButton button:focus {
+  /*  width: 94px !important; */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    border-color: white;
+}
+
+.button-brand-grey {
+    --sds-c-button-brand-color-background: #BDBFC7;
+    --slds-c-button-radius-border: 8px;
+    --sds-c-button-radius-border: 8px;
+}
+
+.button-brand-blue {
+    --sds-c-button-brand-color-background: #005F9A;
+    --slds-c-button-radius-border: 8px;
+    --sds-c-button-radius-border: 8px;
+}
+
+.wideContinueButtonStyles {
+    --slds-c-button-radius-border: 8px;
+    --sds-c-button-radius-border: 8px;
+}
+
+.wideContinueButtonStyles button, .wideContinueButtonStyles button:hover {
+    width: 60%;
+    color: white;
+}
+
+.tableButtonStyles button, .tableButtonStyles button:hover {
+    color: white;
+}
+
+.supportingTextStyles {
+    color: #666666;
+    font-weight: 400;
+    font-size: 12px;
+    font-style: normal;
+    padding-top: 0.5rem;
+}
+
+.redasterisk{
+    color: red; 
+}
+
+.supportingValidationErrorTextStyles {
+    color: #ED1F47;
+    font-weight: 400;
+    font-size: 0.75rem;
+    font-style: normal;
+    padding-top: 0.125rem;
+}
+
+.loginSpanStyles {
+    color: #ED1F47;
+}
+
+.loginSupportingTextStyles {
+    color: #666666;
+    font-weight: 400;
+    font-size: 10px;
+    font-style: normal;
+    padding-top: 0.5rem;
+}
+
+.loginWidthCSS{
+    width: 170px;
+    border-radius: 28px;
+}
+
+.loginButtonsCSS {
+    --lwc-colorTextInverse: white;
+    --lwc-colorTextDefault: white;
+}
+
+.verifyOTPSupportingTextStyles {
+    color: #455360;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.supportingBlueText {
+    color: #4C70FF;
+}
+
+.boldSupportingText {
+    color: #000000;
+    font-weight: 700;
+}
+
+.loginSubTextStyles {
+    color: #666666;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    padding-top: 0.5rem;
+}
+
+.loginDivStyles {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    padding-top: 10%;
+    --lwc-brandPrimary: #ED1F47;
+    --slds-c-checkbox-color-border-checked: rgba(0, 0, 0, 0.2);
+    --sds-c-checkbox-color-border-checked: rgba(0, 0, 0, 0.2);
+    --slds-c-checkbox-color-border: rgba(0, 0, 0, 0.2);
+    --sds-c-checkbox-color-border: rgba(0, 0, 0, 0.2);
+}
+
+.loginDivStyles .slds-input-has-icon .slds-input__icon {
+    top: 35%;
+}
+
+.carouselStyles {
+    --lwc-carouselIndicatorColorBackgroundActive: #ED1F47;
+    --lwc-carouselIndicatorColorBackgroundFocus: #ED1F47;
+    --lwc-carouselIndicatorColorBackground: lightpink;
+    --lwc-carouselIndicatorColorBackgroundHover: #ED1F47;
+    --lwc-fontSize5: 24px;
+    --lwc-borderWidthThin: 0rem;
+    --lwc-spacingXSmall: 0rem;
+    --lwc-fontSize3: 16px;
+    --lwc-spacingSmall: 0.5rem;
+}
+
+.carouselStyles .slds-carousel__content-title {
+    color: #002EDC;
+    padding-bottom: 0.3rem;
+}
+
+.carouselStyles .slds-carousel__image {
+    padding-bottom: 1rem;
+}
+
+.carouselStyles .slds-carousel__content {
+    color: #455360
+}
+
+.carouselStyles .slds-carousel__content p {
+    width: 60%;
+    margin: auto;
+}
+
+.carouselStyles .slds-carousel__indicators {
+    padding-top: 1rem;
+}
+
+.logoStyles {
+    width: 165px;
+    height: 30px;
+    top:2%;
+    position:absolute;
+}
+
+.tabStyles{
+    padding-left: 1rem;
+    padding-top: 10%;
+    --lwc-brandPrimary: #ED1F47;
+    --slds-c-checkbox-color-border-checked: rgba(0, 0, 0, 0.2);
+    --sds-c-checkbox-color-border-checked: rgba(0, 0, 0, 0.2);
+    --slds-c-checkbox-color-border: rgba(0, 0, 0, 0.2);
+    --sds-c-checkbox-color-border: rgba(0, 0, 0, 0.2);
+}
+
+.tabStyles .slds-tabs_default__link:focus {
+    text-decoration: none;
+}
+
+.layoutStyles {
+    --lwc-borderWidthThin: 0rem;
+}
+
+.tncLinkStyles, .tncLinkStyles:hover, .tncLinkStyles:focus {
+    color: #ED1F47;
+}
+
+.maskedMobileNumberStyles {
+    letter-spacing: 0.3em;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 34px;
+    color: #455360;
+}
+
+.otpInputStyles {
+    text-align: center;
+    text-shadow: 0 0 0 black;
+    margin-right: 20px;
+    border-color: transparent;
+    background-color: transparent;
+    width: 48px;
+    height: 48px;
+    border-bottom: 1px solid #BDBEC8;
+}
+
+.retryOTPStyles, .retryOTPStyles:hover, .retryOTPStyles:focus {
+    color: #002EDC;
+}
+
+.progressIndicatorStyle{
+    --lwc-progressStepColorBackgroundActive: #ED1F47;
+    --lwc-progressStepColorBackgroundFocus: #ED1F47;
+    --lwc-progressStepColorBackground: lightpink;
+    --lwc-progressStepColorBackgroundHover: #ED1F47;
+    --slds-c-progress-item-color-background-active: #ED1F47;
+    
+}
+
+.lookupInputContainer .slds-input-has-icon_right .slds-input__icon {
+    right: 0rem;
+}
+
+.THIS .slds-progress__item .slds-is-active{
+    background: #ED1F47;
+}
+
+.THIS .slds-progress__item .slds-is-active .slds-progress__marker{
+    background: #ED1F47 !important;
+}
+
+.leftContainerDiv {
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    --lwc-colorTextInverse: white;
+    --lwc-colorBackgroundPathIncomplete: #AEAEAE;
+    --lwc-colorTextDefault: #181818;
+    --lwc-colorBackgroundPathIncomplete: #AEAEAE;
+}
+
+.sectionDiv {
+    --slds-c-modal-color-border: #D1D1D1;
+    --sds-c-modal-color-border: #D1D1D1;
+    --slds-c-modal-header-color-background: #F6F6F6;
+    --sds-c-modal-header-color-background: #F6F6F6;
+}
+
+.sectionDiv .slds-modal__header {
+    text-align: left;
+}
+.plModal .slds-modal__header {
+    text-align: center;
+}
+
+.sectionIconStyles {
+    --slds-c-icon-color-foreground-default: #002EDC;
+    --sds-c-icon-color-foreground-default: #002EDC;
+}
+
+.sectionIconStylesTenure {
+    --lwc-brandDisabled: gray;
+}
+
+.sectionIconStylesTenure button, .sectionIconStylesTenure button:hover, .sectionIconStylesTenure button:active,
+.sectionIconStylesTenure button:focus  {
+    color: white;
+    border-radius: 50%;
+}
+
+.lightningPathStyles {
+    --lwc-colorBackgroundPathActive: #002EDC;
+}
+
+.sectionHeaderStyles {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #002EDC;
+}
+
+.subSectionHeaderStyles {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #002EDC;
+    padding-bottom: 20px;
+}
+
+.edgeCells {
+    width: 40%;
+    border: none;
+}
+
+.iconPos{
+    float:right;
+}
+
+.mainCell {
+    width: 20%;
+    border: none;
+}
+
+.cellFloatRight {
+    float: right;
+}
+
+.cellFloatLeft {
+    float: left;
+}
+.btnLineHeight{
+    --slds-c-button-line-height: 30px;
+}
+
+.sectionDivCustomerDetails {
+    --lwc-colorTextButtonBrand : white;
+    --lwc-colorBackgroundButtonDefault : #d1d1d1;
+    --slds-c-button-spacing-inline-end : 1rem;
+    --sds-c-button-spacing-inline-end : 1rem;
+    --slds-c-button-color-background-active : transparent;
+    border-color: white;
+    --slds-c-button-radius-border: 8px;
+    --sds-c-button-radius-border: 8px;
+    --lwc-fontWeightBold: 400;
+    --slds-c-checkbox-color-border: #c9c9c9;
+    --lwc-borderRadiusMedium: 0px;
+    --lwc-colorBackgroundButtonBrandDisabled: #DBDBE0;
+    --lwc-colorTextButtonDefaultDisabled: gray;
+}
+
+.previewButtonStyles {
+    --lwc-spacingLarge: 2.7rem;
+}
+
+.newBrandCheckboxStyles {
+    --slds-c-checkbox-color-border-checked: #27BC24;
+    --slds-c-checkbox-color-border: #27BC24;
+    --slds-c-checkbox-color-background-checked: #27BC24;
+    --slds-c-checkbox-mark-color-foreground: white;
+    --slds-c-checkbox-shadow: none;
+    --slds-c-checkbox-radius-border: 6px;
+    --lwc-colorBorderInputDisabled: #27BC24;
+    --lwc-colorBackgroundInputDisabled: #27BC24;
+    --lwc-colorGray8: white;
+}
+
+.progressTextStyles {
+    color: #27BC24;
+    float: right;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.referenceNumberStyles {
+    color: #27BC24;
+    float: left;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.rmCardDiv {
+    padding-top: 15%;
+    --slds-c-modal-header-color-background: rgba(0, 95, 154, 0.15);
+    --sds-c-modal-header-color-background: rgba(0, 95, 154, 0.15);
+    --slds-c-icon-color-background: transparent;
+    --slds-c-icon-color-foreground: #002EDC;
+}
+
+.rmCardDivHeader {
+    padding-top: 15%;
+    --slds-c-modal-header-color-background: rgba(0, 95, 154, 0.15);
+    --sds-c-modal-header-color-background: rgba(0, 95, 154, 0.15);
+    --slds-c-icon-color-background: transparent;
+    --slds-c-icon-color-foreground: #002EDC;
+}
+
+.rmContactSection {
+    --slds-c-icon-color-foreground: #002EDC;
+    --sds-c-icon-color-foreground: #002EDC;
+    --slds-c-icon-color-background: transparent;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.rmCardDiv .slds-modal__header {
+    text-align: left;
+}
+
+.rmNameStyles {
+    font-weight: 700;
+    font-size: 24px;
+    color: black;
+}
+
+.rmDesignationStyles {
+    font-weight: 300;
+    font-size: 14px;
+    color: black;
+}
+
+.actionsRequiredTitleStyles {
+    color: #002EDC;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.actionTitleStyles {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 23px;
+    padding-top: 1rem;
+    border-bottom: none;
+}
+
+.actionSubTextStyes {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 23px;
+    padding-bottom: 0.5rem;
+}
+
+.actionIconStyles {
+    --sds-c-icon-color-foreground: transparent;
+    --slds-c-icon-color-background: #002EDC;
+    --slds-c-icon-color-foreground-default: transparent;
+    transform: rotate(-36.24deg);
+    border-bottom: 1px solid #D1D1D1;
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.borderBottomStyles {
+    border-bottom: 1px solid #D1D1D1;
+}
+
+.inputBoxStyles {
+    width: 95%;
+    .slds-truncate{
+        padding-top: 10px;
+    }
+}
+
+.inputWideBoxStyles {
+    /*width: 80%;*/
+    width: 100%;
+}
+
+.applicationStageInputFields {
+    width: 80%;
+}
+
+.inputMediumBoxStyles {
+    width: 65%;
+}
+
+.inputSmallBoxStyles {
+    width: 50%;
+}
+
+.lightningDateInputStyle {
+    width: 250px;
+    --lwc-spacingSmall : 1rem;
+}
+
+.lightningLayoutInputBoxStyles {
+    width: 95%;
+    /*width: 100%;*/
+    .slds-truncate{
+        padding-top: 10px;
+    }
+}
+
+.lightningLayoutInputBoxStyles ul {
+    padding-left: 5px;
+}
+
+.wrapStyles {
+    word-break: break-all;
+}
+
+.dotStyles {
+    width: 9.83px;
+    height: 9.83px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #706E6B;
+}
+
+.donutStyles {
+    width: 19.66px;
+    height: 19.66px;
+    border-radius: 19.66px;
+    border: 5px solid #ED1F47;
+    display: inline-block;
+}
+
+.lineStyles {
+    height: 2.46px;
+    background: #DDDBDA;
+    position: relative;
+    bottom: 4px;
+}
+
+.progressBarTable {
+    width: 100%;
+    --lwc-progressBarColorBackgroundFill: #706E6B;
+}
+
+.progressBarTable td {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    vertical-align: middle;
+    border: none;
+}
+
+.plTable{
+    border: 1px solid grey;
+}
+.plTable th{
+    border-bottom: 1px solid grey;
+}
+.plTableHeader{
+    font-weight: 700;
+    font-size: 16.5px;
+    color: #333333;
+    --lwc-tableColorTextHeader : black;
+    background: rgb(239, 238, 238) !important;
+}
+
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+    color:rgb(174, 172, 172)
+}
+
+.fileUpload{
+    --slds-c-button-neutral-color-background: #005F9A;
+    --sds-c-button-neutral-color-background: #005F9A;
+    --lwc-buttonColorBackgroundPrimary: #005F9A;
+    --lwc-squareIconMediumContentAlt: 0rem;
+    --lwc-squareIconMediumContentAlt: 0rem;
+    border: 1px #DEDCDC dashed;
+    border-radius: 4px;
+}
+
+.fileUpload:hover{
+    --slds-c-button-neutral-color-background-hover: #005F9A;
+    --sds-c-button-neutral-color-background-hover: #005F9A;
+    --lwc-colorBackgroundButtonDefaultHover: #005F9A;
+    --slds-c-button-text-color-hover: white;
+    --sds-c-button-text-color-hover: white;
+    --lwc-brandAccessibleActive: white;     
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+}
+
+.verified {
+    color:  #47AF45;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 170%;
+}
+
+.remark{
+    color: #ED1F47;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 170%;
+}
+
+.remark-icon {
+    --sds-c-icon-color-foreground-default: #ED1F47;
+    padding-right: 9px;
+}
+
+.verify-icon{
+    --sds-c-icon-color-foreground-default: #47AF45;
+    padding-right: 9px;
+}
+
+.fileUpload .slds-form-element__label {
+    display: none;
+}
+
+.modal-footer .label {
+    color: white;
+}
+
+.readOnly .slds-form-element__control {
+    background-color: #EAEAEA;
+    color: rgb(174, 172, 172);
+    border-radius: 4px;
+}
+
+.readOnly .slds-input {
+    padding-left: 20px;
+}
+
+.progressbarcolor {
+    --lwc-progressBarColorBackgroundFill: grey !important;
+  }
+
+a:hover {
+    text-decoration: none;
+}
+
+.accordion {
+    text-align: right;
+    --slds-c-button-neutral-color-background: #005F9A;
+    --sds-c-button-neutral-color-background: #005F9A;
+    --lwc-buttonColorBackgroundPrimary: #005F9A;
+    --lwc-squareIconMediumContentAlt: 0rem;
+    --lwc-squareIconMediumContentAlt: 0rem;
+}
+
+.accordion :hover {
+    text-align: right;
+    --slds-c-button-neutral-color-background: #005F9A;
+    --sds-c-button-neutral-color-background: #005F9A;
+    --lwc-buttonColorBackgroundPrimary: #005F9A;
+    --slds-c-button-color-background-hover: #005F9A;
+    --slds-c-button-text-color-hover: white;
+    --sds-c-button-text-color-hover: white;
+    --lwc-brandAccessibleActive: white;
+    --lwc-squareIconMediumContentAlt: 0rem;
+    --lwc-squareIconMediumContentAlt: 0rem;
+}
+
+.resumeApplTableStyle {
+    font-weight: 700;
+    font-size: 16.5px;
+    color: #333333;
+    --lwc-tableColorTextHeader : black;
+}
+
+.modalWidth {
+    min-width: 60%;
+}
+
+.paddingTop {
+    padding-top: 30px;
+}
+
+.paddingTop th, td {
+    border-bottom: solid 1px #d1d1d1;
+}
+
+.incomeDetailsFrequencyDropDown {
+    width: 140px;
+    --slds-c-input-color-background: #005F9A;
+    --sds-c-input-color-background: #005F9A;
+    --slds-c-input-text-color: white;
+    --sds-c-input-text-color: white;
+    --slds-c-icon-color-foreground-default: white;
+    --sds-c-icon-color-foreground-default: white;
+    --lwc-colorBackgroundInputDisabled: #005F9A;
+    --lwc-colorTextInputDisabled: white;
+}
+
+.sliderStyles {
+    --sds-c-slider-track-color-background: #E0E2E4;
+    --sds-c-slider-thumb-color-foreground: #ED1F47;
+    --sds-c-slider-thumb-color-foreground-active: #ED1F47;
+    --sds-c-slider-thumb-color-foreground-focus: #ED1F47;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    color: black;
+}
+
+.sliderStyles .slds-slider-label__range {
+    display: none;
+}
+
+.selectedAmountStyles .slds-slider__value {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.eligibleAmountStyles {
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+}
+
+.textStyle{
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    color:#002EDC;
+}
+
+.iconColor{
+   border-radius: 50%;
+   background-color: #002EDC;
+   /* height: 50%; */
+   /* width:50%; */
+}
+
+.tenureRegularStyles {
+    font-weight: 400;
+    font-size: 16px;
+    padding-bottom: 0.5rem;
+    color: black;
+}
+
+.tenureBoldStyles {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 170%;
+}
+
+.tenureStyling{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    color: black;
+}
+
+.inputWidth{
+    width: 4rem;
+}
+.textPadding{
+    padding-right : 0.2rem;
+    padding-left : 0.2rem;
+}
+.iconPosMinus {
+    position: absolute;
+    right: 0;
+}
+.iconPosPlus {
+    position: absolute;
+    left: 0;
+}
+.iconPadding{
+    padding-top: 0.5rem;
+}
+.columnSpacing{
+    column-gap: 1rem;
+}
+
+.emiAmountStyles {
+    background: #EDEDED;
+    border: 1px dashed #666666;
+    width: 80%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    color: black;
+}
+
+.boxStyling {
+    background: #EDEDED;
+    height: 200px;
+    min-width: 350px;
+    text-align: center;
+    padding: 30px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
+}
+
+.innerBoxStyling{
+    border-radius:25px;
+    background-color:red;
+    height:60px;
+    width:245px; 
+    padding-top:20px;
+}
+
+.emiAmountContentStyles {
+    padding-top: 1rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.emiAmountNumberStyles {
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+
+.outer {
+    width: 100%;
+    text-align: center;
+}
+
+.outerRight {
+    width: 100%;
+    text-align: right;
+}
+
+.inner {
+    display: inline-block;
+}
+
+.innerRight {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.innerLeft {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.buttonCSS {
+    --lwc-colorTextInverse: white;
+    --lwc-colorTextDefault: white;
+}
+
+.pillDiv {
+    --lwc-colorBackgroundInput: transparent;
+    --lwc-spacingSmall: 1rem;
+}
+
+.buttonAlign, .buttonAlign3Sections {
+    position: relative;
+    top: 1.7rem;
+}
+
+.buttonAlign button, .buttonAlign3Sections button, .buttonAlign button:hover, .buttonAlign3Sections button:hover,
+    .buttonAlign button:active, .buttonAlign3Sections button:active, .buttonStyles button, .buttonStyles button:hover, .buttonStyles button:active {
+    color: white;
+    border-radius: 28px;
+    --slds-c-button-brand-text-color-hover: white;
+    height: 40px;
+}
+
+.buttonStyles button:disabled{
+    background-color: lightgrey;
+    color: white;
+    opacity: 1;
+    border-color: lightgrey;
+}
+
+.formDiv {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.widthStyles {
+    min-width: 70%;
+    width: 70%;
+}
+
+.eligibilityButtonStyles button {
+    font-size: 14px;
+    border-radius: 28px;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-color-background-hover: #ED1F47;
+}
+.eligibilityButtonStylesMainMortgages button {
+    font-size: 18px;
+    border-radius: 28px;
+    height: 40px;
+    /*width: 100px;*/
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-color-background-hover: #ED1F47;
+}
+
+.eligibilityButtonStylesMain button {
+    font-size: 18px;
+    border-radius: 28px;
+    height: 40px;
+    width: 100px;
+    --slds-c-button-destructive-color-background: #ED1F47;
+    --sds-c-button-destructive-color-background: #ED1F47;
+    --slds-c-button-color-background-active: #ED1F47;
+    --sds-c-button-destructive-color-background-active: #ED1F47;
+    --slds-c-button-destructive-color-background-hover: #ED1F47;
+    --sds-c-button-destructive-color-background-hover: #ED1F47;
+}
+
+.eligibilityButtonStylesMainWider button {
+    width: 150px;
+}
+
+.eligibilityButtonStylesMainWidest button {
+    width: 300px;
+}
+
+.loanSpecialistTextStyles {
+    padding-bottom: 10px;
+}
+
+.loanSpecialistTextStyles a {
+    color: black;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.lineHeight .slds-button {
+    line-height: 30px;
+}
+
+.trackStatusBarStyles {
+    --lwc-progressBarColorBackgroundFill: #ED1F47;
+    --lwc-progressColorBorderActive: #ED1F47;
+}
+
+.loanAmountDiv {
+    width: 290px;
+    background: #EDEDED;
+}
+
+.loanAmountTitle {
+    font-weight: 400;
+    font-size: 18px;
+    color: #ED1F47;
+}
+
+.loanAmountValue {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.speakToRM {
+    font-weight: 700;
+    font-size: 11px;
+    text-decoration-line: underline;
+}
+
+.datediv{
+    width: 33%;
+}
+
+.slds-modal .slds-modal__title, .slds-modal__footer .slds-button+.slds-button {
+    color: white;
+}
+
+.slds-modal__content {
+    font-size: 16px;
+}
+
+/* All responsive styles are written from this line */
+@media screen and (max-width: 480px) {
+    .headerWrapperDiv .floatLeft {
+        float: left;
+        padding-left: 0.5rem;
+    }
+
+    .logoStyles {
+        width: 124px;
+        height: 30px;
+    }
+
+    .headerWrapperDiv .floatRight {
+        float: right;
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .loginBackgroundStyles {
+        min-height: calc(100vh - 55px);
+        height: -webkit-fill-available;
+    }
+
+    .inputBoxStyles {
+        width: 100%;
+    }
+    
+    .inputWideBoxStyles {
+        width: 100%;
+    }
+    
+    .inputMediumBoxStyles {
+        width: 100%;
+    }
+    
+    .inputSmallBoxStyles {
+        width: 100%;
+    }
+    
+    .lightningLayoutInputBoxStyles {
+        width: 100%;
+    }
+
+    .sectionDivCustomerDetails{
+        --lwc-colorTextButtonBrand : white;
+        --lwc-colorBackgroundButtonDefault : #d1d1d1;
+        --slds-c-button-color-background-active : transparent;
+        border-color: white;
+        --lwc-fontWeightBold: 400;
+        --slds-c-button-spacing-inline-end : 0rem;
+        --sds-c-button-spacing-inline-end : 0rem;
+    }
+
+    .modalWidth {
+        min-width: 90%;
+        --lwc-spacingXLarge: 0rem;
+    }
+
+    .otpInputStyles {
+        margin: 0 5px;
+    }
+
+    .outer {
+        text-align: center;
+        width: 30%;
+    }
+
+    .inner{
+        text-align: left;
+    }
+
+    .outerSmall {
+        width: 100%;
+    }
+
+    .buttonAlign {
+        position: relative;
+        top: 0.1rem;
+    }
+
+    .buttonAlign3Sections {
+        position: relative;
+        top: 0.1rem;
+    }
+
+    .sliderStyles {
+        width: 100%;
+    }
+
+    .nsdlImageStyles{
+        max-width: 14%;
+    }
+
+    .innerRight {
+        width: 100%;
+        text-align: right;
+        display: inline-block;
+        padding: 1rem;
+    }
+    
+    .innerLeft {
+        width: 100%;
+        text-align: left;
+        display: inline-block;
+        padding: 1rem;
+    }
+
+    .commonButtonStyles button, .commonButtonStylesCustom button {
+        width: 140px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .commonButtonStylesSaveAndNext button {
+        width: 168px;
+        height: 48px;
+        font-size: 20px;
+        --slds-c-button-destructive-color-background: #ED1F47;
+        --sds-c-button-destructive-color-background: #ED1F47;
+        --slds-c-button-color-background-active: #ED1F47;
+        --sds-c-button-destructive-color-background-active: #ED1F47;
+        --slds-c-button-destructive-color-background-hover: #ED1F47;
+        --sds-c-button-destructive-color-background-hover: #ED1F47;
+    }
+
+    .outerRight{
+        width: 100%;
+        display: flex;
+    }
+
+    .outerSmall {
+        width: 100%;
+        display: flex;
+    }
+
+    .loginWidthCSS{
+        width: 148px;
+    }
+
+    .mobileButtonWidthCSS{
+        width:max-content;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .loginDivStyles {
+        width: 100%;
+        padding-left: 2rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .fileUpload .slds-file-selector__dropzone .slds-file-selector__button::before{
+        content: 'Capture or' !important;  
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .loginDivStyles {
+        width: 100%;
+        padding-left: 0rem;
+    }
+
+    .otpInputStyles {
+        width: 40px;
+        height: 40px;
+    }
+
+    .edgeCells {
+        width: 30%;
+    }
+    
+    .mainCell {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .floatRight {
+        --lwc-spacingLarge: 0.5rem;
+    }
+
+    .otpInputStyles {
+        margin: 0 2px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .modalWidth {
+        --lwc-spacingXLarge: 0rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .carouselStyles {
+        display: none;
+    }
+
+    .loginBackgroundStyles {
+        position: relative;
+        margin: auto;
+    }
+
+    .modalWidth {
+        min-width: 80%;
+    }
+
+    .buttonAlign3Sections {
+        position: relative;
+        top: 0.1rem;
+    }
+
+    .emiAmountStyles {
+        width: 95%;
+    }
+
+    .edgeCells {
+        width: 30%;
+    }
+    
+    .mainCell {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 1000px) {
+    .loginDivStyles {
+        width: 85%;
+    }
+}
+
+.tenureStyle.slds-radio_button [type=radio]:checked+.slds-radio_button__label{
+    color: var(--slds-c-badge-color-background, #ECEBEA);
+    background-color: var(--lwc-brandAccessible, rgb(5, 0, 131));
+}
+
+.custom-box {
+    width: 560px;
+    height: 816px;
+    background-color: #671773;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image:url('/resource/AU_Assets/AU_Assets/images/NoiseTexture.png');
+}

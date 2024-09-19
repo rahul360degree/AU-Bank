@@ -1,0 +1,70 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 12-07-2024
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-942
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   12-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+
+<template>
+    <div class="bg">
+        <div class="custom-box-overlay">
+        </div>
+        <div class="terms-modal">
+            <div class="terms-modal-header">
+                <h3>Select Employment type</h3>
+                <button class="slds-button" onclick={handleCloseModal}>
+                    <img class="terms-modal-header-img" src={closeImg} alt="close Icon" />
+                </button>
+            </div>
+
+            <div class="type-selector">
+
+            <div class="type-selector-main">
+                <div class="avatar-image">
+                    <img src={nonBusinessEmpTypeImgURL} alt="" srcset="">
+                </div>
+                <div class="profession-type">
+                    <div class="profession-type-name">Self- Employed Professional</div>
+                    <div class="profession-type-eg">E.g. Doctor, CA, Lawyer and etc.</div>
+
+                </div>
+                <div class="radio-btn">
+                    <input class="radiobtn" type="radio" data-id="Self Employed Professional" onchange={handleSelection}>
+                </div>
+            </div>
+
+            <div class="type-selector-main">
+                <div class="avatar-image">
+                    <img src={businessEmpTypeImgURL} alt="" srcset="">
+                </div>
+                <div class="profession-type">
+                    <div class="profession-type-name">Self- Employed non Professional</div>
+                    <div class="profession-type-eg">You run an independent business</div>
+
+                </div>
+                <div class="radio-btn">
+                    <input type="radio" class="radiobtn"  data-id="Self Employed Non-Professional" onchange={handleSelection}>
+                </div>
+            </div>
+        </div>
+        <div class="footer-btn">
+            <div class="info-message">
+                By proceeding, I authorise AU Small Finance Bank to fetch and share my GST details from PAN for verification
+            </div>
+            <div class={submitButtonCls}>
+                <button class="slds-button agree-button-box" onclick={onSubmit} disabled={submitButtonDisabled}>
+                    Proceed
+                </button>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+</template>

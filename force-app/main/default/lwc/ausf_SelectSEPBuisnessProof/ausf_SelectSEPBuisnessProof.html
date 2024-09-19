@@ -1,0 +1,68 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="background-box">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+
+    <div class="background-box">
+        <div class="outer-container">
+            <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                header-contents={headerContents} container-description={headerDescription}
+                journey-steps={overallJourneySteps} current-journey={currentJourney}
+                number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+        </div>
+        <div class="centerAligned">
+            <div class="descriptionContent">
+                <span class="titleText">
+                    {titleText}
+                </span>
+                <div class="container-subtext">
+                    <span class="subtitleText">
+                        {subtitleText}
+                    </span>
+                </div>
+            </div>
+
+            <div class="instant-section">
+                <div>
+                    <img src={lightningIMGURL} alt="" class="lightning">
+                    <span class="instant-title">
+                        Instant verification
+                    </span>
+                </div>
+
+                <template for:each={instantVerificationOptions} for:item="option">
+                    <div key={option.value} class="instant-options">
+                        <span class="option-label">{option.label}</span>
+                        <input class="radio-class" type="checkbox" name="instantVerification" value={option.value}
+                            data-section="proofoptions" onchange={handleOptionChange}></input>
+                    </div>
+                </template>
+            </div>
+            <div class="middle-gap"></div>
+            <div class="manual-section">
+                <div>
+                    <span class="upload-title">Manual upload</span>
+                </div>
+
+                <template for:each={manualUploadOptions} for:item="option">
+                    <div key={option.value} class="manual-options">
+                        <span class="option-label">{option.label}</span>
+                        <input class="radio-class" type="checkbox" name="manual upload" value={option.value}
+                            data-section="proofoptions" onchange={handleOptionChange}></input>
+                    </div>
+                </template>
+            </div>
+
+        </div>
+        <div class="btnContainer">
+            <button class="btnEnabled" onclick={handleConfirmClick}>
+                <span class="btnText">
+                    Confirm
+                </span>
+            </button>
+        </div>
+    </div>
+</template>

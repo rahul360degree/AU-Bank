@@ -1,0 +1,167 @@
+.container-header {
+    width: 236px;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .arrow-left {
+    width: 14px;
+    height: 14px;
+    /* background-color: #12121c; commented */
+  }
+
+  .Basic-Details {
+    width: 87px;
+    height: 20px;
+    flex-grow: 0;
+    /* font-family: NotoSans; commented */
+
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #12121c;
+  }
+
+  .Step-25 {
+    width: 60px; /*updated from 47px*/
+    height: 16px;
+    flex-grow: 0;
+    /* font-family: NotoSans; commented */
+
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center; /*updated to center from left*/
+    color: #3d3d47;
+
+    /* added */
+    border-radius: 5px;
+    background-color: #f9f9fb;
+  }
+
+  .Frame-1171279920 {
+    width: 70px; /*updated to 70 from 328*/
+    height: 24px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+
+  .header-help {
+    width: 27px;
+    height: 16px;
+    flex-grow: 0;
+    /* font-family: NotoSans; commented*/ 
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ba4517;
+
+    /* added */
+    margin-top: 5px;
+  }
+
+  .flex-container{
+    display: flex;
+  }
+
+  .Progress-bar-step-4 {
+    width: 328px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .Progess-bar {
+    width: 328px;
+    height: 4px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .Step-1 {
+    height: 4px;
+    flex-grow: 1;
+    padding: 0 46.5px 0 0;
+    border-radius: 16px;
+    background-color: #db5e2b;
+  }
+
+  .Rectangle-34624545 {
+    width: 8.8px;
+    height: 4px;
+    border-radius: 8px;
+    background-color: #db5e2b;
+  }
+
+  .journeyStepsClass {
+    height: 4px;
+    flex-grow: 1;
+    padding: 0 46.5px 0 0;
+    border-radius: 16px;
+    background-color: #d6d6db;
+  }
+
+  .steps {
+    height: 4px;
+    flex-grow: 1;
+    padding: 0 0px 0 0;
+    border-radius: 16px;
+    background-color: #d6d6db;
+  }
+
+  .journeyProgress{
+    height: 4px;
+    border-radius: 16px;
+  }
+
+  /* progress{
+    border-radius: 16px;
+  } */
+
+  progress::-webkit-progress-bar {
+    background-color: #d6d6db;
+    border-radius: 16px;
+  }
+ progress::-webkit-progress-value {
+    background-color: #db5e2b;
+    border-radius: 16px;
+ }
+  progress::-moz-progress-bar {
+    background: #db5e2b;
+    border-radius: 16px;
+  }
+
+  .progressOverride{
+    --lwc-progressBarColorBackgroundFill: #db5e2b; /*Not working as it is removed from the design tokens and no other design token or hook available for progress indicator https://developer.salesforce.com/docs/atlas.en-us.206.0.lightning.meta/lightning/tokens_standard_force_base.htm / https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/example */
+  }

@@ -1,0 +1,103 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,lightning:hasPageReference" controller="AUSF_IntegrationContainerController">
+    
+    <aura:attribute name="responseWrapper" type="Object"/>
+    <aura:attribute name="defaultStatusRecords" type="List"/>
+    <aura:attribute name="filteredStatusRecords" type="List" default="[]"/>
+    <aura:attribute name="isOwner" type="Boolean"/>
+    <aura:attribute name="filter" type="String"/>
+    <aura:attribute name="showFilteredRecords" type="Boolean" default= "false"/>
+    <aura:attribute name="showAllRecords" type="Boolean" default= "false"/>
+    <aura:attribute name="caseRecordTypeName" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="refreshEvent" event="c:RefreshIntegrationContainerEvent" action="{!c.doInit}"/>
+    
+    <div>
+        <aura:if isTrue="{!v.responseWrapper.noRecords}">
+            <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium" aria-hidden="false">
+                <div>
+                    <p>You don't have any interfaces at this stage</p>
+                </div>
+            </article>
+        </aura:if>
+        <aura:if isTrue="{!not(empty(v.responseWrapper.commonStatusRecords))}">
+            <div class="slds-p-bottom_medium slds-text-heading_small slds-text-align_center">Common Integrations</div>
+            <ul class="slds-timeline">
+                <aura:iteration var="response" items="{!v.responseWrapper.commonStatusRecords}" indexVar="itemIndex">
+                    <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Loan__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                </aura:iteration>
+            </ul>
+        </aura:if>
+        <!--<aura:iteration var="wrap" items="{!v.responseWrapper.individualStatusRecords}" indexVar="wrapIndex">
+        </aura:iteration>-->
+        <aura:if isTrue="{!not(v.responseWrapper.noRecords)}">
+        <div class="slds-grid slds-wrap slds-p-bottom_large">
+            <div class="slds-col slds-size_2-of-12 slds-p-left_large slds-p-top_x-small">
+                <lightning:input type="toggle" label="Show All" aura:id="toggleButton" checked="false" name="toggleButton" variant="label-stacked" onchange="{!c.handleToggle}" messageToggleActive ="" messageToggleInactive =""/>
+            </div>
+            <div class="slds-col slds-size_3-of-12 slds-p-top_x-small">
+                <lightning:input aura:id="enter-search" name="enter-search" type="search" label="Search Integrations" variant="label-inline" onchange="{!c.handleSearch}" value="{!v.filter}"/>
+            </div>
+          </div>
+          </aura:if>
+                <aura:if isTrue = "{!v.showFilteredRecords}">
+                    <aura:if isTrue="{!v.filteredStatusRecords.length > 0}">
+                        <ul class="slds-timeline">
+                            <aura:iteration var="response" items="{!v.filteredStatusRecords}" indexVar="itemIndex">
+                                
+                                <aura:if isTrue="{!not(empty(response.Applicant__c))}">
+                                    <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Applicant__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                    <aura:set attribute="else">
+                                        <aura:if isTrue="{!not(empty(response.Loan__c))}">
+                                            <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Loan__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                        </aura:if>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:iteration>
+                        </ul>
+                    </aura:if>
+                <aura:set attribute="else">
+                <aura:if isTrue = "{!v.showAllRecords}">
+                    <aura:if isTrue="{!not(empty(!v.responseWrapper.individualStatusRecords))}">
+                        <ul class="slds-timeline">
+                            <aura:iteration var="response" items="{!v.responseWrapper.individualStatusRecords}" indexVar="itemIndex">
+                                
+                                <aura:if isTrue="{!not(empty(response.Applicant__c))}">
+                                    <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Applicant__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                    <aura:set attribute="else">
+                                        <aura:if isTrue="{!not(empty(response.Loan__c))}">
+                                            <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Loan__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                        </aura:if>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:iteration>
+                        </ul>
+                    </aura:if>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!not(empty(!v.defaultStatusRecords))}">
+                            <!--aura:if isTrue="{!v.responseWrapper.objectName == 'Opportunity'}">
+                                <div class="slds-p-bottom_medium slds-text-heading_small slds-text-align_center">
+                                </div>
+                            </aura:if-->
+                            
+                            <ul class="slds-timeline">
+                                <aura:iteration var="response" items="{!v.defaultStatusRecords}" indexVar="itemIndex">
+                                    
+                                <aura:if isTrue="{!not(empty(response.Applicant__c))}">
+                                    <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Applicant__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                    <aura:set attribute="else">
+                                        <aura:if isTrue="{!not(empty(response.Loan__c))}">
+                                        
+                                            <c:IntegrationStatusEntries responseVar="{!response}" recordId="{!response.Loan__c}" isOwner="{!v.isOwner}"></c:IntegrationStatusEntries>
+                                        </aura:if>
+                                    </aura:set>
+                                </aura:if>
+                                </aura:iteration>
+                            </ul>
+                        </aura:if>
+                        
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>  
+    </div>
+</aura:component>

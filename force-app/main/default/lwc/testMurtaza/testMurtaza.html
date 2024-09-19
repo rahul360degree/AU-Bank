@@ -1,0 +1,172 @@
+<template>
+    <template if:false={hideMainScreen}>
+        
+        <div class="background-box">
+            <template if:true={showAddressModal}>
+                <div class="parent-modal-container">
+                    <div class="parent-address-box">
+                        <c-ausf_-enter-applicant-work-address onclosemodalevent={closeAddressPopup}
+                            style="z-index: 2;position: absolute;" onsubmitaddressevent={handleAddressSubmit}
+                            screenname={screenName} addressheader="Enter work address"
+                            applicant-id={applicantId}></c-ausf_-enter-applicant-work-address>
+                    </div>
+                </div>
+            </template>
+            <div class="outer-container" lwc:if={currentStep}>
+                <!-- <c-ausf_-generic-header-cmp style="width: 100%;"
+                    header-contents={headerContents}> </c-ausf_-generic-header-cmp> -->
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                    header-contents={headerContents} container-description={headerDescription}
+                    journey-steps={overallJourneySteps} current-journey={currentJourney}
+                    number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                    enable-back-button={enableBackButton} back-to-parent={backToParent}
+                    onbackevent={handleBackReDirectParent}> </c-ausf_-generic-header-cmp>
+            </div>
+            <div class="centerAligned">
+                <div class="descriptionContent">
+                    <span class="titleText">
+                        {title}
+                    </span>
+                    <div class="container-subtext">
+                        <span class="subtitleText">
+                            {subtitle}
+                        </span>
+                    </div>
+                </div>
+                <div class="imageContent">
+                    <img src={AUVectorImg} alt="vectorgroup" class="vector-image">
+                    <img src={AUMaskGrpImg} alt="maskgroup" class="mask-image">
+                    <!-- <img src={AUVectorImg} alt="vectorgroup" class="vector-image"> -->
+                    <img src={AUGrpImg} alt="group" class="group-image">
+
+                </div>
+                <div class="mainContent">
+                    <template if:true={isDocNumber}>
+                        <div class="input">
+                            <input type="text" class={dInputClass} value={documentNumber}
+                                oninput={handleDocumentNumberInput} onchange={handleDocumentNumberInput} />
+                            <label class={dInputLabel} for="dInputClass">Document number</label>
+                            <!-- <template lwc:if={documentNumber}>
+                            <label for="k-input" class={kLabelClass}>Document number</label>
+                        </template> -->
+                        </div>
+                    </template>
+                    <template if:true={isBuisnessPrfName}>
+                        <div class="input">
+                            <input type="text" class={businessInput} value={businessProofName}
+                                oninput={handleBusinessProofNameInput} onchange={handleBusinessProofNameInput} />
+                            <label class={businessLabel} for="businessInput">Business proof name</label>
+                            <!-- <template lwc:if={businessProofName}>
+                        <label for="k-input" class={kLabelClass}>Business proof name</label>
+                    </template> -->
+                        </div>
+                    </template>
+                    <template if:true={isRegisteredBuisnessName}>
+                        <div class="input">
+                            <input type="text" class={registeredInput} value={registeredBusinessName}
+                                oninput={handleRegisteredBusinessNameInput}
+                                onchange={handleRegisteredBusinessNameInput} />
+                            <label class={registeredLabel} for="registeredInput">Registered business name</label>
+                            <!-- <template lwc:if={registeredBusinessName}>
+                            <label for="k-input" class={kLabelClass}>Registered business name</label>
+                        </template> -->
+                        </div>
+                    </template>
+                    <template if:true={isDateOfIncopration}>
+                        <div class="input">
+                            <input class={DOBinput} value={dateOfIncorporation} type="text" maxlength="10"
+                                onchange={handledateOfIncorporationInput} oninput={handledateOfIncorporationInput}
+                                onfocus={dateFocused} onblur={dateBlurred} />
+                            <label class={DOBlabel} for="DOBinput">Date of incorporation (DD/MM/YYYY)</label>
+                            <div class="Group-image">
+                                <img src={GroupUrl} alt="calendar">
+                            </div>
+
+                        </div>
+                    </template>
+                    <template if:true={errorMsg}>
+                        <div class="error-message">
+                            <img class="error-icon" src={AUErrorImg} alt="error icon" />{errorMsg}
+                        </div>
+                    </template>
+
+                    <div class="input1">
+                        <c-ausf_industry-proof-selection is-select-title-hide={isSelectTitleHide} fields={fields}
+                            onshowcomponentchange={showParentCmpScreen} onfieldschanged={handleFieldsChanged}
+                            screenname={screenName}></c-ausf_industry-proof-selection>
+                    </div>
+                </div>
+                <template if:true={isUploadSection}>
+                    <div class="selection-card">
+                        <div class="selection-subcard">
+                            <img src={AUDrivingLicenseImg} class="drivinglicense-logo" alt="Driving License" />
+                            <template if:true={showUploadDocument}>
+                                <!-- <template if:true={fileDataList.length}> -->
+                                <ul class="file-List">
+                                    <template for:each={fileDataList} for:item="item">
+                                        <li key={item.index} class="d-input-after" data-label={item.label.fileName}>
+                                            <div class="fileNameDiv">
+                                                <span class="labelText2">
+                                                    {item.label.filename}
+                                                </span>
+                                                <span class="labelSubText">
+                                                    {item.label.size}
+                                                </span>
+                                            </div>
+                                            <img data-index={item.index} onclick={handlePreview}
+                                                class="actionIcons-preview" src={previewImg}>
+                                            <img data-index={item.index} class="actionIcons-del"
+                                                onclick={handleDeleteFile} src={deleteImg}>
+                                        </li>
+
+                                    </template>
+                                </ul>
+                            </template>
+
+                            <template if:false={showUploadDocument}>
+                                <!-- <template if:false={fileDataList.length}> -->
+                                <input type="text" class="doc-input" value={fileDataList}
+                                    placeholder="Upload business proof" readonly />
+                                <button class="slds-button arrow-logo" onclick={handleUploadDocClick}>
+                                    <img src={AUChevronRightImg} class="chevronRight-logo" alt="Chevron Right" />
+                                </button>
+                            </template>
+
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="btnContainer">
+                <button class={cnfButtonClassVar} disabled={disableSubmitBtn} onclick={handleSubmitMethod}>
+                    <span class="btnText">
+                        Submit
+                    </span>
+                </button>
+            </div>
+            
+
+            <template if:true={openUploadModal}>
+                <c-ausf_-file-upload-cmp allowed-file-types={allowedFileTypes} file-upload-note={fileUploadNote}
+                    applicant-id={applicantId} insert-files={insertFiles} onsuccess={handleFileUpload}
+                    onclose={handleCloseModal} is-multiple-allowed={isMultipleAllowed}
+                    document-master-name={documentMasterName}
+                    loan-application-id={loanApplicationId}></c-ausf_-file-upload-cmp>
+            </template>
+
+            <template if:true={openPreviewModal}>
+                <div class="modal-container">
+                    <c-ausf_-file-preview-cmp onclose={handleCloseModal} is-pdf={isPDF}
+                        file-contents={previewFileData}></c-ausf_-file-preview-cmp>
+                </div>
+            </template>
+        </div>
+
+
+    </template>
+    <template if:true={hideMainScreen}>
+        <c-ausf_industry-proof-selection is-select-title-hide={isSelectTitleHide} fields={fields}
+            onshowcomponentchange={showParentCmpScreen} onfieldschanged={handleFieldsChanged} screenname={screenName}
+            is-second-time={hideMainScreen} second-time-field-name={fieldName}></c-ausf_industry-proof-selection>
+    </template>
+
+</template>

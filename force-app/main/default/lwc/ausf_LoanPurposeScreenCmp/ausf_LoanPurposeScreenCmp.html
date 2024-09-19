@@ -1,0 +1,159 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="background-box">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+    <template if:false={showLoader}>
+        <div class="background-box">
+            <!-- <div class="header">
+                <div class="header-logo">
+                    <img src={headerIconURL}></img>
+                </div>
+                <div class="header-content">
+                    Apply for Personal Loan
+                </div>
+            </div> -->
+            <div class="outer-container">
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents} header-contents={headerContents} container-description={headerDescription} number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                    enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <div class="centerAligned">
+                <div class="descriptionContent">
+
+                <span class="Choose-loan-amount">
+                    Purpose of loan
+                </span>
+                <div class="container-subtext">
+                    <span class="Choose-the-funds-that-perfectly-match-your-goals">
+                        This will help us understand your needs and goals better
+                    </span>
+                </div>
+                </div>
+                <div class="Frame-1171280608">
+                    <template for:each={loanPurposesUIData} for:item="item">
+                        <div key={item.index} class={item.selectionCardClass}>
+                            <div class="Vector">
+                                <img class="Vacation" src={item.imageSrc}></img>
+                            </div>
+                            <div class="address">
+                                <span class="Less-than-1-Lac">
+                                    {item.label}
+                                </span>
+                            </div>
+                            <input type="checkbox" class={item.radioBtnClass} id={item.label} data-id={item.index}
+                            onclick={handleRadioSelection} name="loan" value={item.label}  />
+                            <!-- <input type="radio" style="accent-color: #db5e2b; vertical-align: middle;margin: 0px;" class={item.radioBtnClass} id={item.label} data-id={item.index}
+                                onclick={handleRadioSelection} name="loan" value={item.label}> -->
+                        </div>
+                    </template>
+                </div>
+        
+                <div class="Sticky-Button">
+                    <div class="Frame-1171280589">
+                        <template if:false={referralCodeSubmitted}>
+                            <span class="Text">
+                                Is someone assisting you?
+                            </span>
+                        </template>
+                        <template if:true={referralCodeSubmitted}>
+                            <div class="employeeCode">
+                                <span class="Text">
+                                    Employee code {referralCode} applied
+                                </span>
+                                <img class="checkboxStyling" src={greenTickURL}></img>
+                            </div>
+        
+                        </template>
+                        <img class="chev" onclick={handleReferralModal} src={rightChevronURL}></img>
+                    </div>
+                    <div class="temp">
+                        <button class={cnfButtonClassVar} disabled={disableLoanPurposeSubmit} onclick={handleSubmitMethod}>
+                            <span class="Confirm">
+                                Proceed
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <template if:true={openLoanPurposeOtherModal}>
+                <div class="modal-container">
+                    <div class="purpose-frame">
+                        <div class="frame">
+                            <div class="modal-icon-static">
+                                <img src={moneyPouchURL}></img>
+                            </div>
+                            <div class="close-button-frame">
+                                <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                            </div>
+                        </div>
+    
+                        <div class="purpose-content">
+                            <span class="modal-text">
+                                Specify your puprose of loan
+                            </span>
+                            <!-- <span class="modal-subtext">
+                                Share your loan purpose so we can customise the ideal offer for you
+                            </span> -->
+                        </div>
+                        <div class="purpose-container">
+                            <input type="text" class="Input-Text1" value={loanPurposeValue}
+                                oninput={handleModalInputChange} />
+                            <label for="Input-Text1" class="Input-Label">Purpose</label>
+                        </div>
+                        <button class={loanPurposeModalBtnClass} disabled={disableLoanPurposeModalSubmit}
+                            onclick={handleSubmitModal}>
+                            <span class="Confirm">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </template>
+    
+            <template if:true={openReferralModal}>
+                <div class="modal-container">
+                    <div class="modal-frame">
+                        <div class="frame">
+                            <div class="modal-icon-static">
+                                <img src={mobileIconURL}></img>
+                            </div>
+                            <div class="close-button-frame">
+                                <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                            </div>
+                        </div>
+    
+                        <div class="content">
+                            <span class="modal-text">
+                                Let us know who is assisting you?
+                            </span>
+                            <span class="modal-subtext">
+                                This helps us identify the AU representative guiding you through this journey
+                            </span>
+                        </div>
+                        <div class="Container">
+                            <input type="text" class="Input-Text1" value={referralCode}
+                                oninput={handleReferralCodeChange} />
+                            <label for="Input-Text1" class="Input-Label">Employee Code</label>
+                        </div>
+                        <div class="_input-base">
+    
+                            <template if:true={invalidCode}>
+                                <div class="alert"><img src={warningIconURL}></img></div>
+                                <span class="Supporting-Text">
+                                    {referralCodeErrorMessage}
+                                </span>
+                            </template>
+                        </div>
+                        <button class={referralModalBtnClass} disabled={disableReferralModalSubmit}
+                            onclick={handleReferralModalSubmit}>
+                            <span class="Confirm">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

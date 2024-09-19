@@ -1,0 +1,45 @@
+.spinnerContainer .spinnerGif{
+    width:180px; 
+    height:180px;
+    /*display:inline-block;*/ 
+    position:absolute; 
+    left:0; 
+    right:0; 
+    top:0; 
+    bottom:0; 
+    margin:auto; 
+    z-index:99;
+}
+
+.slds-backdrop{
+    background: rgba(126, 140, 153, 0.4); 
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    z-index:9;
+}
+
+.spinnerbackground{
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+
+:host{
+    --slds-c-modal-content-text-color: none;
+}
+
+.Modal-Container{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 816px;
+    width: 360px;
+    /* margin-left: -180px; */
+}
+
+.Modal-Body{
+    color: transparent;  
+}

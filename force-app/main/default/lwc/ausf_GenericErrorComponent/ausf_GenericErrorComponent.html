@@ -1,0 +1,27 @@
+<template>
+    <div class="container ">
+        <header class="custom-header">
+            <div class="logo">
+                <img src={AUlogoImg} alt="Company Logo">
+            </div>
+            <h1 class="header-title">Apply for Personal Loan</h1>
+        </header>
+        
+        <div class="Content slds-grid slds-wrap" >
+            <div class="Blank-Space"></div>
+            <div class="slds-size_1-of-1 slds-align_absolute-center Error-Image">
+                <img src={errorIcon} class="slds-align_absolute-center">
+            </div>
+            <div class="MessageContent">
+            <div class="Display-Heading slds-size_1-of-1">Uh Oh!</div>
+            <div class="Display-Msg slds-size_1-of-1">{errortext}</div>
+            </div>
+        </div>
+        <div class="Button-Separator"></div>
+        <div class="slds-grid">
+            <div class="slds-size_1-of-1 slds-p-around_medium">
+                <button onclick={handleHome} class="ButtonClass">Home</button>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,204 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+    </template>
+    <template if:false={showLoader}>
+        <div class="background-box">
+            <div class="outer-container">
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                    header-contents={headerContents} container-description={headerDescription}
+                    number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                    enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <div class="centerAligned">
+                <div class="descriptionContent">
+                    <div class="screenHeading">
+                        <span class="screenHeadingText">
+                            {titleText}
+                        </span>
+                    </div>
+                    <div class="screenSubheading">
+                        <span class="screenSubheadingText">
+                            {subtitleText}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="loanAmountContainer">
+                    <div class="imgContainer">
+                        <img src={finalOfferImg} alt="">
+                    </div>
+
+                    <div class="inputContainer">
+                        <div class="inputBox">
+                            <input type="text" class="inputText" value={loanAmount} oninput={handleInputChange}>
+                            <template if:true={anyValidationError}>
+                                <div class="flex-container">
+                                    <div class="alert"><img src={warningIconURL}></img></div>
+                                    <span class="Supporting-Text">
+                                        {validationErrorMessage}
+                                    </span>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="sliderContainer">
+                            <input type="range" name="slider" min={minSliderValue} max={maxSliderValue}
+                                step={sliderStep} value={loanAmount} oninput={handleInputChange} class="slider"
+                                id="myRange">
+                            <div class="sliderNumbers">
+                                <span lwc:if={minLoanAmount} class="minValueText">₹{minLoanAmount}</span>
+                                <span lwc:if={maxLoanAmount} class="maxValueText">₹{maxLoanAmount}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emiCard">
+                    <div class="emiHeading">
+                        <span class="emiHeadingText">{emiTitle}</span>
+                        <div class="emiSubheading">
+                            <span class="emiSubheadingText">{emiSubtitle}</span>
+                            <div class="interestBadge"><span lwc:if={interestValue} class="interestText">@{interestValue}%</span></div>
+                        </div>
+                    </div>
+
+                    <div class="emiPlanContainer">
+                        <template for:each={emiPlanList} for:item="emi" for:index="i">
+                            <div class={emi.emiCardClass} key={emi.index} >
+                                <div class="emiDetails">
+                                    <span class="emiAmount">
+                                        ₹{emi.amount}
+                                    </span>
+                                    <span class="emiTenure">
+                                        x&nbsp;{emi.tenure}&nbsp;months
+                                    </span>
+                                </div>
+                                <input type="checkbox" disabled={emi.disabled} class="round-checkbox" id={emi.index} data-id={emi.index}
+                                    onclick={handleSelection} name="emi" value={emi.index} />
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="summaryContainer">
+                    <div class="summaryDetailsBox">
+                        <div class="summaryHeading">
+                            <span class="summaryHeadingText">{loanSummaryTitle}</span>
+                        </div>
+                        <div class="summaryDetails">
+                            <div class="totalChargesRow">
+                                <div class="totalChargesBox">
+                                    <div class="totalChargesLabel">
+                                        <span class="totalChargesText">
+                                            Total Charges
+                                        </span>
+                                        <div class="breakupDiv">
+                                            <a onclick={handleViewBreakup} href="javascript:void(0)" class="breakupText">View breakup</a>
+                                        </div>
+                                    </div>
+                                    <div class="totalChargesValue">
+                                        <span lwc:if={totalCharges} class="totalChargesValueText">₹{totalCharges}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="aprRow">
+                                <div class="aprLabel">
+                                    <div class="aprContnent">
+                                        <span class="aprLabelText">Annual Percentage Rate</span>
+                                        <span class="inclusiveText">(Inclusive)</span>
+                                    </div>
+                                    <div class="infoContainer">
+                                        <img src={infoBtn} onclick={handleHelpText} class="infoImg" alt="">
+                                        <template if:true={showHelpText}>
+                                            <div class="infoContentBox">
+                                                <div class="infoContents">
+                                                    <span class="infoContentText">{helpText}</span>
+                                                    <img class="closeImg" onclick={handleCloseModal} src={closeImg}>
+                                                </div>
+                                                <div class="notch">
+                                                    <img src={notchImg} alt="" class="notchImg">
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="aprValue">
+                                    <span lwc:if={aprValue} class="aprValueText">{aprValue}%</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="amgBox">
+                        <div class="amgLabel">
+                            <span class="amgLabelText">Amount you get</span>
+                        </div>
+                        <div class="amgValue">
+                            <span lwc:if={amountYouGet} class="amgValueText">₹{amountYouGet}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btnContainer">
+                    <button class={cnfButtonClassVar} disabled={disableProceedBtn} onclick={handleSubmitMethod}>
+                        <span class="btnText">
+                            Proceed
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <template if:true={openBreakupModal}>
+                <div class="modal-container">
+                    <div class="modalBox">
+                        <div class="modalContents">
+                            <div class="modalHeaderBox">
+                                <span class="modalHeadingText">
+                                    {breakupChargesTitle}
+                                </span>
+                                <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                            </div>
+                            <div class="breakupContents">
+                                <div class="contentRow">
+                                    <span class="rowText">
+                                        Processing fee <span class="lightText">(2%)</span>
+                                    </span>
+                                    <span lwc:if={processingFee} class="rowValue">
+                                        ₹{processingFee}
+                                    </span>
+                                </div>
+                                <div class="contentRow">
+                                    <span class="rowText">
+                                        GST <span class="lightText">(18% of processing fee)</span>
+                                    </span>
+                                    <span lwc:if={gst} class="rowValue">
+                                        ₹{gst}
+                                    </span>
+                                </div>
+                                <div class="contentRow">
+                                    <span class="rowText">
+                                        Stamp duty
+                                    </span>
+                                    <span lwc:if={stampDuty} class="rowValue">
+                                        ₹{stampDuty}
+                                    </span>
+                                </div>
+
+                                <div class="totalDeductionRow">
+                                    <img src={breakupStrokeImg} alt="" class="stroke">
+                                    <div class="totalDeduction">
+                                        <span class="totalDeductionText">Total Deductions</span>
+                                        <span lwc:if={totalDeductions} class="totalDeductionValue">₹{totalDeductions}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+
+</template>

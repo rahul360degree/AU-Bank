@@ -1,0 +1,38 @@
+<template>
+    <div class="modalPosition">
+        <div class="modalHeader">
+            <div class="modalHeading">
+                <span class="modalHeadingText">Document Preview</span>
+                <div class="modalClose">
+                    <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                </div>
+            </div>
+        </div>
+
+        <div class="modalContents">
+            <div class="modalMainContents">
+                <template if:true={isImage}>
+                    <div class="image-container">
+                        <img src={fileSrc} class="preview-image" style={imageStyle} />
+                        <template if:true={showControls}>
+                            <div class="controls">
+                                <div class="icon-wrapper" onclick={zoomIn} title="Zoom In">
+                                    <lightning-icon icon-name="utility:add" alternative-text="Zoom In" size="small"></lightning-icon>
+                                </div>
+                                <div class="icon-wrapper" onclick={zoomOut} title="Zoom Out">
+                                    <lightning-icon icon-name="utility:dash" alternative-text="Zoom Out" size="small"></lightning-icon>
+                                </div>
+                                <div class="icon-wrapper" onclick={rotate} title="Rotate">
+                                    <lightning-icon icon-name="utility:refresh" alternative-text="Rotate" size="small"></lightning-icon>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template if:true={isPdf}>
+                    <iframe src={viewerUrl} class="preview-pdf" style={pdfStyle}></iframe>
+                </template>
+            </div>  
+        </div>
+    </div>
+</template>

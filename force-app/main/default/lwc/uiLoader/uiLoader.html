@@ -1,0 +1,22 @@
+<template>
+    
+    <div class="Modal-Container slds-align_absolute-center">
+        <div role="dialog" class="slds-m-around_medium slds-fade-in-open Modal-Body">
+            <div lwc:if={showAnimation}>
+                <c-lottie-player  src={loaderAnimationJSON} class="slds-size_1-of-1" style="height: 36px; width:36px"
+                            background="transparent" speed="1" loop
+                            autoplay></c-lottie-player>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="slds-is-relative">
+        <div class="slds-align_absolute-center spinnerContainer" lwc:if={showAnimation}>
+            <div class="spinnerGif">
+                
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div> 
+    </div> -->
+</template>

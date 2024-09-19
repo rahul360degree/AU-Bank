@@ -1,0 +1,12 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout DIY">
+    <div class="mainPageStyle">
+        <div class="newHeader">
+            <div class="globalHeaderDiv">
+                <!-- c:ausf_globalHeaderDIYLoginPages></c:ausf_globalHeaderDIYLoginPages -->
+            </div>
+        </div>
+        <div class="mainContentArea">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

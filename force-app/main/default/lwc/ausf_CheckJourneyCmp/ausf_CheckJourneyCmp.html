@@ -1,0 +1,99 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="background-box">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+    <template if:false={showLoader}>
+        <template if:false={thankyouScreen}>
+            <div class="background-box">
+                <template if:false={errorScreen}>
+
+                    <div class="outer-container">
+                        <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                            container-description={headerDescription} journey-steps={overallJourneySteps}
+                            current-journey={currentJourney} number-of-steps={stepsInCurrentJourney}
+                            active-step={currentStep} current-screen-name={screenName}
+                            enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+                    </div>
+                </template>
+                <template if:true={errorScreen}>
+                    <!-- <div class="errorMsgContainer">
+                        <img class="errorImgClass" src={pinCodeErrorImgURL}>
+                        <div class="errorContents">
+                            <div class="errorTitle">
+                                <span class="errorTitleText">Uh-oh!</span>
+                            </div>
+                            <span class="errorSubtitleText">
+                                {errorScreenContents}
+                            </span>
+                        </div>
+                    </div> -->
+                    <c-ausf_-generic-error-screen-component screen-name={screenName}  errortext={errorScreenContents}
+                        error-image="Group_427321908.png"></c-ausf_-generic-error-screen-component>
+                </template>
+
+                <!-- <template if:true={openconsentModal}>
+                    <div class="modal-container">
+                        <div class="consentModalContainer">
+                            <div class="consentModalContents">
+                                <img class="consentModalImg" src={consentIMGURL}>
+                                <span class="consentModalTitle">Consent</span>
+                                <span class="consentModalSubtitle">
+                                    Do you allow <span class="msgStrongText">{assistUserName}</span> to continue the journey on your behalf.
+                                </span>
+                            </div>
+                            <button class="consentModalBtnContiner" onclick={handleConsentBtn}>
+                                <span>
+                                    I allow
+                                </span>
+                            </button>
+                            <div class="home">
+                                <span class="homeText">Home</span>
+                            </div>
+                        </div>
+                    </div>
+                </template> -->
+            </div>
+        </template>
+    </template>
+
+    <template if:true={thankyouScreen}>
+        <div class="msgContainer">
+            <div class="header1">
+                <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                    container-description={headerDescription} journey-steps={overallJourneySteps}
+                    current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                    current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <div class="msgContents">
+                <div class="msgData">
+                    <img src={greentickImgURL} class="msgImg"></img>
+
+                    <span class="msgTitleText">Details submitted successfully</span>
+                    <span class="msgSubtitleText">
+                        Please provide rest of the details to our representative
+                        <span class="msgStrongText">
+                            &nbsp;{assistUserName}
+                        </span>
+                    </span>
+                </div>
+                <!-- <div class="home"> -->
+                <template if:true={showConsentBtn}>
+                    <div class="consentDiv">
+                        <a href="javascript:void(0)" onclick={handleDIY} class="diyText">I want to fill application by
+                            myself</a>
+                        <button class="consentModalBtnContiner" onclick={handleConsentBtn}>
+                            <span>
+                                Continue with representative
+                            </span>
+                        </button>
+                    </div>
+                </template>
+
+                <!-- </div> -->
+            </div>
+        </div>
+    </template>
+
+</template>

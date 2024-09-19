@@ -1,0 +1,250 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="background-box">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+    <template if:false={showLoader}>
+        <div class="background-box">
+            <!-- <div class="header">
+                    <div class="header-logo">
+                        <img src={headerIconURL}></img>
+                    </div>
+                    <div class="header-content">
+                        Apply for Personal Loan
+                    </div>
+                </div> -->
+            <div class="outer-container">
+                <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                    container-description={headerDescription} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                    current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <template if:false={errorScreen}>
+                <div class="centerAligned">
+                    <div class="descriptionContent">
+                        <div class="heading">
+                            <span class="Choose-loan-amount">
+                                Hello {fullName}!
+                            </span>
+                        </div>
+                        <div class="container-subtext">
+                            <span class="Choose-the-funds-that-perfectly-match-your-goals">
+                                {subTitleValue}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="Rectangle-34624692">
+                        <div class="imgContainer">
+                            <img class="personImg" src={personImgURL}></img>
+                            <img class="vectorImg" src={vectorURL}></img>
+                            <img class="formImg" src={formURL}></img>
+                        </div>
+                    </div>
+                    <div class="Frame-1171280876">
+                        <div class="Frame-1171280874">
+                            <div class="Frame-1171280872">
+                                <span class="regularFont">
+                                    Gender
+                                </span>
+                                <span class="regularFont">
+                                    {gender}
+                                </span>
+                            </div>
+                            <div class="Vector-973">
+                                <img src={barImgURL}></img>
+                            </div>
+                            <div class="Frame-1171280873">
+                                <span class="regularFont">
+                                    Date of Birth
+                                </span>
+                                <span class="regularFont">
+                                    {dob}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="emailContainer">
+                            <div class="emailDescription">
+                                <span class="emailTitle">
+                                    Personal email address
+                                </span>
+                                <span class="emailSubTitle">
+                                    We will deliver communications on this email
+                                </span>
+                            </div>
+                            <div class="emailInput">
+                                <input type="text" class="Input-Text" value={emailValue}
+                                    oninput={handleReferralCodeChange} disabled />
+                                <label for="Input-Text" class="Input-Label1">Email address</label>
+                                <a href="javascript:void(0)" class="editClass" onclick={handleEmailModal}>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Sticky-Button">
+                        <div class="temp">
+                            <button class={cnfButtonClassVar} disabled={disableSubmitButton}
+                                onclick={handleSubmitMethod}>
+                                <span class="Confirm">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <template if:true={openEmailModal}>
+                        <div class="modal-container">
+                            <div class="modal-frame">
+                                <div class="frame">
+                                    <div class="modal-icon-static">
+                                        <img src={emailIconURL}></img>
+                                    </div>
+                                    <div class="close-button-frame">
+                                        <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <span class="modal-text">
+                                        Personal email address
+                                    </span>
+                                    <span class="modal-subtext">
+                                        We will deliver communications on this email
+                                    </span>
+                                </div>
+                                <div class="Container">
+                                    <input type="text" class="Input-Text1" value={emailModalValue}
+                                        oninput={handleEmailChange} />
+                                    <label for="Input-Text1" class="Input-Label">Email address</label>
+                                </div>
+                                <div class="_input-base">
+                                    <template if:true={invalidEmail}>
+                                        <img src={redCloseImgURL} onclick={handleInputClose} class="redClose"></img>
+                                        <div class="alert"><img src={warningIconURL}></img></div>
+                                        <span class="Supporting-Text">
+                                            {emailValidationErrorMsg}
+                                        </span>
+                                    </template>
+                                </div>
+                                <button class={emailModalBtnClass} disabled={disableEmailModalSubmit}
+                                    onclick={handleEmailModalSubmit}>
+                                    <span class="Confirm">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template lwc:if={openPinModal}>
+                        <div class="modal-container">
+                            <div class="pin-modal-frame">
+                                <div class="pin-frame">
+                                    <div class="modal-icon-static">
+                                        <img src={pinImgURL}></img>
+                                    </div>
+                                    <div class="close-button-frame">
+                                        <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                                    </div>
+                                </div>
+                                <div class="pin-content">
+                                    <span class="modal-text">
+                                        Your current resident PIN code
+                                    </span>
+                                    <span class="modal-subtext">
+                                        This helps us verify our serviceability in your area.
+                                    </span>
+                                </div>
+                                <div class="Container">
+                                    <input type="text" class="Input-Text1" value={pinCodeValue}
+                                        oninput={handlePINChange} />
+                                    <label for="Input-Text1" class="Input-Label">PIN code</label>
+                                </div>
+                                <div class="pin-input-base">
+                                    <template if:true={invalidPIN}>
+                                        <img src={redCloseImgURL} onclick={handlePINInputClose} class="redClose"></img>
+                                        <div class="alert"><img src={warningIconURL}></img></div>
+                                        <span class="Supporting-Text">
+                                            {pinValidationErrorMsg}
+                                        </span>
+                                    </template>
+                                    <template if:true={validPIN}>
+                                        <img src={greentickImgURL} class="redClose"></img>
+                                        <span class="Supporting-Text-Success">
+                                            {pinValidationSuccessMsg}
+                                        </span>
+                                    </template>
+                                </div>
+                                <button class={pinModalBtnClass} disabled={disablePinModalSubmit}
+                                    onclick={handlePinModalSubmit}>
+                                    <span class="Confirm">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <div class = "parent-modal-container" lwc:if={showAddressModal}>
+                            <div class = "parent-address-box">
+                                <c-ausf_-enter-applicant-work-address  onclosemodalevent={closeAddressPopup} applicant-id={applicantId}
+                        screenname={screenName} addressheader="Add full address" onsubmitaddressevent={handleAddressSubmit} existing-adress={dedupeAddressList}></c-ausf_-enter-applicant-work-address>
+                        </div>
+                        </div>
+                        
+                        <!-- <div  class ="modal-container1"> -->
+                            <!-- <c-ausf_-enter-applicant-address-details lwc:if={showAddressModal}
+                            onclosemodalevent={closeAddressPopup} applicant-id={applicantId} screenname={screenName}
+                            onsubmitaddressevent={handleAddressSubmit}></c-ausf_-enter-applicant-address-details> -->
+                        <!-- </div> -->
+                        
+                    </template>
+
+
+                    <template if:true={openRetryModal}>
+                        <div class="modal-container">
+                            <div class="retryModalContainer">
+                                <div class="retryModalContents">
+                                    <img class="retryModalImg" src={retryIMGURL}>
+                                    <span class="retryModalTitle">Non serviceable area</span>
+                                    <span class="retryModalSubtitle">
+                                        We do not serve your area. Double-check the PIN code you entered or
+                                        re-enter.
+                                        <span class="strongText">
+                                            &nbsp;You have {retriesLeft} more attempt left.
+                                        </span>
+                                    </span>
+                                </div>
+                                <button class="retryModalBtnContiner" onclick={handleReEnterPinCode}>
+                                    <span>
+                                        Re-enter PIN code
+                                    </span>
+                                </button>
+                                <div class="home">
+                                    <a class="homeText" href="https://www.aubank.in/">Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <template if:true={errorScreen}>
+                <div class="errorMsgContainer">
+                    <img class="errorImgClass" src={pinCodeErrorImgURL}>
+                    <div class="errorContents">
+                        <div class="errorTitle">
+                            <span class="errorTitleText">Uh-oh!</span>
+                        </div>
+                        <span class="errorSubtitleText">
+                            You have reached the maximum limit for PIN code verification. For security reasons, we are
+                            unable to proceed with your application further
+                        </span>
+                        <button class="errorBtnClass" onclick={handleHomeClick}>
+                            <a class="Confirm" href="https://www.aubank.in/">Home</a>
+                        </button>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+    </template>
+</template>

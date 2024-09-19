@@ -1,0 +1,208 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+:host {
+    --slds-c-radio-color-border-focus: none;
+    --slds-c-radio-shadow-focus: none;
+    --slds-c-radio-shadow: none;
+    --slds-c-radio-color-border-checked: #DB5E2B;
+    --slds-c-radio-color-border-focus: #DB5E2B;
+    --slds-c-radio-mark-color-foreground: #DB5E2B;
+}
+
+
+.custom-box-overlay {
+    width: 360px;
+    /* height: 816px; */
+    height: 800px;
+    top: 57px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.terms-modal {
+    position: absolute;
+    top: 0px;
+    width: 328px;
+    /* height: 816px; */
+    height: 650px;
+    margin: 101px 16px 49px 16px;
+    padding: 16px 16px 16px 16px;
+    border-radius: 24px;
+    color: black;
+    background: white;
+}
+
+.terms-modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+    margin-bottom: 16px;
+
+}
+
+.terms-modal-header h3 {
+    flex: 1 0 0;
+    color: var(--Typography-Heading, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+
+.terms-modal-header button {
+    display: flex;
+    align-items: flex-start;
+}
+
+.terms-modal-header-img {
+    max-width: 36px;
+    height: 36px;
+}
+
+.agree-box {
+    position: relative;
+    width: 296px;
+    height: 56px;
+    background-color: #db5e2b;
+    border-color: #992e08;
+    border-radius: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 34px;
+    cursor: pointer;
+}
+
+.agree-box-disabled{
+    position: relative;
+    width: 296px;
+    height: 56px;
+    background-color: #db5e2b;
+    border-color: #992e08;
+    border-radius: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 34px;
+    background: var(--Grey-100, #C9CCD1);
+
+}
+
+.agree-button-box {
+    position: relative;
+    width: 100%;
+    ;
+    height: 100%;
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    color: #ffffff;
+    padding-left: 110px;
+    display: flex;
+
+}
+
+.Frame-1171280724 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.Frame-1171280723 {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.chips {
+    cursor: pointer;
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    border: 1px solid var(--Border-Subtle, #EDEDF0);
+    background: var(--Static-White, #FFF);
+}
+
+.bg {
+    position: relative;
+}
+
+.tenure-selection {
+    margin-top: 46px;
+}
+
+
+/* Hide scrollbar for all browsers */
+
+
+.wheel-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.chips .tick {
+    display: none;
+}
+
+.tick {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.chips-enabled {
+    cursor: pointer;
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    border: 1px solid var(--Border-Subtle, #EDEDF0);
+    background: var(--Orange-25, #FCEBE0);
+}
+
+.typeText {
+    color: var(--Typography-Body-Label, #3D3D47);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.chips-enabled .typeText {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--Orange-700, #702105);
+
+}

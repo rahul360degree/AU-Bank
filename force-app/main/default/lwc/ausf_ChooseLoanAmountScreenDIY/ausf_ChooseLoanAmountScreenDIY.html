@@ -1,0 +1,10 @@
+<template>
+    <c-ausf_-parent-container-d-i-y current-screen-name="Choose Loan Amount" onpasstoparent={handleFromChild}></c-ausf_-parent-container-d-i-y>
+    <template if:true={blnLoadChild}>
+        <c-ausf_-choose-loan-amount-screen-cmp 
+            loan-application-id={recordId} 
+            onbackevent={handleBackScreenMethod} 
+            onsubmitevent={handleNextScreenMethod}>
+        </c-ausf_-choose-loan-amount-screen-cmp>
+    </template>
+</template>

@@ -1,0 +1,23 @@
+.slds-button_neutral {
+    --slds-c-button-spacing-inline-start: none;
+    --slds-c-button-spacing-inline-end: none;
+}
+.slds-medium-show{
+    display: none;
+}
+
+.slds-file-selector__text{
+    display: none ;
+}
+.removeDropZone {
+    color: #ffffff;
+    --lwc-borderWidthThin: 0px;
+}
+.slds-file-selector__dropzone .slds-file-selector__text{
+    font-size: 0 !important;
+}
+
+/* remove the "Upload Files" text from the button of the lightning:input type file */
+.slds-file-selector__dropzone .slds-file-selector__button{
+    font-size: 0 !important;
+}

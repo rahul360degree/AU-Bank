@@ -1,0 +1,76 @@
+<!-- 
+ * @description       : Select Gst Number
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 07-07-2024 
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-132
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   07-07-2024   Charchit Nirayanwal  Initial Version
+ -->
+
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader class="generic-error"></c-ui-loader>
+    </template>
+
+    <template if:false={showLoader}>
+    <div lwc:if={userInputRendering}>
+        <div class="bg">
+        <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContent}
+        container-description={headerDescription} journey-steps={overallJourneySteps}
+        current-journey={currentJourney} number-of-steps={stepsInCurrentJourney}
+        active-step={currentStep} current-screen-name={screenName}
+        enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            <div class="Frame-1171280048">
+                <img class="Mask-group" src={maskGroupUrl} alt="" srcset="">
+                <div class="Frame-1171280047">
+                    <div lwc-3qqt5r8ff91="" class="text-box-container">
+                        <input lwc-3qqt5r8ff91="" class={nameinput} value={panName} name="panName" type="Name" onchange={handleChange} oninput={handleChange} pattern="[A-Za-z\s]*">
+                        <label lwc-3qqt5r8ff91="" class={namelabel} for="phone-input-153">{label.panLabel}</label>
+                        <div class="errorMessage">
+                        <template if:true={showNameError}>
+                            <img class="warningErrorIcon" src={WarningIconURL} alt="Warning">
+                            <div>
+                                <span class="panErrorText">
+                                    {label.panError}
+                                </span>
+                            </div>
+                        </template>
+                    </div>
+                    </div>
+                    <div lwc-3qqt5r8ff91="" class="text-box-container">
+                        <input lwc-3qqt5r8ff91="" class={DOBinput} id="customDateInput"  data-id="DOB" name="DOB" value={dob} type="text" maxlength="10" onchange={handleChange}  oninput={handleChange} onfocus={dateFocused} onblur={dateBlurred}>
+                        <label lwc-3qqt5r8ff91="" class={DOBlabel} for="phone-input-153">{label.DOBLabel}</label>
+                        <div class="Group-image">
+                            <img src={GroupUrl} alt="" srcset="">
+                        </div>
+                        <div class="errorMessage">
+                            <template if:true={showDateError}>
+                                <img class="warningErrorIcon" src={WarningIconURL} alt="Warning">
+                                <div>
+                                    <span class="panErrorText">
+                                        {label.DOBError}
+                                    </span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="Sticky-Button">
+            <button class={ConfirmButtonCSS} onclick={makeNSDLAPICall} disabled={isVerifyPanDisabled} >
+                <span class="ConfirmLabel">
+                    Confirm
+                </span>
+            </button>     
+            </div>
+        </div>
+    </div>
+    <c-ausf_nsdl-verification-screen-cmp lwc:if={nsdlRendering} onreenterpan={handleReEneterPan} onnsdlsuccess={handleNsdlSucces}
+    pan={pan} loan-app-id={loanApplicationId} loan-applicant-id={applicantId} dob={DOBNSDL} name={panName}>
+    </c-ausf_nsdl-verification-screen-cmp>
+</template>
+
+</template>

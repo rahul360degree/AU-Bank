@@ -1,0 +1,292 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+
+
+
+.bg {
+    width: 360px;
+    height: 783px;
+    background-color: #ededf0;
+    font-family: "NotoCustomRegular";
+}
+
+.Frame-1171279943 {
+    width: 360px;
+    height: 656px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    margin-top: 16px;
+}
+
+.generic-cmp {
+    right: -15px;
+    position: relative;
+}
+
+.Customer-Search-Match {
+    width: 328px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 0;
+}
+
+.Frame-1171280585 {
+    width: 328px;
+    height: 80px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+}
+
+.Frame-1171280583 {
+    width: 328px;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0;
+}
+
+.Customer-Records {
+    flex: 1 0 0;
+    align-self: stretch;
+    color: var(--Typography-Heading, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Extended Title */
+    font-family: "Noto Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 120% */
+}
+
+.Frame-1171280584 {
+    width: 328px;
+    height: 48px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.Sub-Header-text {
+    color: var(--Typography-Body-Label, #3D3D47);
+    /* Body/Subtext */
+    font-family: "Noto Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    flex: 1 0 0;
+}
+
+
+.container {
+    display: flex;
+    padding: var(--Mobile-Scale-lg---16, 16px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: var(--Radius-Surface-Card, 24px);
+    background: #FFF;
+}
+
+.customer-row {
+    display: flex;
+    width: 328px;
+    padding: 12px 16px;
+
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+
+    background: var(--Grey-15, #F9F9FB);
+}
+
+.customer-initials {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #CCE6FF;
+}
+
+.customer-details {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.customer-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    align-self: stretch;
+    overflow: hidden;
+    color: var(--Typography-Body-Label, #3D3D47);
+    font-feature-settings: 'clig' off, 'liga' off;
+    text-overflow: ellipsis;
+    /* Display/Heading 2 */
+    font-family: "Noto Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.customer-id {
+    align-self: stretch;
+    color: var(--Typography-Supporting-Text, #6B6B80);
+    /* Body/Para */
+    font-family: "Noto Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.customer-checkbox {
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.round-checkbox {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #9EA1AD;
+    cursor: pointer;
+    position: relative;
+}
+
+.round-checkbox:checked {
+    background-color: #DB5E2B;
+    border-color: #DB5E2B;
+}
+
+.round-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-class {
+
+    display: flex;
+    width: 360px;
+    padding: var(--Padding-Inset-Card, 12px) var(--Padding-Surface-Card, 16px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Stack-Inset-Card, 12px);
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid var(--Border-Default, #D6D6DB);
+    background: var(--Background-Surface, #FFF);
+}
+
+.button-disable {
+    color: #FFFFFF;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    padding: var(--Mobile-Scale-md---12, 12px) var(--Mobile-Scale-xxl---24, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Mobile-Scale-sm---8, 8px);
+    align-self: stretch;
+    border-radius: var(--Radius-Component-3, 8px);
+    background: var(--Grey-100, #C9CCD1);
+}
+
+.customer-row-selection {
+    display: flex;
+    width: 328px;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--Orange-300, #F37435);
+    background: var(--Orange-15, #FFF7F5);
+}
+
+.button-enabled {
+    color: #FFFFFF;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    padding: var(--Mobile-Scale-md---12, 12px) var(--Mobile-Scale-xxl---24, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Mobile-Scale-sm---8, 8px);
+    align-self: stretch;
+    border-radius: var(--Radius-Component-3, 8px);
+    border-bottom: 1px solid var(--Orange-600, #992E08);
+    background: var(--Orange-400, #DB5E2B);
+}
+.global-custom-box{
+    width: 360px;
+    height: 800px;
+    background: var(--Grey-25, #EDEDF0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

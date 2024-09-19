@@ -1,0 +1,11 @@
+<template>
+    <c-ausf_-parent-container-d-i-y current-screen-name="Communication Address" onpasstoparent={handleFromChild}></c-ausf_-parent-container-d-i-y>
+    <template if:true={blnLoadChild}>
+        <c-ausf_-residence-ownership-proof-cmp 
+            loan-application-id={loanApplicationId} 
+            applicant-id={applicantId} 
+            onbackevent={handleBackScreenMethod} 
+            onsubmitevent={handleNextScreenMethod}>
+        </c-ausf_-residence-ownership-proof-cmp>
+    </template>
+</template>

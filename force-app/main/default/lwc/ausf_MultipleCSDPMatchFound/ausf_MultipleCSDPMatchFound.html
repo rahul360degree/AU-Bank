@@ -1,0 +1,58 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader></c-ui-loader>
+    </template>
+    <template if:false={showLoader}>
+        <template if:true={recordFound}>
+                <div class="global-custom-box">
+                    <div class="outer-container">
+                        <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                            container-description={headerDescription} journey-steps={overallJourneySteps}
+                            current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                            current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+                    </div>
+                    <div class="Frame-1171279943">
+                        <div class="Customer-Search-Match">        
+                            <div class="Frame-1171280585">
+                                <div class="Frame-1171280583">
+                                    <span class="Customer-Records">
+                                        {label.AUSF_SelectCustomerId}
+                                    </span>
+                                </div>
+                                <div class="Frame-1171280584">
+                                    <span class="Sub-Header-text">
+                                        {label.AUSF_MultipleMatchDisc}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <template for:each={maskedCustomerData} for:item="customer">
+                            <div class="customer-row" data-id={customer.cifId} key={customer.cifId}>
+                                <div class="customer-details">
+                                <span class="customer-name">{customer.Name}</span>
+                                <span class="customer-id">Customer ID {customer.cifId}</span>
+                                </div>
+                                <div class="customer-checkbox">
+                                <input type="checkbox" onclick={handleRecordSlection} value={customer.CIF} class="round-checkbox"/>
+                                </div>
+                            </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="button-class">
+                        <button  class={buttonClass} disabled={disableButton} onclick={handleProceedButton}>Proceed</button>
+                    </div>
+                    
+                </div>
+        </template>
+        <template if:true={dedupeCheckFail}>
+            <c-ausf_-c-s-d-p-no-record-found></c-ausf_-c-s-d-p-no-record-found>
+        </template>
+        <template if:true={transactionError}>
+            <c-ausf_generic-error-cmp errormessage="There is some technical problem" errortitle="Technical Problem"></c-ausf_generic-error-cmp>
+        </template>
+    </template>
+
+</template>

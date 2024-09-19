@@ -1,0 +1,39 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 17-07-2024 
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-745
+ * Modifications Log
+ * Ver   Date         Author               Modification
+ * 1.0   17-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+
+<template>
+    <div class="bg">
+        <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+            container-description={headerDescription} journey-steps={overallJourneySteps}
+            current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+            current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+
+        <div class="main">
+            <div class="pauseImage">
+                <img src={imageUrl} alt="" srcset=""> 
+            </div>
+
+
+            <div class="message">
+                {messagelabel}
+            </div>
+
+            <div class="loanApplicationInfo">
+                Application ID : {loanApplicationName}
+            </div>
+        </div>
+
+        <div class="homeButton" onclick={handleHomeButton}>
+            Home
+        </div>
+    </div>
+</template>

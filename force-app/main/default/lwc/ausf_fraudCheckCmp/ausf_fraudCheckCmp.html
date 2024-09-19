@@ -1,0 +1,50 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 04-07-2024
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-94
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   04-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+
+<template>
+    <div class="bg">
+        <template if:true={showErrorScreen}>
+            <c-ausf_-generic-error-screen-component screen-name={screenName} error-title="Error_Message" error-image="Group_427321908.png" ></c-ausf_-generic-error-screen-component>
+        </template>
+
+        <template if:true={showRejectScreen}>
+            <c-ausf_-generic-error-screen-component screen-name={screenName} error-title="Reject Screen" error-image="Group_427321908.png" ></c-ausf_-generic-error-screen-component>
+        </template>
+
+        <template if:false={showErrorScreen}>
+            <template if:false={beyondThreshold}>
+                <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                container-description={headerDescription} journey-steps={overallJourneySteps}
+                current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+    
+                <div class="main">
+                    <div class="pauseImage">
+                        <div class="animationBg">
+                            <div lwc:if={showAnimation} class="slds-align_absolute-center">
+                                <div  class="Animation slds-align_absolute-center slds-grid slds-wrap" >
+                                    <c-lottie-player  src={loaderAnimationJSON} class="slds-size_1-of-1"
+                                        background="transparent" speed="1" style="width: 308.276px; height: 177.039px;" loop
+                                        autoplay></c-lottie-player>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true={beyondThreshold}>
+                <c-ausf_-pause-screen applicant-id={applicantId} loan-application-id={loanApplicationId} loan-application-name={applicationIdData}></c-ausf_-pause-screen>
+            </template>
+        </template>
+
+    </div>
+</template>

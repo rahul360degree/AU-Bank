@@ -1,0 +1,57 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+    </template>
+    <template if:true={errorFromAPI}>
+        <c-ausf_generic-error-cmp errormessage={errorMessage} onclosemodalevent={sendBackToParentContainer} buttonname="Enter Manually" showreturntohome="false" errortitle="Verification failed"
+            style="position: relative; z-index: 5;"></c-ausf_generic-error-cmp>
+    </template>
+    <template if:false={showLoader}>
+        <div class="background-box">
+
+            <div class="outer-container" lwc:if={currentStep}>
+                <!-- <c-ausf_-generic-header-cmp style="width: 100%;"
+                    header-contents={headerContents}> </c-ausf_-generic-header-cmp> -->
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                    header-contents={headerContents} container-description={headerDescription}
+                    journey-steps={overallJourneySteps} current-journey={currentJourney}
+                    number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                    enable-back-button={enableBackButton} back-to-parent={backToParent}
+                    onbackevent={handleBackReDirectParent}> </c-ausf_-generic-header-cmp>
+            </div>
+            <div class="centerAligned">
+                <div class="descriptionContent">
+                    <span class="titleText">
+                        {title}
+                    </span>
+                    <div class="container-subtext">
+                        <span class="subtitleText">
+                            {subtitle}
+                        </span>
+                    </div>
+                </div>
+                <div class="imageContent">
+                    <img src={AUVectorImg} alt="vectorgroup" class="vector-image">
+                    <img src={AUMaskGrpImg} alt="maskgroup" class="mask-image">
+                    <!-- <img src={AUVectorImg} alt="vectorgroup" class="vector-image"> -->
+                    <img src={AUGrpImg} alt="group" class="group-image">
+
+                </div>
+                <div class="mainContent">
+                    <div class="input">
+                        <input type="text" class={dInputClass} value={membershipNumber}
+                            oninput={handleDocumentNumberInput} onchange={handleDocumentNumberInput} />
+                        <label class={dInputLabel} for="dInputClass">{labelValue}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="btnContainer">
+                <button class={cnfButtonClassVar} disabled={disableSubmitBtn} onclick={handleSubmitMethod}>
+                    <span class="btnText">
+                        Submit
+                    </span>
+                </button>
+            </div>
+        </div>
+    </template>
+</template>

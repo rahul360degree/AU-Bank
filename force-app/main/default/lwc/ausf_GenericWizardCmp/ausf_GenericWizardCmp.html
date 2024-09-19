@@ -1,0 +1,72 @@
+<template>
+    <div style="display:flex;justify-content: center;">
+        <div style="height: 816px;width: 360px;">
+            <template if:true={showLoader}>
+                <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+            </template>
+            <template if:false={showLoader}>
+                <template if:true={screenList.EnterMobileNumber}>
+                    <c-ausf_-enter-mobile-number-screen loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-enter-mobile-number-screen>
+                </template>
+    
+                <template if:true={screenList.CheckJourney}>
+                    <c-ausf_-check-journey-cmp mobile-number={mobileNumber} loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-check-journey-cmp>
+                </template>
+                <template if:true={screenList.PurposeofLoan}>
+                    <c-ausf_-loan-purpose-screen-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-loan-purpose-screen-cmp>
+                </template>
+            
+                <template if:true={screenList.ChooseLoanAmount}>
+                    <c-ausf_-choose-loan-amount-screen-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-choose-loan-amount-screen-cmp>
+                </template>
+    
+                <template if:true={screenList.EnterPanManual}>
+                    <c-ausf_-enter-pan-screen-manual loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-enter-pan-screen-manual>
+                </template>
+    
+                <template if:true={screenList.EnterNameAndDOB}>
+                    <c-ausf_-enter-pan-name-and-dob loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-enter-pan-name-and-dob >
+                </template>
+
+                <template if:true={screenList.CheckCustomerDedupe}>
+                    <c-ausf_-check-customer-dedupe  loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-check-customer-dedupe>
+                </template>
+
+                <template if:true={screenList.ConfirmPersonalDetails}>
+                    <c-ausf_-confirm-personal-details-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-confirm-personal-details-cmp>
+                </template>
+                <template if:true={screenList.IPABRELoader}>
+                    <c-ausf_-b-r-e-loader-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-b-r-e-loader-cmp>
+                </template>
+                <template if:true={screenList.IPAScreen}>
+                    <c-ausf_-i-p-a-screen-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-i-p-a-screen-cmp>
+                </template>
+                <template if:true={screenList.CommunicationAddress}>
+                    <c-ausf_-communication-address-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-communication-address-cmp>
+                </template>
+                <template if:true={screenList.ResidenceOwnershipProof}>
+                    <c-ausf_-residence-ownership-proof-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-residence-ownership-proof-cmp>
+                </template>
+
+                <template if:true={screenList.FraudCheckScreen}>
+                    <c-ausf_fraud-check-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_fraud-check-cmp>
+                </template>
+                
+                <template if:true={screenList.SelectGstNumber}>
+                    <c-ausf_-select-gst-number-screen-cmp loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-select-gst-number-screen-cmp>
+                </template>
+
+                <template if:true={screenList.ProfessionType}>
+                    <c-ausf_-profession-type-cmp loan-application-id={loanApplicationId} applicant-id={applicantId}
+                        onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-profession-type-cmp>
+                </template>
+                
+                <template if:true={screenList.BusinessProof}>
+                    <c-ausf_generic-business-proof-container selected-method={selectedMethod} api-flag={isBusinessProofApi} loan-application-id={loanApplicationId} applicant-id={applicantId}
+                        onbackevent={handleBackScreenMethod}
+                        onsubmitevent={handleNextScreenMethod}></c-ausf_generic-business-proof-container>
+                </template>
+            </template>
+        </div>
+    </div>
+</template>

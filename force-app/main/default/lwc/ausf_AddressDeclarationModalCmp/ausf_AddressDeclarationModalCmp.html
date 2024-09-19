@@ -1,0 +1,69 @@
+<template>
+
+    <template if:true={showLoader}>
+        <c-ui-loader style="z-index: 2; position:absolute;"></c-ui-loader>
+    </template>
+
+    <div class="Modal-Container slds-align_absolute-center">
+        <lightning-modal-body role="dialog" class="Declaration slds-fade-in-open">
+            <div class="Declaration-Content">
+                <div class="Declaration-Header">
+                    A few declarations
+                    <img class="slds-float_right close-icon" src={crossSymbolImage} onclick={closeDeclarationModal}>
+                </div>
+                <div class="Questions-Container">
+                    <div class="PEP-Question">
+                        Are you a politically exposed person?
+                    </div>
+                    <!-- <div class="slds-grid">
+                        <div class={PEPYesAnswerClass} onclick={changePEPYes} data-question="PEP">
+                            {PEPYes}
+                        </div>
+                        <div style="width: 8px;"></div>
+                        <div class={PEPNoAnswerClass} onclick={changePEPNo} data-question="NRI">
+                            {PEPNo}
+                        </div>
+                    </div> -->
+
+                    <div class="slds-grid">
+                        <div class={PEP.yesClass} onclick={toggleAnswer} data-question="PEP" data-answer="YES">
+                            {PEP.yesText}
+                        </div>
+                        <div style="width: 8px;"></div>
+                        <div class={PEP.noClass} onclick={toggleAnswer} data-question="PEP" data-answer="NO">
+                            {PEP.noText}
+                        </div>
+                    </div>
+
+                    <div class="NRI-Question">
+                        Are you a tax resident of any other country than India?
+                    </div>
+                    <div class="slds-grid">
+                        <div class={NRI.yesClass} onclick={toggleAnswer} data-question="NRI" data-answer="YES">
+                            {NRI.yesText}
+                        </div>
+                        <div style="width: 8px;"></div>
+                        <div class={NRI.noClass} onclick={toggleAnswer} data-question="NRI" data-answer="NO">
+                            {NRI.noText}
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="slds-grid">
+                        <div class={NRIYesAnswerClass} onclick={changeNRIYes}>
+                            {NRIYes}
+                        </div>
+                        <div style="width: 8px;"></div>
+                        <div class={NRINoAnswerClass} onclick={changeNRINo}>
+                            {NRINo}
+                        </div>
+                    </div> -->
+                    <div style="height: 32px;"></div>
+                    <button class="Proceed-Button" onclick={handleProceed}>
+                        <span class="submit">Proceed</span>
+                    </button>
+                </div>
+
+            </div>
+        </lightning-modal-body>
+    </div>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    
+    <lightning-button label="back" variant="brand" onclick={handleBack}></lightning-button>
+    <lightning-button label="next" variant="brand" onclick={handleNext}></lightning-button>
+
+    <c-ausf_-loan-purpose-screen-cmp class="screen-element screen-element1" loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-loan-purpose-screen-cmp>
+    
+    <c-ausf_-choose-loan-amount-screen-cmp class="screen-element screen-element2" loan-application-id={loanApplicationId} applicant-id={applicantId} onbackevent={handleBackScreenMethod} onsubmitevent={handleNextScreenMethod}></c-ausf_-choose-loan-amount-screen-cmp>
+    
+</template>

@@ -1,0 +1,60 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader class= "loader-class"></c-ui-loader>
+    </template>
+    <div class="modal-container">
+
+        <div class="modalPosition">
+            
+            <div class="modalHeader">
+                <div class="modalHeading">
+                    <span class="modalHeadingText">Important Instructions</span>
+                    <div class="modalClose">
+                        <img class="close-button" onclick={handleCloseModal} src={closeIconURL}></img>
+                    </div>
+                </div>
+                <span class="modalSubheading">Make sure your document is clear and correct</span>
+            </div>
+
+            <div class="modalContents">
+                <div class="modalMainContents">
+                    <div class="guidelines">
+                        <img class="wrongImg" src={firstImgURL}>
+                        <img class="wrongImg" src={secondImgURL}>
+                        <div class="rightImgContainer">
+                            <img class="rightImg" src={rightImgUrl}>
+                            <img class="tickImg" src={tickImgURL}>
+                        </div>
+                    </div>
+                    <div class="modalNotes">
+                        <span class="modalNotesText">{fileUploadNote}</span>
+                    </div>
+                </div>
+                <div class="modalBtnContainer">
+                    <div class="uploadBtn">
+                        <template if:true={isMultipleAllowed}>
+                            <input type="file" multiple id="fileUploadMultiple" class="uploadBtn"
+                                accept={allowedFileTypes} onchange={handleFileChange}>
+                            <label for="fileUploadMultiple" class="uploadBtnText">
+                                Upload
+                            </label>
+                        </template>
+                        <template if:false={isMultipleAllowed}>
+                            <input type="file" id="fileUpload" class="uploadBtn" accept=".png,.jpg,.pdf,.jpeg"
+                                onchange={handleFileChange}>
+                            <label for="fileUpload" class="uploadBtnText">
+                                Upload
+                            </label>
+                        </template>
+                    </div>
+                    <div lwc:if={errorMsg} class="flex-container">
+                        <div class="alert"><img src={warningIconURL}></img></div>
+                        <span class="Supporting-Text">
+                            {errorMsg}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,204 @@
+:host{
+    --slds-c-radio-color-border-focus: none;
+    --slds-c-radio-shadow-focus: none;
+    --slds-c-radio-shadow: none;
+    --slds-c-radio-color-border-checked: #DB5E2B;
+    --slds-c-radio-color-border-focus: #DB5E2B;
+    --slds-c-radio-mark-color-foreground: #DB5E2B;
+}
+
+.Container {
+    width: 360px;
+    /* height: 800px; */
+    background: var(--Grey-25, #EDEDF0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.custom-box {
+    width: 360px;
+    background: var(--Grey-25, #EDEDF0);
+    flex-direction: column;
+    align-items: start;
+}
+
+.Title {
+    color: var(--Neutrals-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* Display/Extended Title */
+    font-family: "NotoCustomRegular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 120% */
+    margin: 20 16 0 16;
+}
+
+.Subtitle {
+    color: var(--Neutrals-700, #3D3D47);
+    /* Body/Subtext */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    margin: 0 16 16 16;
+}
+
+.Instant-Verification-Container{
+    display: flex;
+    width: 360px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 24px;
+    border-radius: 24px;
+    background: #FFF;
+}
+
+.Verification-Logo{
+    width: 11.724px;
+    height: 16.191px;
+    flex-shrink: 0;
+    fill: var(--Yellow-100, #F5C46E);
+    margin-right: 7px;
+}
+
+.Instant-Verification-Text{
+    color: var(--Typography-Heading, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Display/Heading 1 */
+    font-family: "NotoCustomSemiBold";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+
+.Verification-Method{
+    display: flex; 
+    width: 328px;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.Verification-Method-Text{
+    width: 272px;
+    height: 40px;
+    min-height: 40px;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    flex-shrink: 0;
+    font-family: "NotoCustomRegular";
+    color: var(--Grey-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.Radio-Container{
+    width: 44px;
+}
+
+.Button-Container{
+    position: sticky;
+    bottom: 0px;
+    width: 360px;
+    display: inline-flex;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid var(--Grey-50, #E1E1E3);
+    background: #FFF;
+}
+
+.addrBtnDisabled {
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #c9ccd1;
+    border: none;
+    width: 100%;
+    cursor: not-allowed;
+    color: #FFF;
+    text-align: center;
+
+    /* Body/B1 Semibold 600 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    /* margin-top: 25px; */
+}
+
+.addrButton {
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #db5e2b;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+
+    /* Body/B1 Semibold 600 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    /* margin-top: 25px; */
+}
+
+.Bottom-Border{
+    border-bottom: solid 1px #D6D6DB;
+}
+
+
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}

@@ -1,0 +1,163 @@
+.modalPosition{
+    display: flex;
+width: 328px;
+padding: 24px 16px;
+flex-direction: column;
+align-items: center;
+gap: 16px;
+border-radius: 12px;
+background: var(--Static-Background, #FFF);
+margin-top: 165px;
+  }
+
+  .modalHeader{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+align-self: stretch;
+  }
+  .modalHeading{
+    display: flex;
+flex-direction: row;
+align-items: center;
+gap: 80px;
+align-self: stretch;
+  }
+  .modalHeadingText{
+    width: 200px;
+    color: var(--Grey-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Display/Heading 1 */
+    font-family: "NotoCustomMedium";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+  }
+
+  .modalClose{
+    display: flex;
+padding: 0px 8px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+border-radius: 8px;
+  }
+  .close-button{
+    width: var(--Mobile-Scale-xl---20, 20px);
+height: var(--Mobile-Scale-xl---20, 20px);
+  }
+
+  .modalMainContents{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+align-self: stretch;
+
+
+height: 400px;
+display: block;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+  }
+  .guidelines{
+    display: flex;
+align-items: center;
+gap: 14px;
+
+
+  }
+
+  .customHeaderStyles {
+    --lwc-spacingMedium: 0.1rem;
+    --slds-c-modal-header-spacing-block-start: 0.1rem;
+    --sds-c-modal-header-spacing-block-start: 0.1rem;
+}
+
+.slds-modal__container{
+    width: 70% !important;
+    max-width: 70% !important;
+}
+
+/*.zoomIn{
+  transition: -webkit-transform 0.25s ease;
+  -webkit-transform: scale(2);
+
+}
+.zoomOut{
+  transition: -webkit-transform 0.25s ease;
+  -webkit-transform: scale(1);
+}
+
+.rotate90Img{
+  transition: -webkit-transform 0.25s ease;
+  -webkit-transform: rotate(90deg);
+}
+.rotate180Img{
+  transition: -webkit-transform 0.25s ease;
+  -webkit-transform: rotate(180deg);
+}
+.rotate270Img{
+  transition: -webkit-transform 0.25s ease;
+  -webkit-transform: rotate(270deg);
+}
+
+.imgControls{
+  position: absolute;
+  bottom: 0;
+}*/
+.image-container {
+  text-align: center;
+  overflow: hidden; /* Ensure the image does not overflow the container */
+  position: relative; /* Positioning context for the image */
+  width: 100%;
+  height: 500px; /* Set a fixed height for the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
+  .preview-pdf {
+    width: 100%;
+     height: 100%;
+border: none; /* Remove default border */
+transform: scale(1); /* Scale the content to fit the container */
+transform-origin: top left; /* Ensure scaling starts from the top left corner */
+    }
+  .preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.2s;
+  position: relative; /* Allow the image to be positioned within the container */
+  }
+  .controls {
+    position: absolute; /* Position the controls absolutely within the container */
+    bottom: 10px; /* Position the controls at the bottom of the container */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add some space between buttons */
+    background: rgba(255, 255, 255, 0.5); /* Transparent background */
+    padding: 5px;
+    border-radius: 5px; /* Rounded corners for the control container */
+    }
+    .icon-wrapper {
+    cursor: pointer; /* Change cursor to pointer to indicate clickable area */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0.7); /* Light transparent background for better visibility */
+    border-radius: 50%; /* Make the wrapper circular */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: background-color 0.2s;
+    }
+    .icon-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly darker background on hover */
+    }

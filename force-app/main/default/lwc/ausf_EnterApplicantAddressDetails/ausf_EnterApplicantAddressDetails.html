@@ -1,0 +1,59 @@
+<!--
+  @description       : Modal Screen to allow user to enter Address in the application.
+                       This modal screen is displayed after user enters email and pincode details from the confirm personal details screen.
+  @author            : Asmita Mathur
+  @group             : Salesforce
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   10-07-2024   Asmita Mathur   Initial Version
+-->
+
+<template>
+<div  class ="modal-container">
+    <div class="adress-box">
+        <div class="pin-frame">
+            <div class="modal-icon-static">
+                <img src={pinImg}></img>
+            </div>
+            <div class="close-button-frame">
+                <img class="close-button" onclick={handleCloseModal} src={closeIcon}></img>
+            </div>
+        </div>
+        <div class="address-content">
+            <span class="modal-text">
+            Add full address
+           </span>
+        </div>
+        <div class="container">
+            <input type="text" class="Input-Text1" value={addr1Value} oninput={handleAddressLine1} />
+            <label for="Input-Text1" class="Input-Label">Address line 1</label>
+        </div>
+        <div class="container">
+            <input type="text" class="Input-Text1" value={addr2Value} oninput={handleAddressLine2} />
+            <label for="Input-Text1" class="Input-Label">Address line 2 (Optional)</label>
+        </div>
+        <div class="container">
+            <input type="text" class="Input-Text1" value={addr3Value} oninput={handleAddressLine3} />
+            <label for="Input-Text1" class="Input-Label">Address line 3 (Optional)</label>
+        </div>
+        <div class="container">
+            <input type="text" class="Input-Text2" value={pincode} readonly/>
+            <label for="Input-Text2" class="Input-Label-pin">PIN code</label>
+            <template lwc:if={pincodedetails}>
+                <span class="supporting-text-success">
+                    <img class="info-icon" src={infoImg}></img>{pincodedetails}
+                 </span>
+            </template>
+            
+        </div>
+        <button class = {addrModalBtnClass}  disabled={isDisableAddressSubmit}
+                onclick={handleAddressModalSubmit}>
+            <span class="submit">Submit</span>
+                                  
+        </button>
+    </div>
+
+</div>
+   
+    
+</template>

@@ -1,0 +1,170 @@
+:host {
+    --slds-c-modal-shadow: none;
+    --sds-c-modal-shadow: none;
+    --lwc-spacingMedium: none;
+}
+
+.Modal-Container{
+    position: absolute;
+    /* position: fixed; */
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 816px;
+    width: 360px;
+    /* margin-left: -320px; */
+}
+
+.Declaration {
+    width: 328px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 24px;
+    padding: 16px 16px 24px 16px;
+    z-index: 1;
+    border-radius: 24px;
+    background-color: #fff;
+    margin-bottom: 180px;
+}
+
+.Declaration-Header{
+    color: var(--Typography-Heading, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Heading 1 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    padding-bottom: 12px;
+}
+
+.Declaration-Content {
+    /* height: 252px; */
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    /* gap: 44px; */
+    padding: 0;
+}
+
+.close-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.Questions-Container{
+    display: flex;
+    width: 296px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.PEP-Question{
+    color: var(--Grey-700, #3D3D47);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Label/md */
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.NRI-Question{
+    color: var(--Grey-700, #3D3D47);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Label/md */
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.Selected{
+    display: flex;
+    padding: 4px 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    font-family: "NotoCustomRegular";
+    background: var(--Orange-25, #FCEBE0);
+}
+
+.Unselected{
+    display: flex;
+    padding: 4px 8px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    border: 1px solid var(--Border-Subtle, #EDEDF0);
+    font-family: "NotoCustomRegular";
+    background: var(--Static-White, #FFF);
+}
+
+.Button-Container{
+    width: 360px;
+    display: inline-flex;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid var(--Grey-50, #E1E1E3);
+    background: #FFF;
+}
+
+.Proceed-Button{
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #db5e2b;
+    border: none;
+    width: 100%;
+
+    color: #FFF;
+    text-align: center;
+
+    /* Body/B1 Semibold 600 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    /* margin-top: 25px; */
+}
+
+
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}

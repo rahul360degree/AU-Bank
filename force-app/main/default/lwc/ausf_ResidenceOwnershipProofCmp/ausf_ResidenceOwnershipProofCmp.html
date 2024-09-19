@@ -1,0 +1,110 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="background-box">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+    <template if:true={showElectricityBillScreen}>
+        <c-ausf_-electricity-bill-proof applicant-id={applicantId} loan-application-id={loanApplicationId} onbacktoparentevent={handleELectricityScreen}></c-ausf_-electricity-bill-proof>
+    </template>
+    <template if:false={showElectricityBillScreen}>
+        <template if:false={showLoader}>
+            <div class="background-box">
+                <div class="outer-container">
+                    <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                        header-contents={headerContents} container-description={headerDescription}
+                        number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                        enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+                </div>
+                <div class="centerAligned">
+                    <div class="descriptionContent">
+                        <span class="titleText">
+                            {titleText}
+                        </span>
+                        <div class="container-subtext">
+                            <span class="subtitleText">
+                                {subtitleText}
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div class="mainContent">
+                        <template if:false={previewScreen}>
+                            <div class="contentHeading">
+                                Select one document for verification
+                            </div>
+                        </template>
+                        <div class="contentSection">
+                        <div class="elementHoldingHTMLContent" lwc:dom="manual"></div>
+    
+                            <template for:each={typeOfBillList} for:item="item">
+                                <template if:false={item.isFile}>
+                                    <div key={item.index} class={item.selectionCardClass}>
+                                        <div class="labelDiv">
+                                            <span class="labelText">
+                                                {item.label}
+                                            </span>
+                                            <template if:true={item.showInstant}>
+                                                <div class="instantDiv">
+                                                    <span class="instantText">Instant</span> 
+                                                </div>
+                                            </template>
+                                        </div>
+                                        <input type="checkbox" class={item.radioBtnClass} id={item.label} data-id={item.index}
+                                        onclick={handleSelection} name="bill" value={item.label}  />
+                                    </div>
+                                </template>
+    
+                                <template if:true={item.isFile}>
+                                    <div key={item.index} class={item.selectionCardClass}>
+                                        <div class="labelIMGContainer">
+                                            <img class="labelIMG" src={labelImgSRC}>
+                                        </div>
+                                        <div class="fileNameDiv">
+                                            <span class="labelText">
+                                                {item.label}
+                                            </span>
+                                            <span class="labelSubText">
+                                                {item.size}
+                                            </span>
+                                        </div>
+                                        <img data-index={item.index} onclick={handlePreview} class="actionIcons" src={previewImgURL}>
+                                        <img data-index={item.index} class="actionIcons" onclick={handleDeleteFile} src={deleteImgURL}>
+                                        
+                                    </div>
+    
+                                    <template if:true={item.isOther}>
+                                        <div key={item.index} class="otherInpContainer">
+                                            <input lwc-3qqt5r8ff91="" class={inputClass} value={otherDocumentName} name="DocName" type="text"  oninput={handleDocNameChange}>
+                                            <label lwc-3qqt5r8ff91="" class={labelClass} for="phone-input-153">Document name</label>
+                                            <!-- <input class="inputText" placeholder="Document name" type="text" data-index={item.index} oninput={handleOtherDocumentName}> -->
+                                        </div>
+                                    </template>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="btnContainer">
+                    <button class={cnfButtonClassVar} disabled={disableProceedBtn} onclick={handleSubmitMethod}>
+                        <span class="btnText">
+                            Proceed
+                        </span>
+                    </button>
+                </div>
+                <template if:true={openUploadModal}>
+                    <c-ausf_-file-upload-cmp document-master-name={documentMasterName} allowed-file-types={allowedFileTypes} file-upload-note={fileUploadNote} applicant-id={applicantId} insert-files={insertFiles} onsuccess={handleFileUpload} onclose={handleCloseModal} is-multiple-allowed={isMultipleAllowed} record-id={applicantId} loan-application-id={loanApplicationId}></c-ausf_-file-upload-cmp>
+                </template>
+    
+                <template if:true={openPreviewModal}>
+                    <div class="modal-container">
+                        <c-ausf_-file-preview-cmp onclose={handleCloseModal} is-pdf={isPDF}  file-contents={previewFileData}></c-ausf_-file-preview-cmp>
+                    </div>
+                </template>
+            </div>
+    
+        </template>  
+    </template>
+   
+</template>

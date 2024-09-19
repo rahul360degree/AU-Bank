@@ -1,0 +1,33 @@
+<!--
+  @description       : OTP Verification Screen
+  @author            : Ruturaj Chothe
+  @last modified on  : 06-23-2024
+  @last modified by  : Ruturaj Chothe
+-->
+<template>
+    <!-- <lightning-card> -->
+    <lightning-layout horizontal-align="center" multiple-rows="true">
+        <lightning-layout-item size="12" medium-device-size="12" small-device-size="12" large-device-size="12">
+            <div class="container ">
+                <!-- <div class="shadow"></div> -->
+                <header class="custom-header">
+                    <div class="logo">
+                        <img src={AUlogoImg} alt="Company Logo">
+                    </div>
+                    <h1 class="header-title">Apply for Personal Loan</h1>
+                </header>
+                <div class="transform">
+                    <span class="Transform-your-dreams-into-reality-with">
+                        Transform your dreams into reality with
+                    </span>
+                    <span class="AU-Digital-Loan">
+                        AU Digital Loan
+                    </span>
+                </div>
+                <c-aupl_otp-verification-modal-cmp lwc:if={showModal} onclosemodalevent={closeOtpModalWindow}
+                    mobilenum="1234567890" style="position: absolute;"></c-aupl_otp-verification-modal-cmp>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    <!-- </lightning-card> -->
+</template>

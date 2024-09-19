@@ -1,0 +1,80 @@
+<template>
+    <template if:true={showLoader}>
+        <div class="Frame-1171280999">
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+        </div>
+    </template>
+    <template if:false={showLoader}> 
+        <div class="Frame-1171280999">
+            <!-- <div class="header">
+                <div class="header-logo">
+                    <img src={headerIconURL}></img>
+                </div>
+                <div class="header-content">
+                    Apply for Personal Loan
+                </div>
+            </div> -->
+            <div class="Frame-1171280588">
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents} header-contents={headerContents}  container-description={headerDescription} number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <div class="centerAligned">
+                <div class="descriptionContent">
+                    <span class="Choose-loan-amount">
+                        {screenTitle}
+                    </span>
+                    <div class="Frame-1171280585">
+                        <span class="Choose-the-funds-that-perfectly-match-your-goals">
+                            {screenSubtitle}
+                        </span>
+                    </div>
+                </div>
+                <div class="amount-background">
+                    <img class="moneyClass" src={moneyBucketURL}></img>
+                    <div class="borderStyling">
+                        <div class="amount-input">
+                            <input type="number" name="textbox" class="Input-Text1" value={sliderValue} oninput={handleInputChange} />
+                            <!-- <lightning-input variant="label-hidden" name="textbox" class="Input-Text1" value={sliderValue} onchange={handleInputChange} type="number" formatter="currency"></lightning-input> -->
+                        </div>
+                    </div>
+                    <template if:true={anyValidationError}>
+                        <div class="flex-container">
+                            <div class="alert"><img src={warningIconURL}></img></div>
+                            <span class="Supporting-Text">
+                                {validationErrorMessage}
+                            </span>
+                        </div>
+                    </template>
+                    <div class="Frame-1171280616">
+                        <!-- <lightning-slider class="sliderClass range-hidden" variant="label-hidden" min={minSliderValue} max={maxSliderValue}
+                            step={sliderStep} onchange={handleInputChange} value={sliderValue}> </lightning-slider> -->
+                        <input type="range" name="slider" min={minSliderValue} max={maxSliderValue} step={sliderStep} value={sliderValue} oninput={handleInputChange} class="slider" id="myRange">
+    
+                    </div>
+                    <div class="Frame-427320004">
+                        <span class="minValue">
+                            ₹{minSliderValue}
+                        </span>
+                        <span class="maxValue">
+                            ₹{maxSliderValue}
+                        </span>
+                    </div>
+                    <div class="Sticky-Button">
+                        <div class="Frame-1171280589">
+                            <div class="infoClass"><img src={infoGreyURL}></img></div>
+                            <span class="Text">
+                                {helpText}
+                            </span>
+                        </div>
+                        <button class={cnfButtonClassVar} disabled={anyValidationError} onclick={handleSubmit}>
+                            <span class="Confirm">
+                                Confirm
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </template>
+</template>

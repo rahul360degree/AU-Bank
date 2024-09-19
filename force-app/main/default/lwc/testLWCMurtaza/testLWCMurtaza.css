@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+
+.select-details {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    border-radius: 24px;
+    background: #FFF;
+    width: 363px;
+}
+
+.field-container {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #D6D6DB;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    justify-content: space-between;
+    width: 332px;
+}
+
+.field-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.field-label {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.dropdown-icon {
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.details-title {
+    color: var(--Grey-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Heading 2 */
+    font-family: "NotoCustomBold";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.selected-value {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.field-container.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}

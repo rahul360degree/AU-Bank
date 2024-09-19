@@ -1,0 +1,156 @@
+<aura:component controller="AUSF_IntegrationContainerController">
+    <aura:attribute name="responseVar" type="object"/>
+    <aura:attribute name="isExpanded" type="boolean" default="false"/>
+    <aura:attribute name="disableRetry" type="boolean" default="false"/>
+    <aura:attribute name="isOwner" type="boolean"/>
+    <aura:attribute name="enableRetry" type="boolean" default="true"/>
+    <aura:attribute name="showRetry" type="boolean" default="false"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="componentContainer" type="list"/>
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="buttonLabel" type="string"/>
+    <aura:attribute name="displayPEButton" type="boolean" default="false"/>
+    <aura:attribute name="printURL" type="string"/>
+    <aura:attribute name="isFailed" type="boolean" default="false"/>
+    <aura:attribute name="intgCheckListId" type="string"/>
+    <aura:attribute name="CurrentUser" type="Object"/>
+<force:recordData recordId="{!$SObjectType.CurrentUser.Id}"
+                  fields="Profile.Name"
+                  targetFields="{!v.CurrentUser}"/>
+                  <aura:attribute name="enableRerunForProfile" type="boolean" default="false"/>
+
+    <aura:registerEvent name="refreshEvent" type="c:RefreshIntegrationContainerEvent"/>
+    <lightning:messageChannel type="ClosePopupAndRefresh__c" onMessage="{!c.closePopup}"/>
+    <lightning:messageChannel type="PublishLatestIntegrationStatusId__c" onMessage="{!c.refreshOptions}"/>
+
+    <li>
+        <div aura:id="parent" class="{!v.isExpanded ? 'slds-timeline__item_expandable slds-is-open slds-timeline__item_task' : 
+                                     'slds-timeline__item_expandable slds-timeline__item_task'}">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <button value="{!itemIndex}" onclick="{!c.expandCollapse}" class="slds-button" title="Toggle details" aria-controls="task-item-expanded" aria-expanded="true">
+                        <aura:if isTrue="{!v.isExpanded}">
+                            <lightning:icon iconName="utility:chevrondown" size="xx-small"/>
+                            <aura:set attribute="else">
+                                <lightning:icon iconName="utility:chevronright" size="xx-small"/>
+                            </aura:set>
+                        </aura:if>
+                        <span class="slds-assistive-text">{!v.responseVar.Integration_Status_Label__c}</span>
+                    </button>
+                    <div class="slds-icon_container slds-timeline__icon" title="{!v.responseVar.Status__c}">
+                        <aura:if isTrue="{!not(empty(v.responseVar.Status__c))}">
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Completed'}">
+                            	<lightning:icon iconName="standard:task2" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'In Progress'}">
+                                <lightning:icon iconName="standard:segments" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Pending'}">
+                                <lightning:icon iconName="standard:recent" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == ''}">
+                                <lightning:icon iconName="standard:recent" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Failed'}">
+                                <lightning:icon iconName="standard:first_non_empty" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Missing Pre-requisites'}">
+                                <lightning:icon iconName="standard:canvas" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Need Refresh'}">
+                                <lightning:icon iconName="utility:sync" size="x-small"/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.responseVar.Status__c == 'Manually Completed'}">
+                                <lightning:icon iconName="custom:custom83" size="x-small"/>
+                            </aura:if>
+                            <aura:set attribute="else">
+                                <lightning:icon iconName="standard:recent" size="x-small"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                    <div class="slds-icon_container slds-timeline__icon" title="Mandatory or Optional">
+                        <aura:if isTrue="{!v.responseVar.Integration_Master__r.Is_Mandatory__c}">
+                            &nbsp;&nbsp;<lightning:icon iconName="utility:warning" variant="error" size="x-small"/>
+                            <aura:set attribute="else">
+                                &nbsp;&nbsp;<lightning:icon iconName="utility:info" variant="warning" size="x-small"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                   <!--<div class="slds-icon_container slds-timeline__icon" title="Is External?">
+                        <aura:if isTrue="{!v.responseVar.Integration_Master__r.Is_Fintech_API__c}">
+                            &nbsp;&nbsp;<lightning:icon iconName="utility:price_book_entries" variant="warning" size="x-small"/>
+                            <aura:set attribute="else">
+                                &nbsp;&nbsp;<lightning:icon iconName="utility:like" variant="success" size="x-small"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>-->
+                </div>
+                <div class="slds-media__body">
+                    <a data-integrationid="{!v.responseVar.Id}" onclick="{!c.openPopup}">{!v.responseVar.Integration_Status_Label__c}</a><br/>
+                    <span style="margin-left:10px;"> {!v.responseVar.Message__c}</span>
+                    <span style="float:right;margin-left:10px;"> {!v.responseVar.LastModifiedBy.Name}</span>
+ 					<lightning:formattedDateTime style="float:right;" value="{!v.responseVar.Response_Received_At__c}" month="short" day="2-digit" hour="2-digit"  minute="2-digit"/>
+
+                    <article class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium" id="task-item-expanded" aria-hidden="false">
+                        <div>
+                            <span class="slds-text-title slds-p-bottom_x-small">Integration Status</span>
+                            <p>{!v.responseVar.Status__c}</p>
+                        </div>
+                        <div style="padding-top:0.5rem">
+                            <span class="slds-text-title">Pre-requisites</span>
+                            <p>{!v.responseVar.Missing_Pre_requisites__c}</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <aura:if isTrue="{!v.isModalOpen}">
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div aura:id="modalContainer" class="slds-modal__container standardDeviceWidth">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" onclick="{!c.closePopup }" alternativeText="close"
+                            variant="bare-inverse" class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.responseVar.Integration_Master__r.User_Friendly_Label__c}</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        {!v.componentContainer}
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <!-- it will show refresh or retry only if the record is allowed to refresh at master record and profiles added on masters //enableRerunForProfile SNPLJ-101-->
+                        <aura:if isTrue="{!and(v.responseVar.Integration_Master__r.Allow_Refresh__c, v.enableRerunForProfile)}">
+                                <!-- enable try checks if there is any frequency mentioned and it ll be false if the
+                                todays date is greater than created date + allored refres after days-->
+                            <aura:if isTrue="{!v.enableRetry}">
+                                <aura:if isTrue="{!and(v.isOwner,not(v.showRetry))}">
+                                    <aura:if isTrue="{!v.buttonLabel != null}">
+                                        <lightning:button variant="brand" label="{!v.buttonLabel}" title="{!v.buttonLabel}" onclick="{!c.retry}" disabled="{!v.disableRetry}"/>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.displayPEButton}">
+                                        <lightning:button variant="brand" label="Retry with PE" title="Retry with PE" onclick="{!c.retrywithpe}" disabled="{!v.disableRetry}"/>
+                                    </aura:if>
+                                </aura:if>
+                            </aura:if>
+                        </aura:if>
+                        <aura:if isTrue="{!and(v.responseVar.Integration_Master__r.Allow_Retry__c, v.enableRerunForProfile)}">
+                            <aura:if isTrue="{!and(v.isOwner,v.showRetry)}">
+                                    <lightning:button variant="brand" label="Retry" title="Retry" onclick="{!c.retry}" disabled="{!v.disableRetry}"/>
+                            </aura:if>
+                        </aura:if>                                    
+                        <aura:if isTrue="{!v.responseVar.Integration_Master__r.Allow_User_to_Print_Results__c}">
+                            <lightning:button variant="brand"><a style="text-decoration: none;color: #FFFFFF;" href="{!v.printURL}" target="_blank">Print</a></lightning:button>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isFailed}">
+                                <c:ausf_manualIntegrationContainer recordId="{!v.recordId}" intgChecklistId="{!v.intgCheckListId}" onclose="{!c.closePopup}"> </c:ausf_manualIntegrationContainer>
+                        </aura:if>
+                        <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.closePopup}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </li>
+</aura:component>

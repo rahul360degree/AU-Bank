@@ -1,0 +1,45 @@
+<template>
+    <lightning-modal-header label="Update Integration Manually"></lightning-modal-header>
+    <lightning-modal-body> 
+        <template lwc:if={hasError}>
+            <p class="slds-p-vertical_small">{error}</p>
+            <p class="slds-p-vertical_small">Please close and try again.</p>
+        </template>
+        <template lwc:else>
+            <lightning-textarea 
+                name="Remarks" 
+                label="Remarks" 
+                variant="label-stacked"
+                onchange={handleRemarks}
+                required>
+            </lightning-textarea>
+            <lightning-input
+                type="file" 
+                label="Manual Execution Report"
+                onchange={handleFileUpload}
+                multiple>
+            </lightning-input>
+            <div class="slds-p-vertical_x-small">
+                <template lwc:if={hasFiles}>
+                    <template for:each={filesData} for:item="file">
+                        <lightning-layout key={file.index} class="slds-grid slds-grid_vertical-align-center">
+                            <lightning-layout-item size="3">
+                                <p>{file.fileName}</p>
+                            </lightning-layout-item>
+                            <lightning-layout-item  size="1">
+                                <lightning-icon size="small" icon-name="utility:delete" data-id={file.index} title={file.fileName} onclick={handleDelete}></lightning-icon>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </template>
+                </template>
+                <template lwc:else>
+                    <p class="slds-p-vertical_small">No file have been uploaded.</p>
+                </template>
+            </div>
+        </template>
+ 
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    </lightning-modal-footer>
+</template>

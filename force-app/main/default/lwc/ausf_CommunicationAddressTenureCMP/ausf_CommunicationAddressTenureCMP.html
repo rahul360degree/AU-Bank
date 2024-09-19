@@ -1,0 +1,70 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 12-07-2024
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-942
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   12-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+ 
+<template>
+    <div class="bg">
+        <div class="custom-box-overlay">
+        </div>
+        <div class="terms-modal">
+            <div class="terms-modal-header">
+                <h3>{label.typeOfResidence}</h3>
+                <button class="slds-button" onclick={handleCloseModal}>
+                    <img class="terms-modal-header-img" src={closeImg} alt="close Icon" />
+                </button>
+            </div>
+            <div class="Frame-1171280724">
+                <div class="Frame-1171280723">
+                    <div class="chips" onclick={updateType}>
+                        <div class="typeText">{label.typeOwner}</div>
+                        <div class="tick">
+                            <img src={tickImgUrl} alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="chips" onclick={updateType}>
+                        <div class="typeText">{label.typeRented}</div>
+                        <div class="tick">
+                            <img src={tickImgUrl} alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="chips" onclick={updateType}>
+                        <div class="typeText">{label.typefamilyOwned}</div>
+                        <div class="tick">
+                            <img src={tickImgUrl} alt="" srcset="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tenure-selection">
+                <div class="terms-modal-header">
+                    <h3>{label.selectWheelLabel}</h3>
+                </div>
+
+                <div class="wheel-selector">
+                    <div lwc:if={showYear} class="wheel">
+                        <c-ausf_-wheel-cmp onupdate={updateYear} heading={label.yearLabel} value={year} items={itemsYear}></c-ausf_-wheel-cmp>
+                    </div>
+                    <div lwc:if={showMonth}  class="wheel">
+                        <c-ausf_-wheel-cmp onupdate={updateMonth} heading={label.monthLabel} value={month} items={itemsMonth}></c-ausf_-wheel-cmp>
+                    </div>
+                </div>
+
+            </div>
+            <div class={submitButtonCls}>
+                <button class="slds-button agree-button-box" onclick={handleSubmit} disabled={submitButtonDisabled}>
+                    {label.buttonLabel}
+                </button>
+            </div>
+        </div>
+    </div>
+
+</template>

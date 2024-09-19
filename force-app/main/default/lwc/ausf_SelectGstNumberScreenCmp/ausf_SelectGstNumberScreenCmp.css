@@ -1,0 +1,186 @@
+.bg {
+    position: relative;
+    width: 360px;
+    height: 800px;
+    background-color: #EDEDF0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.select-gst-heading {
+    padding: 0px 16px;
+}
+
+.select-gst-heading-main {
+    color: var(--Grey-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.select-gst-heading-info {
+    color: var(--Grey-700, #3D3D47);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.gst-selection-main {
+    overflow: scroll;
+    margin-top: 10px;
+    max-height: 556px;
+    display: flex;
+    padding: var(--Mobile-Scale-lg---16, 16px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: white;
+    border-radius: var(--Radius-Surface-Card, 24px);
+}
+
+.gst-selection-main::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .gst-selection-main  {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+.gst-selection {
+    display: flex;
+    width: 328px;
+    padding: 12px 16px;
+    /* justify-content: center; */
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--Grey-15, #F9F9FB);
+}
+
+.gst-number {
+    overflow: hidden;
+    color: var(--Typography-Body-Label, #3D3D47);
+    /* font-feature-settings: 'liga' off, 'clig' off; */
+    text-overflow: ellipsis;
+    /* font-family: "Noto Sans"; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.gst-name {
+    color: var(--Typography-Supporting-Text, #6B6B80);
+    /* font-family: "Noto Sans"; */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.gst-info {
+    display: flex;
+    gap: 8px;
+    width: 264px;
+}
+
+
+
+
+
+
+.Active {
+    height: 20px;
+    display: flex;
+    padding: 2px 8px;
+    align-items: center;
+    gap: 2px;
+    border-radius: 20px;
+    border: 1px solid var(--Typography-Supporting-Text, #008033);
+    background: var(--Typography-Supporting-Text, #008033);
+    color: white;
+}
+
+.Inactive {
+    height: 20px;
+    display: flex;
+    padding: 2px 8px;
+    align-items: center;
+    gap: 2px;
+    border-radius: 20px;
+    border: 1px solid var(--Typography-Supporting-Text, #6B6B80);
+    background: var(--Typography-Supporting-Text, #6B6B80);
+    color: white;
+}
+
+.radio-btn {
+    display: flex;
+    align-items: center;
+}
+
+.radio-btn input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-btn input[type="radio"]:not(:checked) {
+    border: 2px solid #9EA1AD;
+}
+
+.radio-btn input[type="radio"]:checked {
+    border: 5px solid #DB5E2B;
+}
+
+.generic-error {
+    position: relative;
+    z-index: 2;
+}
+
+.confirm-Button-Enabled {
+    width: 327px;
+    padding: 12px 24px;
+    background-color: #db5e2b;
+    border-width: 0px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.confirm-Button-Disabled {
+    width: 327px;
+    padding: 12px 24px;
+    background-color: #C9CCD1;
+    color: white;
+    border-width: 0px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.Sticky-Button {
+    padding: 12px 16px;
+    background-color: white;
+    border-radius: 16px 16px 0px 0px;
+    bottom: 0px;
+    position: fixed;
+}

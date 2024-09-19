@@ -1,0 +1,41 @@
+<!--
+  @description       : This Screen shows different list views and their respective record count of loan_application__c object on the home page of PS LOS app. 
+                       The list views to be displayed are configurable and are added to Generic_Master__c object. 
+                       This also allows sales user to create new loan directly from the new loan button to start assisted journey.
+  @author            : Asmita Mathur
+  @group             : Salesforce 
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   24-07-2024   Asmita Mathur   Initial Version
+-->
+
+<template>
+    <template if:true={showEnterMobileNumberScreen}>
+        <c-ausf_-enter-mobile-number-screen ></c-ausf_-enter-mobile-number-screen>
+    </template>
+    <template if:false={showEnterMobileNumberScreen}>
+        <div class="container">
+            <template if:true={blnPartnerUser}>
+                <div class="header">
+                    <div class="title">My Leads</div>
+                    <button class="btn" onclick={handleNewLoanClick}>New Loan</button>
+                </div>
+            </template>
+            <template if:false={blnPartnerUser}>
+                <div class="header">
+                    <div class="title">My Leads</div>
+                    <!-- <button class="btn" onclick={handleNewLoanClick}>New Loan</button> -->
+                </div>
+            </template>
+            
+            <template for:each={listViewNameList} for:item="listView">
+                <div key={listView.label} class="column">
+                    <div class="box" data-id={listView.label} onclick={handleCardClick}>
+                      <div class="record-count" lwc:if={showRecord}>{listView.recCount}</div>
+                    </div>
+                    <div class="textbox">{listView.label}</div>
+                </div>
+            </template>     
+        </div>
+    </template>          
+</template>

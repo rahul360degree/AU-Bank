@@ -1,0 +1,72 @@
+<template>
+    <template if:true={showErrorModal}>
+        <c-ausf_generic-error-cmp errormessage={errorMessageApi} errortitle="GST verification failed"
+            buttonname="Try again" class="generic-error"
+            onclosemodalevent={handleCloseErrorModal}></c-ausf_generic-error-cmp>
+    </template>
+    <template if:true={showNotVerifiedScreen}>
+        <c-ausf_generic-error-cmp errormessage={errorMessageApi} errortitle="GST verification failed"
+            buttonname="File Manually" class="generic-error"
+            onclosemodalevent={handleCloseErrorModal}></c-ausf_generic-error-cmp>
+    </template>
+    <template if:true={showLoader}>
+        <!-- <c-ui-loader class="generic-error"></c-ui-loader> -->
+        <c-ui-loader></c-ui-loader>
+    </template>
+
+
+
+    <template if:false={showLoader}>
+
+        <template if:true={showAuthSuccessScreen}>
+            <c-ausf_generic-buisness-detail-cmp applicant-id={applicantId} loan-application-id ={loanApplicationId} address-id={addressId} onbackevent={handleGstSuccessBack} ></c-ausf_generic-buisness-detail-cmp>
+        </template>
+
+        <template if:false={showAuthSuccessScreen}>
+        <div class="bg">
+            <div class="outer-container">
+                <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                    header-contents={headerContents} container-description={headerDescription}
+                    number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                    enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+                <div>
+                    <div class="select-gst-heading">
+                        <div class="select-gst-heading-main">Select GST number</div>
+                        <div class="select-gst-heading-info">We found multiple GSTs linked to your PAN, select one to
+                            proceed</div>
+                    </div>
+
+                    <div class="gst-selection-main">
+                        <template for:each={gstValues} for:item="gst">
+                            <div class="gst-selection" key={gst}>
+                                <div class="gst-info">
+                                    <div>
+                                        <div class="gst-number">{gst.gstinId}</div>
+                                        <div class="gst-name">{gst.registrationName}</div>
+                                    </div>
+                                    <div class={gst.authStatus}>{gst.authStatus}</div>
+                                </div>
+                                <div class="radio-btn">
+                                    <input class="radiobtn" data-active={gst.authStatus} data-value={gst.gstinId}
+                                        type="radio" onchange={handleSelection}>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="Sticky-Button">
+                    <button class={ConfirmButtonCSS} onclick={handleProceed} disabled={isProceedDisabled}>
+                        <span class="ConfirmLabel">
+                            Proceed
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        </template>
+
+    </template>
+
+</template>

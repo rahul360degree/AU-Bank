@@ -1,0 +1,513 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+
+
+
+.bg {
+  width: 360px;
+  height: 800px;
+  background: var(--Grey-25, #EDEDF0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+.Frame-1171279943 {
+  width: 360px;
+  height: 674px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  margin-top: 16px;
+}
+
+.generic-cmp{
+  position: relative;
+}
+
+.PAN--Fetch-with-digilocker {
+  width: 328px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0;
+}
+
+.Frame-1171280585 {
+  width: 328px;
+  height: 80px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0;
+}
+
+.Frame-1171280583 {
+  width: 328px;
+  height: 24px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+  padding: 0;
+}
+
+.PAN-details{
+  font-weight: 700;
+  font-size: 20px;
+  color: #12121c;
+  font-family: "NotoCustomSemiBold";
+}
+
+.Frame-1171280584 {
+  width: 328px;
+  height: 48px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.We-require-your-PAN-so-that-we-can-identify-you{
+  font-size: 16px;
+  color: #3d3d47;
+}
+
+.semi-bold{
+  color: #12121c;
+  font-size: 16px;
+  font-family: "NotoCustomSemiBold";
+}
+
+.Frame-1171279942 {
+  width: 360px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.Frame-1171279941 {
+  width: 328px;
+  height: 176px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background-image: linear-gradient(62deg, #fad3e1, #cbe3fb 102%);
+}
+
+.Frame-1171280041 {
+  height: 144px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+.Frame-1171280040 {
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 12px;
+  padding: 0;
+}
+.Frame-1171279939 {
+  height: 64px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}
+.Frame-1171279937 {
+  height: 28px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+}
+
+
+.Frame-1171279938 {
+  width: 225px;
+  height: 20px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  padding: 0;
+  font-family: "NotoCustomSemiBold";
+  font-size: 16px;
+}
+.Text-field{
+  background-color: #ffffff;
+  color: black;
+  height: 48px;
+  width: auto;
+  border-radius: 8px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border: 1px in #d9d9d9 ;
+}
+
+.Pan-Input{
+    line-height: 48px;
+    border: none;
+    text-align: center;
+    width: 100%;
+    border-radius: 8px;
+    border:1px solid#d9d9d9;
+    font-family:  "NotoCustomMedium";
+    font-size: 16px;
+    outline: none;   
+}
+
+.Pan-Input:focus{
+  border:1px solid#F37435;
+}
+
+.Text-field input:focus+.Frame-1171279943{
+  /* height: 0px !important; */
+  position: relative;
+}
+
+.Pan-Input-error{
+  line-height: 48px;
+  border: none;
+  text-align: center;
+  width: 100%;
+  border-radius: 8px;
+  border:1px solid#CF2433;
+  font-family:  "NotoCustomMedium";
+  font-size: 16px;
+  outline: none;
+}
+
+.Frame {
+  position: absolute;
+  right: 12px;
+}
+
+
+.Clear{
+  color:#828596;
+  border:none;
+  background-color: inherit;
+}
+.errorMessage {
+  height: 16px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+}
+
+.warningErrorIcon{
+  max-width: 16px;
+}
+
+.panErrorText{
+  color: #cf2433;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+
+.Sticky-Button{
+  padding: 12px 16px;
+  background-color: white;
+  border-radius: 16px 16px 0px 0px;
+  position: fixed;
+  bottom: 0px;
+  display: grid;
+  width: 360px;
+}
+
+.InfoTextFooter{
+  font-size: 12px;
+  color:#3d3d47 ;
+}
+
+.verifyButton-enabled {
+  padding: 12px 24px;
+  border-radius: 3px;
+  background-color: #db5e2b;
+  border-width: 0px;
+  margin-top: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+.verifyButton-disabled {
+  padding: 12px 24px;
+  border-radius: 3px;
+  background-color: #C9CCD1;
+  border-width: 0px;
+  margin-top: 12px;
+  border-radius: 6px;
+
+}
+
+.Clear img{
+    width: 16px;
+}
+
+.ConfirmLabel{
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  font-family: "NotoCustomMedium";
+}
+
+.generic-error{
+  position: absolute; 
+  z-index: 20;
+  left: 0px;
+
+}
+
+
+
+
+
+
+/* 
+ 
+
+
+  .Rectangle-34624552 {
+    height: 8px;
+    flex-grow: 1;
+    border-radius: 12px;
+    background-color: #c6b8d1;
+  }
+
+  .path286 {
+    width: 18.7px;
+    height: 28px;
+    flex-grow: 0;
+    margin: 0 12px 0 12px;
+    padding: 1.2px 3.3px 1.9px 3px;
+    background-color: #100f0d;
+  }
+
+  .Rectangle-34624553 {
+    height: 8px;
+    flex-grow: 1;
+    border-radius: 12px;
+    background-color: #c6b8d1;
+  }
+ 
+
+
+
+  
+ 
+
+
+
+
+  .Frame-1171279920 {
+    width: 328px;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+
+  .Progress-bar-step-4 {
+    width: 328px;
+    height: 40px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0;
+  }
+  .Frame-1171279919 {
+    width: 236px;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+  .Frame-1171279918 {
+    width: 119px;
+    height: 20px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+  }
+  .Frame-1171279917 {
+    width: 20px;
+    height: 20px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0;
+    cursor: pointer;
+  }
+  .Frame-1171279916 {
+    width: 87px;
+    height: 20px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    font-family: "NotoCustomSemiBold";
+  }
+
+
+  .Basic-Details{
+    font-family: "NotoCustomSemiBold";
+    font-size: 14px;
+  }
+  .Frame-1171279915{
+    background-color: #f9f9fb;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  .Help{
+    color: #ba4517;
+
+  }
+
+  .Progess-bar {
+    width: 328px;
+    height: 4px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .Rectangle-34624545{
+    background-color: #db5e2b;
+    width: 65%;
+    height: 4px;
+  }
+  .Step{
+    height: 4px;
+    width: 25%;
+    border-radius: 16px;
+    background-color: #d6d6db;
+  }
+
+
+  
+
+  .Vector {
+    width: 8px;
+    font-size:large;
+    margin: 0px;
+    cursor: pointer;
+  }
+
+
+
+
+.errorIcon {
+    width: 16px;
+    height: 16px;
+    flex-grow: 0;
+    object-fit: contain;
+    transform: rotate(-180deg);
+  }
+
+
+
+
+
+
+
+
+
+.helpButton{
+    border: none;
+
+}
+ */

@@ -1,0 +1,140 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+  }
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: #671773;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container {
+  flex-wrap: wrap;
+  display: flex;
+  
+}
+
+.column {
+  width: 25%;
+  padding: 10px;
+}
+
+.box {
+  background-color: white; 
+  height: 150px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  text-align: center; 
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+
+.record-count {
+  background-color: #671773;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width:85%;
+  height:85%;
+  align-items: center;
+  font-family: "NotoCustomSemiBold";
+  font-size: 39px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  justify-content: center;
+  display:flex;
+  color: white;
+}
+
+.textbox {
+  width: 100%;
+  margin-top: 5px;
+  padding: 0px 0px 0px 0px;
+  border: none; 
+  border-radius: 5px;
+  text-align: center;
+  background-color: transparent;
+  font-family: "NotoCustomRegular";
+  font-size: 20px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .column {
+    width: 33.33%;
+  }
+}
+
+@media (max-width: 768px) {
+  .column {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .column {
+    width: 50%;
+  }
+}

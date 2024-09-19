@@ -1,0 +1,301 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="z-index: 2; position:absolute;"></c-ui-loader>
+    </template>
+    <template if:true={showConsentModal}>
+        <c-ausf_-address-declaration-modal-cmp style="z-index: 2; position:absolute;" loan-application-id={loanApplicationId} applicant-id={applicantId} screen-name={screenName} onclosemodalevent={handleConsentModalClose} onrejectevent={showrejectScreen}></c-ausf_-address-declaration-modal-cmp>
+    </template>
+    <template if:true={showDurationModal}>
+        <c-ausf_-communication-address-tenure-c-m-p style="z-index: 2; position:absolute;" year={selectedYear} month={selectedMonth} type-of-residence={selectedType} skip-next={skipNext} onsubmit={handleTenureSubmit} onclosemodalevent={handleCloseDurationModal}></c-ausf_-communication-address-tenure-c-m-p>
+    </template>
+    <template if:true={showErrorScreen}>
+            <c-ausf_-generic-error-screen-component screen-name={screenName} error-title="Address_Declaration_Rejection"
+                error-image="Group_427321908.png"></c-ausf_-generic-error-screen-component>
+    </template>
+    <template if:true={showContent}>
+        <div class="Container"> 
+            <!-- lwc:if={showAddressContent}> -->
+            <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                container-description={headerDescription} journey-steps={overallJourneySteps}
+                current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+    
+            <div class="custom-box">
+                <div class="Title slds-m-right_medium slds-m-left_medium slds-m-top_medium">
+                    {title}
+                </div>
+                <div class="Subtitle slds-m-right_medium slds-m-left_medium slds-m-top_xx-small slds-m-bottom_medium">
+                    {subtitle}
+                </div>
+                <div class="Address-Image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="360" height="123" viewBox="0 0 360 123" fill="none">
+                        <path d="M0 24C0 10.7452 10.7452 0 24 0H336C349.255 0 360 10.7452 360 24V123H0V24Z"
+                            fill="#FFF7F5" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="57" viewBox="0 0 70 57" fill="none" x="54" y="66.41">
+                            <path d="M44.334 0.412127H48.3498L69.5128 16.1766H65.4976L44.334 0.412127Z" fill="#FEF5ED" />
+                            <path d="M42.3261 68.9211H0V16.1766L21.1632 0.412117L42.3261 16.1766V68.9211Z" fill="#FDE3D7" />
+                            <path d="M21.1631 0.412127H25.1789L46.3419 16.1766H42.326L21.1631 0.412127Z" fill="#FEF5ED" />
+                            <path d="M42.3262 68.9211H69.5129V18.9533H42.3262V68.9211Z" fill="#FFF0EB" />
+                            <path d="M65.4976 18.9532L44.334 2.34513H27.7275L46.1906 16.1766L46.3419 18.9532H65.4976Z"
+                                fill="#FFDBC7" />
+                            <path d="M46.342 18.9532H42.3262V16.1766H46.342V18.9532Z" fill="white" />
+                            <path d="M69.5128 18.9532H65.4976V16.1766H69.5128V18.9532Z" fill="white" />
+                            <path d="M44.3341 0.412106L42.4722 2.34513H44.3341L65.4977 18.9532V16.1766L44.3341 0.412106Z"
+                                fill="#FCEBE0" />
+                            <path d="M42.3261 40.7955H0V68.9211H42.3261V40.7955Z" fill="#FDE3D7" />
+                            <path d="M42.3262 40.7955H69.5129V68.9211H42.3262V40.7955Z" fill="#FFF0EB" />
+                            <path d="M26.7159 47.4058H15.6104V68.9211H26.7159V47.4058Z" fill="#FFDBC7" />
+                            <path d="M4.24072 60.3942H10.8841V47.4058H4.24072V60.3942Z" fill="#FCEBE0" />
+                            <path d="M10.8841 47.4058V48.0629H4.89776V60.3942H4.24072V47.4058H10.8841Z" fill="#FFCCB2" />
+                            <path d="M31.4424 60.3942H38.0858V47.4058H31.4424V60.3942Z" fill="#FCEBE0" />
+                            <path d="M38.0858 47.4058V48.0629H32.0994V60.3942H31.4424V47.4058H38.0858Z" fill="#FFCCB2" />
+                            <path d="M2.6792 35.3189H9.32258V37.1167H2.6792V35.3189Z" fill="white" />
+                            <path d="M10.8844 35.3189H9.32275V37.1167H10.8844V35.3189Z" fill="#FFF7F5" />
+                            <path d="M16.2803 35.3189H22.923V37.1167H16.2803V35.3189Z" fill="white" />
+                            <path d="M24.4845 35.3189H22.9229V37.1167H24.4845V35.3189Z" fill="#FFF7F5" />
+                            <path d="M29.8804 35.3189H36.5237V37.1167H29.8804V35.3189Z" fill="white" />
+                            <path d="M38.0856 35.3189H36.5239V37.1167H38.0856V35.3189Z" fill="#FFF7F5" />
+                            <path d="M4.24072 35.3189H10.8841V22.3305H4.24072V35.3189Z" fill="#FCEBE0" />
+                            <path d="M10.8841 22.3305V22.9876H4.89776V35.3189H4.24072V22.3305H10.8841Z" fill="#FFCCB2" />
+                            <path d="M17.8418 35.3189H24.4845V22.3305H17.8418V35.3189Z" fill="#FCEBE0" />
+                            <path d="M24.4845 22.3305V22.9876H18.4982V35.3189H17.8418V22.3305H24.4845Z" fill="#FFCCB2" />
+                            <path d="M31.4424 35.3189H38.0858V22.3305H31.4424V35.3189Z" fill="#FCEBE0" />
+                            <path d="M38.0858 22.3305V22.9876H32.0994V35.3189H31.4424V22.3305H38.0858Z" fill="#FFCCB2" />
+                            <path d="M54.1121 60.3942H47.4688V47.4058H54.1121V60.3942Z" fill="#FFF7F5" />
+                            <path d="M47.4688 47.4058V48.0629H53.4551V60.3942H54.1121V47.4058H47.4688Z" fill="#FCEBE0" />
+                            <path d="M52.943 35.3189H46.3003V22.3305H52.943V35.3189Z" fill="#FFF7F5" />
+                            <path d="M65.5394 35.3189H58.896V22.3305H65.5394V35.3189Z" fill="#FFF7F5" />
+                            <path d="M46.3003 22.3305V22.9876H52.2866V35.3189H52.943V22.3305H46.3003Z" fill="#FCEBE0" />
+                            <path d="M58.896 22.3305V22.9876H64.8823V35.3189H65.5394V22.3305H58.896Z" fill="#FCEBE0" />
+                            <path d="M53.9471 35.3189H47.3037V37.1167H53.9471V35.3189Z" fill="white" />
+                            <path d="M46.3003 35.3189H47.8619V37.1167H46.3003V35.3189Z" fill="#FCEBE0" />
+                            <path d="M66.5433 35.3189H59.8999V37.1167H66.5433V35.3189Z" fill="white" />
+                            <path d="M58.896 35.3189H60.4577V37.1167H58.896V35.3189Z" fill="#FCEBE0" />
+                            <path d="M45.6278 3.3557H29.2267L27.9253 2.38444H44.3861L45.6278 3.3557Z" fill="#FFF0EB" />
+                            <path d="M48.111 5.30777H31.8298L30.5386 4.33651H46.8693L48.111 5.30777Z" fill="#FFF0EB" />
+                            <path d="M50.5942 7.26048H34.4336L33.1221 6.27906H49.3525L50.5942 7.26048Z" fill="#FFF0EB" />
+                            <path d="M53.0672 9.20308H37.0266L35.7354 8.2318H51.8356L53.0672 9.20308Z" fill="#FFF0EB" />
+                            <path d="M55.5609 11.1552H39.6301L38.3389 10.1845H54.3192L55.5609 11.1552Z" fill="#FFF0EB" />
+                            <path d="M58.0437 13.1079H42.2335L40.9321 12.1264H56.7918L58.0437 13.1079Z" fill="#FFF0EB" />
+                            <path d="M60.517 15.0504H44.8269L43.5356 14.0791H59.2855L60.517 15.0504Z" fill="#FFF0EB" />
+                            <path d="M46.3388 17.0031V16.1816L46.1382 16.0318H61.7687L63.0098 17.0031H46.3388Z"
+                                fill="#FFF0EB" />
+                            <path d="M65.4932 18.9552H46.3389V17.9737H64.2414L65.4932 18.9552Z" fill="#FFF0EB" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="69" height="43" viewBox="0 0 69 43" fill="none" x="134" y="74.03">
+                            <g opacity="0.5">
+                                <path d="M3.13965 15.3902L17.92 0.0303383L20.4992 2.71093H17.92L3.13965 18.0708V15.3902Z"
+                                    fill="#FCEBE0" />
+                                <path d="M38.9613 15.3902H35.8218L50.6015 0.0302706H53.741L38.9613 15.3902Z"
+                                    fill="#FEF5ED" />
+                                <path d="M3.13952 15.3902H0L14.7804 0.0302706H17.9199L3.13952 15.3902Z" fill="#FEF5ED" />
+                                <path d="M17.92 2.71093L3.13965 18.0708H35.8219V15.3902L48.0219 2.71093H17.92Z"
+                                    fill="#FFF0EB" />
+                                <path d="M3.13952 18.0708H0V15.3902H3.13952V18.0708Z" fill="white" />
+                                <path d="M38.9613 18.0708H35.8218V15.3902H38.9613V18.0708Z" fill="white" />
+                                <path d="M38.9614 18.0708H68.5215V15.3902L53.7412 0.0303383L38.9614 15.3902V18.0708Z"
+                                    fill="#FDE3D7" />
+                                <path d="M38.9613 42.9216H0V18.0708H38.9613V42.9216Z" fill="#FFF0EB" />
+                                <path d="M38.9614 42.9216H68.5215V18.0708H38.9614V42.9216Z" fill="#FDE3D7" />
+                                <path d="M48.0205 2.70845L47.2381 3.51993H17.1387L17.9211 2.70845H48.0205Z"
+                                    fill="#FFDBC7" />
+                                <path d="M46.4668 4.32583L45.6844 5.13669H15.585L16.368 4.32583H46.4668Z" fill="#FFDBC7" />
+                                <path d="M44.9082 5.94258L44.1252 6.75406H14.0264L14.8088 5.94258H44.9082Z"
+                                    fill="#FFDBC7" />
+                                <path d="M43.3545 7.55933L42.5721 8.37143H12.4727L13.2551 7.55933H43.3545Z"
+                                    fill="#FFDBC7" />
+                                <path d="M41.7953 9.17733L41.0185 9.98819H10.9141L11.6965 9.17733H41.7953Z"
+                                    fill="#FFDBC7" />
+                                <path d="M40.2422 10.7941L39.4592 11.6049H9.36035L10.1428 10.7941H40.2422Z"
+                                    fill="#FFDBC7" />
+                                <path d="M38.6887 12.4109L37.9063 13.223H7.80127L8.58368 12.4109H38.6887Z" fill="#FFDBC7" />
+                                <path d="M37.1299 14.0283L36.3469 14.8398H6.24805L7.03045 14.0283H37.1299Z"
+                                    fill="#FFDBC7" />
+                                <path d="M35.8199 15.6456V16.4564H4.69434L5.47117 15.6456H35.8199Z" fill="#FFDBC7" />
+                                <path d="M35.8202 17.2624V18.0684H3.1416L3.91844 17.2624H35.8202Z" fill="#FFDBC7" />
+                                <path
+                                    d="M56.3053 12.9551C56.3053 14.3715 55.1567 15.5188 53.7409 15.5188C52.3246 15.5188 51.1772 14.3715 51.1772 12.9551C51.1772 11.5394 52.3246 10.3908 53.7409 10.3908C55.1567 10.3908 56.3053 11.5394 56.3053 12.9551Z"
+                                    fill="#FFF7F5" />
+                                <path d="M50.8418 34.6139H44.3691V21.9593H50.8418V34.6139Z" fill="#FFF7F5" />
+                                <path d="M63.1137 34.6139H56.6411V21.9593H63.1137V34.6139Z" fill="#FFF7F5" />
+                                <path d="M52.3626 34.6139H45.8906V36.3655H52.3626V34.6139Z" fill="white" />
+                                <path d="M44.3691 34.6139H45.8906V36.3655H44.3691V34.6139Z" fill="#FCEBE0" />
+                                <path d="M64.6346 34.6139H58.1626V36.3655H64.6346V34.6139Z" fill="white" />
+                                <path d="M56.6411 34.6139H58.1626V36.3655H56.6411V34.6139Z" fill="#FCEBE0" />
+                                <path d="M44.3691 21.9593V22.5995H50.2016V34.6139H50.8418V21.9593H44.3691Z"
+                                    fill="#FFCCB2" />
+                                <path d="M56.6411 21.9593V22.5995H62.4736V34.6139H63.1137V21.9593H56.6411Z"
+                                    fill="#FFCCB2" />
+                                <path d="M27.2153 34.6139H33.688V36.3655H27.2153V34.6139Z" fill="white" />
+                                <path d="M35.2095 34.6139H33.688V36.3655H35.2095V34.6139Z" fill="#FCEBE0" />
+                                <path d="M2.23047 34.6139H8.70248V36.3655H2.23047V34.6139Z" fill="white" />
+                                <path d="M10.2237 34.6139H8.70215V36.3655H10.2237V34.6139Z" fill="#FCEBE0" />
+                                <path d="M28.7368 34.6139H35.2095V21.9593H28.7368V34.6139Z" fill="#FFF7F5" />
+                                <path d="M3.75195 34.6139H10.224V21.9593H3.75195V34.6139Z" fill="#FFF7F5" />
+                                <path d="M35.2095 21.9593V22.5995H29.377V34.6139H28.7368V21.9593H35.2095Z" fill="#FFCCB2" />
+                                <path d="M10.224 21.9593V22.5995H4.3921V34.6139H3.75195V21.9593H10.224Z" fill="#FFCCB2" />
+                                <path d="M38.9613 42.9216H0V38.9638H38.9613V42.9216Z" fill="#FFF0EB" />
+                                <path d="M38.9614 42.9216H68.5215V38.9638H38.9614V42.9216Z" fill="#FDE3D7" />
+                                <path d="M24.8903 21.9593H14.0708V42.9216H24.8903V21.9593Z" fill="#FFDBC7" />
+                            </g>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="97" height="110" viewBox="0 0 97 110" fill="none" x="224" y="13">
+                                <path d="M64.3101 30.8917H69.3702L96.0379 50.7574H90.9777L64.3101 30.8917Z"
+                                    fill="#FCBD9E" />
+                                <path d="M53.3362 109.993H0V50.7809L26.6677 30.9153L53.3362 50.7809V109.993Z"
+                                    fill="#FCBD9E" />
+                                <path d="M26.6675 30.9153H31.7277L58.3953 50.781H53.3359L26.6675 30.9153Z" fill="#FCBD9E" />
+                                <path d="M53.3359 109.993H58.3954V50.7809H53.3359V109.993Z" fill="#FCBD9E" />
+                                <path d="M90.978 109.993H96.0382V50.7809H90.978V109.993Z" fill="#FCBD9E" />
+                                <path d="M87.5448 50.7809H58.3955V109.993H87.5448V50.7809Z" fill="#FAC7AE" />
+                                <path d="M87.5449 50.7809H90.9779V109.993H87.5449V50.7809Z" fill="#F9E0C4" />
+                                <path d="M61.0645 33.352L64.31 30.8917L90.9776 50.7574H87.5447L64.1791 33.352H61.0645Z"
+                                    fill="#F9E0C4" />
+                                <path d="M87.5449 50.7809L64.3103 33.352H35.1309L58.3957 50.7809H87.5449Z" fill="#DB5E2B" />
+                                <path d="M65.6713 34.3762H36.4875L35.125 33.3549H64.3081L65.6713 34.3762Z" fill="#DB5E2B" />
+                                <path d="M68.4094 36.4328H39.2381L37.8506 35.3983H67.0329L68.4094 36.4328Z"
+                                    fill="#DB5E2B" />
+                                <path d="M71.1469 38.4769H41.9638L40.6006 37.4548H69.7719L71.1469 38.4769Z"
+                                    fill="#DB5E2B" />
+                                <path d="M73.885 40.5334H44.7136L43.3262 39.4989H72.51L73.885 40.5334Z" fill="#DB5E2B" />
+                                <path d="M76.61 42.5775H47.4394L46.0762 41.5555H75.2467L76.61 42.5775Z" fill="#DB5E2B" />
+                                <path d="M79.3476 44.634H50.1895L48.8027 43.5995H77.9726L79.3476 44.634Z" fill="#DB5E2B" />
+                                <path d="M82.0858 46.6782H52.9152L51.5527 45.6561H80.7108L82.0858 46.6782Z"
+                                    fill="#DB5E2B" />
+                                <path d="M84.8239 48.7347H55.6658L54.2783 47.6994H83.4489L84.8239 48.7347Z"
+                                    fill="#DB5E2B" />
+                                <path d="M87.5496 50.7787H58.3915L57.0283 49.7567H86.1864L87.5496 50.7787Z"
+                                    fill="#DB5E2B" />
+                                <path d="M33.099 85.0727H20.2368V109.993H33.099V85.0727Z" fill="#DB5E2B" />
+                                <path d="M7.06836 100.116H14.7623V85.0727H7.06836V100.116Z" fill="#F37435" />
+                                <path d="M14.7623 85.0727V85.8337H7.82862V100.116H7.06836V85.0727H14.7623Z"
+                                    fill="#FFCCB2" />
+                                <path d="M38.5732 100.116H46.2679V85.0727H38.5732V100.116Z" fill="#F37435" />
+                                <path d="M46.2679 85.0727V85.8337H39.335V100.116H38.5732V85.0727H46.2679Z" fill="#FFCCB2" />
+                                <path d="M7.06836 71.0731H14.7623V56.0294H7.06836V71.0731Z" fill="#F37435" />
+                                <path d="M14.7623 56.0294V56.7904H7.82862V71.0731H7.06836V56.0294H14.7623Z"
+                                    fill="#FFCCB2" />
+                                <path d="M22.8208 71.0731H30.5147V56.0294H22.8208V71.0731Z" fill="#F37435" />
+                                <path d="M30.5147 56.0294V56.7904H23.5818V71.0731H22.8208V56.0294H30.5147Z"
+                                    fill="#FFCCB2" />
+                                <path d="M38.5732 71.0731H46.2679V56.0294H38.5732V71.0731Z" fill="#F37435" />
+                                <path d="M46.2679 56.0294V56.7904H39.335V71.0731H38.5732V56.0294H46.2679Z" fill="#FFCCB2" />
+                                <path d="M82.7995 100.116H66.7588V102.199H82.7995V100.116Z" fill="#FCEBE0" />
+                                <path d="M64.9497 100.116H66.7585V102.199H64.9497V100.116Z" fill="white" />
+                                <path d="M80.9905 100.116H64.9497V85.0727H80.9905V100.116Z" fill="#DB5E2B" />
+                                <path d="M64.9497 85.0727V85.8337H80.2295V100.116H80.9905V85.0727H64.9497Z"
+                                    fill="#FFA378" />
+                                <path d="M82.7995 71.0731H66.7588V73.1554H82.7995V71.0731Z" fill="#FCEBE0" />
+                                <path d="M64.9497 71.0731H66.7585V73.1554H64.9497V71.0731Z" fill="white" />
+                                <path d="M80.9905 71.0731H64.9497V56.0294H80.9905V71.0731Z" fill="#DB5E2B" />
+                                <path d="M64.9497 56.0294V56.7904H80.2295V71.0731H80.9905V56.0294H64.9497Z"
+                                    fill="#FFA378" />
+                                <path d="M5.25928 100.116H12.9532V102.199H5.25928V100.116Z" fill="#FFF0EB" />
+                                <path d="M14.7619 100.116H12.9531V102.199H14.7619V100.116Z" fill="#FFDBC7" />
+                                <path d="M36.7646 100.116H44.4593V102.199H36.7646V100.116Z" fill="#FFF0EB" />
+                                <path d="M46.2678 100.116H44.459V102.199H46.2678V100.116Z" fill="#FFDBC7" />
+                                <path d="M5.25928 71.0731H12.9532V73.1554H5.25928V71.0731Z" fill="#FFF0EB" />
+                                <path d="M14.7619 71.0731H12.9531V73.1554H14.7619V71.0731Z" fill="#FFDBC7" />
+                                <path d="M21.0127 71.0731H28.7059V73.1554H21.0127V71.0731Z" fill="#FFF0EB" />
+                                <path d="M30.5148 71.0731H28.7061V73.1554H30.5148V71.0731Z" fill="#FFDBC7" />
+                                <path d="M36.7646 71.0731H44.4593V73.1554H36.7646V71.0731Z" fill="#FFF0EB" />
+                                <path d="M46.2678 71.0731H44.459V73.1554H46.2678V71.0731Z" fill="#FFDBC7" />
+                                <path
+                                    d="M30.7684 44.634C30.7684 46.8987 28.9324 48.7347 26.6678 48.7347C24.4031 48.7347 22.5679 46.8987 22.5679 44.634C22.5679 42.3694 24.4031 40.5334 26.6678 40.5334C28.9324 40.5334 30.7684 42.3694 30.7684 44.634Z"
+                                    fill="#FFA378" />
+                                <path d="M91.2583 53.0714H58.2583V51.0714H91.2583V53.0714Z" fill="#FCBD9E" />
+                                <path d="M86.2733 109.993H82.4551L83.019 98.2466H85.7101L86.2733 109.993Z" fill="#362400" />
+                                <path
+                                    d="M84.3649 77.4163L81.4981 76.5627L78.7158 99.6282L84.3649 101.516L90.0141 99.6282L87.231 76.5627L84.3649 77.4163Z"
+                                    fill="#008033" />
+                                <path d="M87.231 76.5627L84.3649 52.8067L81.498 76.5627L84.3649 77.4163L87.231 76.5627Z"
+                                    fill="#008033" />
+                                <path d="M60.5146 109.993H56.6963L57.2588 98.2466H59.9514L60.5146 109.993Z"
+                                    fill="#362400" />
+                                <path
+                                    d="M58.6059 87.4844L55.7391 86.9867L52.9561 100.417L58.6059 101.516L64.2543 100.417L61.472 86.9867L58.6059 87.4844Z"
+                                    fill="#008033" />
+                                <path d="M61.4722 86.9867L58.6061 73.1554L55.7393 86.9867L58.6061 87.4845L61.4722 86.9867Z"
+                                    fill="#008033" />
+                                <path d="M27.5 19V38.6786" stroke="#3D1D0D" stroke-width="2" stroke-miterlimit="10"
+                                    stroke-linecap="round" />
+                                <path
+                                    d="M27.5 19C32.7467 19 37 14.7467 37 9.5C37 4.25329 32.7467 0 27.5 0C22.2533 0 18 4.25329 18 9.5C18 14.7467 22.2533 19 27.5 19Z"
+                                    fill="#671773" />
+                                <path
+                                    d="M24.107 8.82143C25.2313 8.82143 26.1427 7.91001 26.1427 6.78571C26.1427 5.66142 25.2313 4.75 24.107 4.75C22.9827 4.75 22.0713 5.66142 22.0713 6.78571C22.0713 7.91001 22.9827 8.82143 24.107 8.82143Z"
+                                    fill="#A840B5" />
+                        </svg>
+                    </svg>
+                </div>
+                <div class="Address-Container">
+                    <template for:each={applicantAddressArray} for:item="address">
+                        <div key={address.id}>
+                            <div class="Address slds-p-around_medium" data-id={address.Id}>
+                                <div class="slds-grid slds-nowrap slds-grid_align-spread">
+                                    <div class="Address-Source-Pill">
+                                        {address.Source}
+                                    </div>
+                                    <div class="slds-grid slds-align-end">
+                                        <!-- <input class="slds-float_right" type="radio" checked={address.checked}
+                                                                                onchange={handleAddressSelection}> -->
+                                        <lightning-input type="radio" class="slds-float_right" name={address.Id} value={address.Checked}
+                                            checked={address.Checked} onchange={handleAddressSelection}></lightning-input>
+                                    
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-size_1-of-1 slds-m-top_small">
+                                        {address.Address}
+                                    </div>
+    
+                                    <div lwc:if={address.isAddressTenureCaptured} class="Tenure-Container">
+                                        <div class="Type-Of-Address">{address.typeOfResidence} |</div>
+                                        <div class="Duration">{address.year} years, {address.month} months</div>
+                                        <div class="Edit" data-year={address.year} data-month={address.month} data-type={address.typeOfResidence} onclick={handleAddressDurationEdit}>Edit</div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div style="height: 177px;">
+                </div>
+                <div class="Button-Container">
+                    <button onclick={handleAddressProceed} class={addrModalBtnClass} disabled={disableProceedButton}>
+                        <span class="submit">Proceed</span>
+                    </button>
+                </div>
+                
+            </div>
+            <!-- <template if:true={openModal}>
+                <div class="custom-box-overlay">
+                </div>
+                <div class="terms-modal">
+                    <div class="terms-modal-header">
+                        <h3>Type of residence</h3>
+                        <button class="slds-button" onclick={handleCloseModal}>
+                            <img class="terms-modal-header-img" src={closeImg} alt="close Icon" />
+                        </button>
+                    </div>
+                    <lightning-modal-body class="terms-modal-body">
+                        <div class="terms-modal-header">
+                            <h3>Since how long are you living here</h3>
+                        </div>
+                    </lightning-modal-body>
+                    <div style="height: 177px;">
+                    </div>
+                    <div class="agree-box">
+                        <button class="slds-button agree-button-box" onclick={handleAgreeClick}>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </template> -->
+    
+        </div>
+    </template>
+
+
+</template>

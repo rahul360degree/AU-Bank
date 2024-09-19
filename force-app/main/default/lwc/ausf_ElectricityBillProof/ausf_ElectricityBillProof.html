@@ -1,0 +1,267 @@
+<!--
+  @description       : Modal Screen to allow user to verify residence ownership proof by electricity bill verificartion in the application.
+                       This modal screen is displayed after user selects residence ownership proof as electricity bill.
+                       This screen shows guided screens which helps user to understand what steps to follow for verification.
+  @author            : Asmita Mathur
+  @group             : Salesforce
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   22-07-2024   Asmita Mathur   Initial Version
+-->
+<template>
+    <template if:true={showLoader}>
+            <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+    </template>
+    <template if:true={showErrorModal}>
+        <c-ausf_generic-error-cmp 
+          errormessage={errorMessageApi} errortitle="Electricity verification failed" buttonname="Upload manually"  onclosemodalevent={handleCloseErrorModal} style="position: absolute; z-index: 2;">
+       </c-ausf_generic-error-cmp>
+    </template>
+        <template if:true={showDistrictScreen}>
+            <div class="background-box">
+                <div class="outer-container">
+                   <c-ausf_-generic-header-cmp style="width: 100%;"
+                    header-contents={headerContents}></c-ausf_-generic-header-cmp>
+                </div> 
+                <div class="header">
+                    <img class="arrow-left" onclick={handleBackRedirection} src={activeBackButtonImg}></img>
+                    <span class = "labelText">
+                        District
+                    </span>
+                </div>
+                <div class="search-container">
+                    <img class="search-icon" src={searchImg}></img>
+                    <input type="search" class ="inputText"
+                            onchange={handleSearch} oninput={handleSearch}
+                            value={searchTerm}
+                            placeholder="Search district"/>
+                </div>
+                <div class="modal-box">
+                    <template if:true={showDistrictSearchResults}>
+                        <div class="labelDiv">
+                            <ul>
+                                <template for:each={filteredDistrictResults} for:item="result">
+                                    <li key={result.index} class="labelText1" onclick={handleDistrictInput} data-label={result.label}>
+                                        {result.label}
+                                    </li>
+                                </template>
+                              </ul>
+                        </div>
+                    </template>
+                    <template if:false={showDistrictSearchResults}>
+                        <div class="labelDiv">
+                            <ul>
+                                <template for:each={districtList} for:item="item">
+                                    <li key={item.index} class="labelText1" onclick={handleDistrictInput} data-label={item.label}>
+                                        {item.label}
+                                    </li>
+                                </template>
+                              </ul>
+                        </div>
+                    </template>
+                    
+                </div>   
+            </div>        
+        </template>    
+        <template if:true={showElectricityCompanyScreen}>
+            <div class="background-box">
+                <div class="outer-container">
+                   <c-ausf_-generic-header-cmp style="width: 100%;"
+                    header-contents={headerContents}></c-ausf_-generic-header-cmp>
+                </div> 
+                <div class="header">
+                    <img class="arrow-left" onclick={handleBackRedirection} src={activeBackButtonImg}></img>
+                    <span class = "labelText">
+                        Electricity distribution company 
+                    </span>
+                </div>
+                <div class="search-container">
+                    <img class="search-icon" src={searchImg}></img>
+                    <input type="search" class ="inputText"
+                            onchange={handleSearch} oninput={handleSearch}
+                            value={searchTerm}
+                            placeholder="Search electricity distribution company"/>
+                </div>
+                <div class="modal-box">
+                    <template if:true={showSearchResults}>
+                    <div class="labelDiv">
+                        <ul>
+                            <template for:each={filteredResults} for:item="result">
+                                <li key={result.index} class="labelText1" onclick={handleCompanyInput} data-label={result.label}>
+                                    {result.label}
+                                </li>
+                            </template>
+                          </ul>
+                    </div>
+                    </template>
+                    <template if:false={showSearchResults}>
+                        <div class="labelDiv">
+                            <ul>
+                                <template for:each={electricityCompanyList} for:item="item">
+                                    <li key={item.index} class="labelText1" onclick={handleCompanyInput} data-label={item.label}>
+                                        {item.label}
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </template>
+                    
+                </div>   
+            </div>
+        </template>
+        
+        <template if:true={showMainScreen}>
+            <div class="background-box">
+                <div class="outer-container" lwc:if={currentStep}>
+                    <c-ausf_-generic-header-cmp style="width: 100%;" show-contents={showContents}
+                        header-contents={headerContents} container-description={headerDescription}
+                        journey-steps={overallJourneySteps} current-journey={currentJourney}
+                        number-of-steps={stepsInCurrentJourney} active-step={currentStep} current-screen-name={screenName}
+                        enable-back-button={enableBackButton} back-to-parent={backToParent} onbackevent={handleBackReDirectParent}> </c-ausf_-generic-header-cmp>
+                </div>
+                
+                <div class="centerAligned">
+                    <div class="descriptionContent">
+                        <span class="titleText">
+                            {title}
+                        </span>
+                        <div class="container-subtext">
+                            <span class="subtitleText">
+                                {subtitle}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mainContent">    
+                        <template if:true={showUploadDocument}>
+                            <!-- <div class="selection-card-ul"> -->
+                                <!-- <img src={AUDrivingLicenseImg} class="drivinglicense-logo" alt="Driving License"/>     -->
+                                <template if:true={fileDataList.length}>
+                                    <div class="selection-card-ul">
+                                    <ul class="file-List">
+                                        <template for:each={fileDataList} for:item="item">
+                                            <li key={item.index} class="d-input-after" data-label={item.label.fileName}>
+                                                <img src={AUDrivingLicenseImg} class="drivinglicense-logo" alt="Driving License"/> 
+                                                <div class="fileNameDiv">
+                                                    <span class="labelText2">
+                                                        {item.label.filename} 
+                                                    </span>
+                                                    <span class="labelSubText">
+                                                        {item.label.size}
+                                                    </span>   
+                                                </div>  
+                                                <img data-index={item.index} onclick={handlePreview} class="actionIcons-preview" src={previewImg}>
+                                                <img data-index={item.index} class="actionIcons-del" onclick={handleDeleteFile} src={deleteImg}>    
+                                            </li>
+    
+                                        </template>
+                                    </ul>  
+                                    </div>                               
+                                </template>
+                                <template if:false={fileDataList.length}>
+                                    <div class="selection-card-upload">
+                                    <img src={AUDrivingLicenseImg} class="drivinglicense-logo" alt="Driving License"/> 
+                                    <input type="text" class="d-input"
+                                    placeholder="Upload document" readonly/>
+                                    <button class="slds-button arrow-logo" onclick={handleUploadDocClick}>
+                                        <img src={AUChevronRightImg} class="chevronRight-logo" alt="Chevron Right"/>
+                                   </button> 
+                                </div>         
+                                </template>
+                                          
+                                
+                            <!-- </div>       -->
+                        </template>
+                        <template if:false={showUploadDocument}>
+                            <div class="selection-card">
+                                <input type="text" class={kInputClass}
+                                    value={kNumber} 
+                                     placeholder="K number"
+                                    oninput={handleKNumberInput} 
+                                    onchange={handleKNumberInput}/>
+                                    <template lwc:if={kNumber}>
+                                        <label for="k-input" class={kLabelClass}>K number</label>
+                                    </template>
+                            </div>
+                            <template if:true={errorMessage}>
+                                <div class="error-message">
+                                    <img class="error-icon" src={AUErrorImg} alt="error icon"/>{errorMessage}
+                                </div>
+                            </template>
+                            
+                            <div class="selection-card">
+                                <input type="text" class={eInputClass}
+                                    value={selectedProviderValue} readonly
+                                    placeholder="Electricity distribution company"/>
+                                    <template lwc:if={selectedProviderValue}>
+                                    <label for="e-input" class={eLabelClass}>Electricity distribution company</label>
+                                </template>
+                                <button class="slds-button arrow-logo" onclick={handleEletcricityClick}>
+                                     <img src={AUChevronRightImg} class="chevronRight-logo" alt="Chevron Right"/>
+                                </button>
+                               
+                               
+                            </div> 
+                          <template lwc:if={showDistrictBox}>
+                            <div class="selection-card">
+                                <input type="text" class= {eInputClass}
+                                    value={selectedDistrictValue} readonly
+                                    placeholder="District"/>
+                                    <template lwc:if={selectedDistrictValue}>
+                                      <label for="e-input" class={eLabelClass}>District</label>
+                                    </template>
+                                <button class="slds-button arrow-logo" onclick={handleDistrictClick}>
+                                     <img src={AUChevronRightImg} class="chevronRight-logo" alt="Chevron Right"/>
+                                </button>
+                            </div>      
+                           </template>
+                        </template>           
+                    </div>
+                </div>
+                <div class="btnContainer">
+                    <span class="btnUpperText">
+                        I authorize AU bank to fetch my electricity bill details for verification purpose
+                    </span>
+                    <button class={cnfButtonClassVar} disabled={disableProceedBtn} onclick={handleSubmitMethod}>
+                        <span class="btnText">
+                            Proceed
+                        </span>
+                    </button>
+                </div>
+                <template if:true={openUploadModal}>
+                    <c-ausf_-file-upload-cmp  applicant-id={applicantId} insert-files={insertFiles} onsuccess={handleFileUpload} onclose={handleCloseModal} record-id={activeChecklist} loan-application-id={loanApplicationId} document-master-name={documentMasterName}></c-ausf_-file-upload-cmp>
+                </template>
+    
+                <template if:true={openPreviewModal}>
+                    <div class="modal-container">
+                        <c-ausf_-file-preview-cmp onclose={handleCloseModal} is-pdf={isPDF}  file-contents={previewFileData}></c-ausf_-file-preview-cmp>
+                    </div>
+                </template>
+            </div>
+            <template if:true={showSuccessScreen}>
+                <div class="modal-container">
+                    <div class="success-container">
+                        <div class="success-container-box">
+                            <img src={tickImg} class="tick-class" alt="tick"/>
+                             <span class="success-container-subtext">
+                                Electricity details verified!
+                             </span>
+                        </div>
+                        <div class="success-container-text">
+                            <span class="success-container-name-content">
+                               {consumerName}
+                            </span>
+                            <span class="success-container-content">
+                                {consumerAddress}
+                            </span>
+                        </div>
+                        <button class="btnEnabled" onclick={handleSuccessProceed}>
+                            <span class="btnText">
+                                Proceed
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                
+            </template>        
+        </template>       
+</template>

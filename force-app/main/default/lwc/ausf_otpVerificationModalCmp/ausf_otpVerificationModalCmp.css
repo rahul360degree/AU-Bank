@@ -1,0 +1,482 @@
+:host {
+    --slds-c-modal-shadow: none;
+    --sds-c-modal-shadow: none;
+    --lwc-shadowDropDown: none;
+    --slds-g-color-border-base-4: #ededf0;
+    --lwc-colorBorderInput: #ededf0;
+    --lwc-spacingMedium: none;
+    --slds-c-button-line-height: 50px;
+    --slds-c-button-brand-color-background: #DB5E2B;
+    --lwc-inputStaticFontWeight: bold;
+    --lwc-inputStaticFontSize: 50px;
+    --slds-c-button-brand-color-background-hover: #DB5E2B;
+    --slds-c-toast-color-background: #12121c;
+    --_slds-g-shadow-outset-focus: none;
+    --slds-g-shadow-outset-focus: none;
+    --slds-c-button-shadow: none;
+    --slds-c-button-shadow-focus: none;
+    --slds-c-input-spacing-horizontal-start:40% !important; /* Mohit M. */
+    
+    /* Removed by Ruturaj */
+    /*--slds-c-button-brand-text-color: #c9ccd1 !important ;*/ /* Mohit M. */
+}
+
+/* :root{
+    --_slds-g-shadow-outset-focus: none;
+} */
+
+.slds-button_brand:focus, .slds-button--brand:focus, .slds-button_success:focus, .slds-button--success:focus, .slds-button_destructive:focus, .slds-button--destructive:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+.Modal-Container{
+    position: absolute;
+    /* position: fixed; */
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 816px;
+    width: 360px;
+    margin-top: -758px;
+    /* margin-left: -320px; */
+}
+.close-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.container {
+    width: 360px;
+    height: 816px;
+    background-color: #671773;
+    /* opacity: 0.7; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+}
+
+.custom-header {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    height: 56px;
+    background-color: #f9f9fb;
+    border: 1px solid #e1e1e3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.header-title {
+    margin: 18px 48px 18px 16px;
+    font-size: 1.25rem;
+    /* Adjust as needed */
+    color: #000;
+    /* Adjust as needed */
+    padding: 0px 16px;
+}
+
+.header {
+    width: 360px;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 40px;
+    padding: 12px 0;
+    border-bottom: solid 1px #e1e1e3;
+    background-color: #fff;
+}
+
+.transform {
+    width: 261px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 56px 32px 43px;
+    padding: 0;
+}
+
+.Transform-your-dreams-into-reality-with {
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffe8ff;
+}
+
+.AU-Digital-Loan {
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 23px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}
+
+.shadow{
+    width: 360px;
+    height: 816px;
+    flex-shrink: 0;
+    z-index: 0;
+    opacity: 0.7;
+    background: var(--Grey-900, #12121C);
+}
+
+.Background {
+    width: 360px;
+    height: 494px;
+    margin: 0 0 322px;
+    padding: 0 0 346px;
+    background-color: #671773;
+}
+
+
+.Verification {
+    width: 328px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 24px;
+    padding: 16px 16px 24px 24px;
+    z-index: 1;
+    border-radius: 24px;
+    background-color: #fff;
+    margin-bottom: 180px;
+}
+
+.Verification-Header{
+    color: var(--Typography-Heading, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Heading 1 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    padding-bottom: 12px;
+}
+
+.Enter-OTP{
+    color: var(--Neutrals-Blue-grey700, #3D3D47);
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    padding-top: 16px;
+}
+
+.Verification-Content {
+    /* height: 252px; */
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    /* gap: 44px; */
+    padding: 0;
+}
+
+.Text {
+    height: 20px;
+    /* flex-grow: 1; */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #12121c;
+}
+
+.Weve-sent-a-code-to-oliviauntitleduicom {
+    /* height: 40px; */
+    align-self: stretch;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3d3d47;
+}
+
+
+.Weve-sent-a-code-to-oliviauntitleduicom {
+    height: 40px;
+    align-self: stretch;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3d3d47;
+}
+
+.Weve-sent-a-code-to-oliviauntitleduicom .text-style-1 {
+    font-weight: 600;
+    color: #12121c;
+    font-family: NotoCustomBold;
+}
+
+
+.Otp-Fetching-Container {
+    height: 24px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.OTP-fetching-Result {
+    width: 87px;
+    height: 24px;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3d3d47;
+}
+
+.loader-img {
+    width: 24px;
+    height: 24px;
+    flex-grow: 0;
+    margin: 0 12.5px 0 10px;
+    border-radius: 1px;
+    /* background-color: #702105; */
+}
+
+.loader {
+    /* border: 2.8px solid #FCBE9E; */
+    border: 0.12rem solid #FCBE9E;
+    /* border-top: 2.8px solid #702105; */
+    border-top: 0.12rem solid #702105;
+    border-radius: 50%;
+    /* width: 24px; */
+    width: 1rem;
+    /* height: 24px; */
+    height: 1rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Otp-Rectangles-Container {
+    width: 296px;
+    height: 48px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 8px;
+    padding: 0;
+}
+
+
+.Otp-Input {
+    border-radius: inside, 1px;
+    border-color: #ededf0;
+    /* margin-left: 2px; MM */
+}
+
+.center-aligned-input .slds-input {
+    text-align: center !important;
+}
+
+.Otp-Result {
+    height: 44px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 44px;
+    padding-top: 5px;
+    color: var(--otpResultColor, 'green');
+}
+
+.Button-Separator {
+    height: 24px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 24px;
+    padding: 0;
+}
+
+
+.Didnt-Receive-Otp-Container {
+    height: 24px;
+    align-self: stretch;
+    flex-grow: 0;
+    /* gap: 4px; */
+    padding: 0;
+    font-size: 12px;
+}
+
+.Didnt-receive-OTP {
+    width: 110px;
+    height: 16px;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3d3d47;
+}
+
+
+
+.Resend-Active{
+    width: 43px;
+    height: 16px;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    border-bottom: 1px dashed #db5e2b;
+    color: #db5e2b;
+    text-decoration: none !important;
+}
+
+.Resend-Inactive{
+    pointer-events: none;
+    color: #9ea1ad;
+    width: 43px;
+    height: 16px;
+    flex-grow: 0;
+    font-family: "NotoCustomRegular";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    border-bottom: 1px dashed #9EA1AD;
+    text-decoration: none !important;   
+}
+
+.Submit-Button{
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #db5e2b;
+    border: none;
+    width: 100%;
+
+    color: #FFF;
+    text-align: center;
+
+    /* Body/B1 Semibold 600 */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    /* margin-top: 25px; */
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #C9CCD1;
+  
+}
+
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}

@@ -1,0 +1,10 @@
+<template>
+    <c-ausf_-parent-container-d-i-y current-screen-name="IPA BRE Loader" onpasstoparent={handleFromChild}></c-ausf_-parent-container-d-i-y>
+    <template if:true={blnLoadChild}>
+        <c-ausf_-b-r-e-loader-cmp
+            loan-application-id={recordId} 
+            onbackevent={handleBackScreenMethod} 
+            onsubmitevent={handleNextScreenMethod}>
+        </c-ausf_-b-r-e-loader-cmp>
+    </template>
+</template>

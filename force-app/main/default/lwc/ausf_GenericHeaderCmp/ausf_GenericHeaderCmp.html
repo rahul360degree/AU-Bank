@@ -1,0 +1,44 @@
+<template>
+    <div class="positionCenter">
+        <div class="header">
+            <div class="header-logo">
+                <img src={headerIconURL}></img>
+            </div>
+            <div class="header-content">
+                {headerContents}
+            </div>
+        </div>
+        <template if:true={showContents}>
+            <div class="contentPostion">
+                <div class="flex-container">
+                    <div class="container-header">
+                        <div class="arrow-left">
+                            <template if:false={enableBackButton}>
+                                <img class="arrow-left" src={disabledBackButtonURL}></img>
+                            </template>
+                            <template if:true={enableBackButton}>
+                                <img class="arrow-left" onclick={handleBackRedirection} src={activeBackButtonURL}></img>
+                            </template>
+                        </div>
+                        <span class="Basic-Details">
+                            {containerDescription}
+                        </span>
+                        <span class="Step-25">
+                            Step {activeStep}/{numberOfSteps}
+                        </span>
+                    </div>
+                    <div class="Frame-1171279920">
+                    </div>
+                    <span class="header-help">
+                        <a style="color: #ba4517;" href="https://www.aubank.in/au-digital-lending">Help</a>
+                    </span>
+                </div>
+                <div class="Progress-bar-step-4">
+                    <template for:each={stepsCollection} for:item="item">
+                        <progress key={item} class="journeyProgress" value={item.value} max="100"></progress>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

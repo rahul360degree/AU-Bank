@@ -1,0 +1,74 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+    </template>
+
+    <template if:false={showLoader}>
+        <template if:true={showEmpTypeSelectionModal}>
+            <c-ausf_-select-employment-type-cmp style="position: absolute; z-index: 10;" onsubmit={handleEmpTypeSelect}></c-ausf_-select-employment-type-cmp>
+        </template>
+
+            <div class="background-box">
+                <div class="outer-container">
+                    <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                        container-description={headerDescription} journey-steps={overallJourneySteps}
+                        current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                        current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+                </div>
+    
+                <div class="descriptionContent">
+                    <div class="contents">
+                        <div class="titleBox">
+                            <span class="titleText">Congratulations!</span>
+                            <span class="subtitleText">You have unlocked your loan offer</span>
+                        </div>
+            
+                        <div class="amountContainer">
+                            <div class="amountData">
+                                <div class="amountTextContainer">
+                                    <span class="amountTitle">Loan limit upto</span>
+                                    <span class="amountValue">{offeredLoanAmount}</span>
+                                    <template if:true={isHappyScreen}>
+                                        <span class="oldValue">{requestedLoanAmount}</span>
+                                        <img class="stroke" src={strokeIMGURL}>
+                                    </template>
+                                </div>
+                                <div class="purposeImg">
+                                    <img src={purposeImgURL}>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leftCircle"></div>
+                        <div class="rightCircle"></div>
+                        <div class="appData">
+                            <img class="yellowBg" src={background2URL}>
+                            <span class="appDataText">Application ID: {applicationIdData}</span>
+                        </div>
+            
+                        <div class="imgContainer">
+                            <img src={giftBoxURL} class="giftBox">
+                        </div>
+        
+                        <div class="footerIMGDiv">
+                            <img src={footerImgURL}  class="footerIMG">
+                        </div>
+            
+
+                    </div>
+                </div>  
+                <div class="Sticky-Button">
+                    <div class="btnDescFrame">
+                        <img src={lightningIMGURL} alt="" class="lightning">
+                        <span class="btnDescText">{footerText}</span>
+                    </div>
+                    <div class="temp">
+                        <button class="cnfButton" onclick={handleSubmitMethod}>
+                            <span class="Confirm">
+                                Confirm
+                            </span>
+                        </button>
+                    </div>
+                </div>          
+            </div>
+    </template>
+</template>

@@ -1,0 +1,149 @@
+:host{
+    --slds-c-button-line-height: 50px;
+    --slds-c-button-brand-color-background: #DB5E2B;
+    --slds-c-button-brand-color-background-hover: #DB5E2B;
+    --slds-c-button-outline-brand: none;
+}
+
+.container {
+    width: 360px;
+    height: 816px;
+    background: var(--Grey-25, #EDEDF0);
+    /* opacity: 0.7; */
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+}
+
+.custom-header {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    height: 56px;
+    background-color: #f9f9fb;
+    border: 1px solid #e1e1e3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.header-title {
+    margin: 18px 48px 18px 16px;
+    font-size: 1.25rem;
+    /* Adjust as needed */
+    color: #000;
+    /* Adjust as needed */
+    padding: 0px 16px;
+}
+
+.Content{
+    display: flex;
+    width: 360px;
+    height: 177.039px;
+    justify-content: flex-end;
+    /* align-items: center; */
+    flex-shrink: 0;
+}
+
+.Blank-Space{
+    display: flex;
+    width: 360px;
+    padding-bottom: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 160px;
+    height: 216px;
+}
+
+.Error-Image{
+    width: 56.147px;
+    height: 60.001px;
+    flex-shrink: 0;
+}
+
+.Display-Heading{
+    color: var(--Typography-Heading, #12121C);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Heading 1 */
+    font-family: "NotoCustomRegular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+}
+
+.Display-Msg{
+    color: var(--Typography-Body-Label, #3D3D47);
+    text-align: center;
+
+    /* Body/Para */
+    font-family: "NotoCustomRegular";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 142.857% */
+}
+
+.Button-Separator{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 475px;
+}
+.MessageContent{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 14px;
+}
+.ButtonClass{
+    border:none;
+    color:white;
+    display: flex;
+    width: 328px;
+    padding: var(--Mobile-Scale-lg---16, 16px) var(--Mobile-Scale-xxxl---32, 32px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Mobile-Scale-sm---8, 8px);
+    border-radius: var(--Radius-Component-3, 8px);
+    border-bottom: 1px solid var(--Orange-600, #992E08);
+    background: var(--Orange-400, #DB5E2B);
+}
+
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}

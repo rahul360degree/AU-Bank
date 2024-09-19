@@ -1,0 +1,13 @@
+<template>
+    <c-ausf_-parent-container-d-i-y first-page=true current-screen-name="Enter Mobile Number" onpasstoparent={handleFromChild}></c-ausf_-parent-container-d-i-y>
+    <template if:true={blnLoadChild}>
+        <c-ausf_-enter-mobile-number-screen
+            loan-application-id={currentPageRecordId} 
+            onbackevent={handleBackScreenMethod} 
+            onsubmitevent={handleNextScreenMethod}
+            onleadevent={handleLeadCreateEvent}
+            lead-stage-id={leadId}
+            lead-from-param={leadFromParam}>
+        </c-ausf_-enter-mobile-number-screen>
+    </template>
+</template>

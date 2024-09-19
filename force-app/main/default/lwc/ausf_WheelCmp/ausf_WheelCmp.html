@@ -1,0 +1,23 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 12-07-2024
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-942
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   12-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+
+
+<template>
+    <div>
+        <div class="heading">{heading}</div>
+    <div class="scroll-container" onscroll={handleScroll}>
+        <template for:each={items} for:item="item">
+            <div key={item.id} class="item">{item.name}</div>
+        </template>
+    </div>
+</div>
+</template>

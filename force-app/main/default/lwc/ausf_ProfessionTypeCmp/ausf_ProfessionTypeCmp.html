@@ -1,0 +1,96 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="z-index: 2; position:absolute; height: 962px"></c-ui-loader>
+    </template>
+
+    <!-- <template if:false={showLoader}> -->
+    <template if:true={showContent}>
+        <div class="Container">
+            <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContents}
+                container-description={headerDescription} journey-steps={overallJourneySteps}
+                current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                current-screen-name={screenName} enable-back-button={enableBackButton} onbackevent={handleBackReDirectParent}></c-ausf_-generic-header-cmp>
+
+
+            <div class="custom-box">
+                <div class="Title slds-m-right_medium slds-m-left_medium slds-m-top_medium">
+                    {title}
+                </div>
+                <div class="Subtitle slds-m-right_medium slds-m-left_medium slds-m-top_xx-small slds-m-bottom_medium">
+                    {subtitle}
+                </div>
+                <div class="Instant-Verification-Container">
+                    <div class="slds-grid slds-wrap">
+                        <span class="Verification-Logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20"
+                                fill="none">
+                                <path
+                                    d="M9.15168 2.92536e-06H3.52568C3.40991 -8.66083e-05 3.29696 0.0357027 3.20237 0.102446C3.10778 0.169189 3.0362 0.263607 2.99748 0.372705L0.0317699 8.74804C0.00202892 8.8324 -0.00701114 8.92266 0.0054109 9.01124C0.0178329 9.09982 0.0513535 9.18412 0.103151 9.25704C0.154948 9.32996 0.223506 9.38937 0.303053 9.43027C0.382601 9.47117 0.470809 9.49236 0.560254 9.49205H5.08824L3.30011 15.7392C3.27799 15.8172 3.28324 15.9004 3.31497 15.9749C3.3467 16.0495 3.403 16.111 3.4745 16.1491C3.54601 16.1873 3.62842 16.1998 3.70803 16.1846C3.78763 16.1694 3.85964 16.1274 3.91206 16.0656L11.5903 7.0632C11.6598 6.98193 11.7045 6.88239 11.7191 6.77644C11.7337 6.67049 11.7176 6.56257 11.6726 6.46553C11.6276 6.36849 11.5558 6.2864 11.4655 6.22903C11.3752 6.17166 11.2704 6.14143 11.1634 6.14192H6.49139L9.6341 0.842562C9.68431 0.75764 9.71113 0.660928 9.71183 0.562272C9.71252 0.463615 9.68706 0.366537 9.63803 0.280919C9.58901 0.195301 9.51818 0.124201 9.43275 0.0748557C9.34731 0.0255109 9.25033 -0.000316392 9.15168 2.92536e-06Z"
+                                    fill="#F5C46E" />
+                            </svg>
+                        </span>
+                        <span class="Instant-Verification-Text">
+                            Instant Verification
+                        </span>
+                    </div>
+                    <template for:each={instantVerificationArray} for:item="verificationMethod">
+                        <div key={verificationMethod.id}>
+                            <div class={verificationMethod.class} data-id={verificationMethod.Id}>
+                                <!-- <div class="slds-grid "> -->
+                                    <div class="Verification-Method-Text slds-float_left slds-size_1-of-2">
+                                        {verificationMethod.name}
+                                    </div>
+                                    <div class="slds-size_1-of-2 slds-float_right Radio-Container">
+                                        <!-- <input class="slds-float_right" type="radio" checked={address.checked}
+                                                onchange={handleAddressSelection}> -->
+                                        <lightning-input type="radio" data-name={verificationMethod.name} data-id={verificationMethod.id}
+                                            value={verificationMethod.checked} checked={verificationMethod.checked}
+                                            onchange={handleVerificationMethodSelection}></lightning-input>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="Instant-Verification-Container">
+                    <div class="slds-grid slds-wrap">
+                        <span class="Instant-Verification-Text">
+                            Manual Upload
+                        </span>
+                    </div>
+                    <template for:each={manualUploadArray} for:item="manualUpload">
+                        <div key={manualUpload.id}>
+                            <div class={manualUpload.class} data-id={manualUpload.Id}>
+                                <!-- <div class="slds-grid "> -->
+                                    <div class="Verification-Method-Text slds-float_left slds-size_1-of-2">
+                                        {manualUpload.name}
+                                    </div>
+                                    <div class="slds-size_1-of-2 slds-float_right Radio-Container">
+                                        <!-- <input class="slds-float_right" type="radio" checked={address.checked}
+                                                onchange={handleAddressSelection}> -->
+                                        <lightning-input type="radio" data-name={manualUpload.name} data-id={manualUpload.id}
+                                            value={manualUpload.checked} checked={manualUpload.checked}
+                                            onchange={handleManualUploadSelection}></lightning-input>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div style="height: 32px;background: var(--Grey-25, #EDEDF0);">
+                </div>
+                <div class="Button-Container">
+                    <button onclick={handleVerificationProceed} class={addrModalBtnClass} disabled={disableProceedButton}>
+                        <span class="submit">Proceed</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- <template if:true={showGeneric}>
+        <c-ausf_generic-buisness-proof-comp component-label-name={selectedMethod}
+        ></c-ausf_generic-buisness-proof-comp>
+    </template> -->
+</template>

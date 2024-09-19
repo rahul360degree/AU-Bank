@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+
+
+
+.bg {
+    width: 360px;
+    height: 800px;
+    background: var(--Grey-25, #EDEDF0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.pauseImage {
+    width: 135.306px;
+    height: 123.658px;
+    flex-shrink: 0;
+    margin-top: 72px;
+}
+
+.message {
+    color: var(--Neutrals-Blue-grey700, #3D3D47);
+    text-align: center;
+
+    /* Body/Subtext */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 0px 16px;
+}
+
+.loanApplicationInfo {
+    color: var(--Neutrals-Blue-grey700, #3D3D47);
+    text-align: center;
+
+    /* Body/Para */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+
+}
+
+.main {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.homeButton {
+    color: #FFFFFF;
+    display: flex;
+    width: 328px;
+    padding: var(--Mobile-Scale-lg---16, 16px) var(--Mobile-Scale-xxxl---32, 32px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Mobile-Scale-sm---8, 8px);
+    border-radius: var(--Radius-Component-3, 8px);
+    border-bottom: 1px solid var(--Orange-600, #992E08);
+    background: var(--Orange-400, #DB5E2B);
+}
+
+.homeButton {
+    margin: 0px 16px;
+    /* right: 10px; */
+    bottom: 32px;
+    position: absolute;
+    cursor: pointer;
+}

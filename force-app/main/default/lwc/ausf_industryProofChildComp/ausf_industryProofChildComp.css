@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+}
+
+:host {
+    --slds-c-icon-color-foreground: #3D3D47;
+    /* Your desired color */
+}
+
+:host .slds-icon-text-default {
+    --slds-c-icon-color-foreground: var(--slds-c-icon-color-foreground) !important;
+}
+
+.container {
+    width: 360px;
+    height: 816px;
+    background: var(--Grey-25, #EDEDF0);
+    /* opacity: 0.7; */
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
+}
+
+.custom-header {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    height: 56px;
+    background-color: #f9f9fb;
+    border: 1px solid #e1e1e3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+}
+
+.header-title {
+    margin: 18px 48px 18px 16px;
+    font-size: 1.25rem;
+    /* Adjust as needed */
+    color: #000;
+    /* Adjust as needed */
+    padding: 0px 16px;
+}
+
+.dynamic-component {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.option-container {
+    margin: 10px 0;
+}
+
+.sub-options {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 24px;
+    background: #FFF;
+    width: 358px;
+}
+
+.sub-selection-header {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.sub-header-title {
+    color: var(--Grey-900, #12121C);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Display/Nav Bar Title */
+    font-family: "NotoCustomBold";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 133.333% */
+
+}
+
+.back-icon {
+    display: flex;
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    border-bottom: 1px solid #ddd;
+    padding: 4px;
+    width: 337px;
+}
+
+.option-text {
+    color: var(--Grey-700, #3D3D47);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* Label/md */
+    font-family: "NotoCustomRegular";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    width: 285px;
+    /* 142.857% */
+}
+
+.slds-input {
+    height: 56px !important;
+}
+
+.right-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.input-search {
+    display: flex;
+    width: 328px;
+    height: 56px;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--Orange-300, #F37435);
+    background: var(--Background-Surface, #FFF);
+    padding-left: 40px;
+    /* Ensure space for the search icon */
+    box-sizing: border-box;
+}
+
+.search-icon-container {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    position: absolute;
+    margin: 17px 10px 18px;
+}
+
+.clear-icon-container {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    margin: -40px 300px 16px;
+}

@@ -1,0 +1,121 @@
+<!--
+  @description       : Modal Screen to allow user to enter Address in the application.
+                       This modal screen is displayed for user to enter different types of addresses required to be inserted in the Address__c object.
+  @author            : Asmita Mathur
+  @group             : Salesforce
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   10-07-2024   Asmita Mathur   Initial Version
+-->
+
+<template>
+    <!-- <div  class ="modal-container"> -->
+
+    <div class="adress-box">
+        <template if:false={showWheels}>
+            <div class="pin-frame">
+                <div class="modal-icon-static">
+                    <img src={pinImg}></img>
+                </div>
+                <div class="close-button-frame">
+                    <img class="close-button" onclick={handleCloseModal} src={closeIcon}></img>
+                </div>
+            </div>
+            <div class="address-content">
+                <span class="modal-text">
+                    {addressheader}
+                </span>
+            </div>
+            <div class="container">
+                <input type="text" class="Input-Text1" value={addr1Value} oninput={handleAddressLine1} />
+                <label for="Input-Text1" class="Input-Label">Address line 1</label>
+            </div>
+            <div class="container">
+                <input type="text" class="Input-Text1" value={addr2Value} oninput={handleAddressLine2} />
+                <label for="Input-Text1" class="Input-Label">Address line 2 (Optional)</label>
+            </div>
+            <div class="container">
+                <input type="text" class="Input-Text1" value={addr3Value} oninput={handleAddressLine3} />
+                <label for="Input-Text1" class="Input-Label">Address line 3 (Optional)</label>
+            </div>
+            <template lwc:if={showOnlyPincode}>
+                <div class="container">
+                    <input type="text" class="Input-Text2" value={pincode} readonly />
+                    <label for="Input-Text2" class="Input-Label-pin">PIN code</label>
+                    <template lwc:if={pincodedetails}>
+                        <span class="supporting-text-success">
+                            <img class="info-icon" src={infoImg}></img>{pincodedetails}
+                        </span>
+                    </template>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="container">
+                    <input type="text" class="Input-Text1" value={pincode} oninput={handlePinCode} />
+                    <label for="Input-Text1" class="Input-Label">PIN code</label>
+                    <template lwc:if={pincodedetails}>
+                        <span class="supporting-text-success">
+                            <img class="info-icon" src={infoImg}></img>{pincodedetails}
+                        </span>
+                    </template>
+
+                </div>
+                <div class="container">
+                    <div class="terms-modal-header">
+                        <h3>Business property ownership type</h3>
+                    </div>
+                    <div class="Frame-Residence">
+                        <div class="Frame-Sub-Residence">
+                            <div class="chips" oninput={updateType} onclick={updateType}>
+                                <div class="typeText">Owned</div>
+                            </div>
+                            <div class="chips" oninput={updateType} onclick={updateType}>
+                                <div class="typeText">Rented</div>
+                            </div>
+                            <div class="chips" oninput={updateType} onclick={updateType}>
+                                <div class="typeText">Family owned</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <button class={addrModalBtnClass} disabled={isDisableAddressSubmit} onclick={handleAddressModalSubmit}>
+                <span class="submit">Submit</span>
+            </button>
+        </template>
+        <template if:true={showWheels}>
+            <div class="terms-modal-header">
+                <h3>Since how long are you owning this property?</h3>
+                <button class="slds-button" onclick={handleCloseModal}>
+                    <img class="terms-modal-header-img" src={closeIcon} alt="close Icon" />
+                </button>
+            </div>
+            <div class="address-box1">
+                {fullAddress}
+            </div>
+            <div class="wheel-selector">
+                <div class="wheel">
+                    <c-ausf_-wheel-cmp onupdate={updateYear} heading="Year" value={year}
+                        items={itemsYear}></c-ausf_-wheel-cmp>
+                </div>
+                <div class="wheel">
+                    <c-ausf_-wheel-cmp onupdate={updateMonth} heading="Month" value={month}
+                        items={itemsMonth}></c-ausf_-wheel-cmp>
+                </div>
+            </div>
+            <div class={submitButtonCls}>
+                <button class="slds-button agree-button-box" onclick={handleDurationSubmit}
+                    disabled={durationSubmitButtonDisabled}>
+                    Submit
+                </button>
+            </div>
+        </template>
+    </div>
+
+
+
+
+
+    <!-- </div> -->
+
+</template>

@@ -1,0 +1,1204 @@
+@font-face {
+    font-family: "NotoCustomRegular";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Regular.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: "NotoCustomBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Bold.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: "NotoCustomSemiBold";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-SemiBold.ttf") format('truetype');
+  }
+  @font-face {
+    font-family: "NotoCustomMedium";
+    src: url("/resource/NotoSansFont/NotoSans/NotoSans-Medium.ttf") format('truetype');
+  }
+  
+  
+  .background-box {
+      width: 360px;
+      height: 800px;
+      flex-grow: 0;
+      background-color: #ededf0;
+    }
+  
+  .header {
+      width: 360px;
+      height: 56px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 16px;
+      padding: 12px 0;
+      border-bottom: solid 1px #e1e1e3;
+      background-color: #fff;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+  }
+  
+  .header-logo {
+      width: 32px;
+      height: 32px;
+      /* added */
+      margin-left: 7px;
+    }
+  
+  .header-content {
+      height: 20px;
+      flex-grow: 1;
+      font-family: "NotoCustomMedium";
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: #12121c;
+      /* added */
+      margin-right: 25px;
+  }
+  
+  .outer-container {
+      width: 328px;
+      height: 136px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 16px;
+      margin: 16px 16px 26px;
+      padding: 0;
+    }
+  
+    .container-header {
+      width: 236px;
+      height: 24px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .arrow-left {
+      width: 14px;
+      height: 14px;
+      /* background-color: #12121c; commented */
+    }
+  
+    .Basic-Details {
+      width: 87px;
+      height: 20px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+    }
+  
+    .Step-25 {
+      width: 60px; /*updated from 47px*/
+      height: 16px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: center; /*updated to center from left*/
+      color: #3d3d47;
+  
+      /* added */
+      border-radius: 5px;
+      background-color: #f9f9fb;
+    }
+  
+    .Frame-1171279920 {
+      width: 70px; /*updated to 70 from 328*/
+      height: 24px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+  
+    .header-help {
+      width: 27px;
+      height: 16px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented*/ 
+      font-size: 12px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ba4517;
+  
+      /* added */
+      margin-top: 5px;
+    }
+  
+    .flex-container{
+      display: flex;
+    }
+  
+    .Progress-bar-step-4 {
+      width: 328px;
+      height: 40px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 0;
+    }
+  
+    .Progess-bar {
+      width: 328px;
+      height: 4px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .Step-1 {
+      height: 4px;
+      flex-grow: 1;
+      padding: 0 46.5px 0 0;
+      border-radius: 16px;
+      background-color: #db5e2b;
+    }
+  
+    .Rectangle-34624545 {
+      width: 8.8px;
+      height: 4px;
+      border-radius: 8px;
+      background-color: #db5e2b;
+    }
+  
+    .steps {
+      height: 4px;
+      flex-grow: 1;
+      padding: 0 67.2px 0 0;
+      border-radius: 16px;
+      background-color: #d6d6db;
+    }
+  
+    .progressOverride{
+      --lwc-progressBarColorBackgroundFill: #db5e2b; /*Not working as it is removed from the design tokens and no other design token or hook available for progress indicator https://developer.salesforce.com/docs/atlas.en-us.206.0.lightning.meta/lightning/tokens_standard_force_base.htm / https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/example */
+    }
+  
+    .Choose-loan-amount {
+      align-self: stretch;
+      flex-grow: 1;
+      font-family: "NotoCustomSemiBold";
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+    }
+  
+    .container-subtext {
+      width: 328px;
+      height: 80px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .Choose-the-funds-that-perfectly-match-your-goals {
+      height: 48px;
+      flex-grow: 1;
+      font-family: "NotoCustomRegular";
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3d3d47;
+    }
+  
+    .Frame-1171280608 {
+      width: 360px;
+      height: 360px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 24px;
+      background-color: #fff;
+    }
+    
+    .Selection-card{
+      width: 328px;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      padding: 8px;
+      gap: 8px;
+      background-color: #f9f9fb;
+      border-radius: 8px;
+    }
+    
+    .Vector {
+      /* width: 2.9px;
+      height: 0.9px; */
+      flex-grow: 0;
+      /* background-color: #995222; */
+    }
+    
+    .address {
+      height: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+    }
+    
+    .Vacation {
+      width: 40px;
+      height: 40px;
+      flex-grow: 0;
+      object-fit: contain;
+      border-radius: 40px;
+      background-color: #fff;
+    }
+    
+    .Less-than-1-Lac{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        padding-top: 10px;
+    }
+    
+    .activeSelection{
+        border: 1px;
+        border-style: solid;
+        border-color: #db5e2b;
+        background-color: #fff7f5;
+    }
+    
+    .chev {
+      width: 24px;
+      height: 24px;
+      flex-grow: 0;
+      object-fit: contain;
+    }
+    
+    ._input-base {
+      height: 76px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 0;
+    }
+  
+    .Sticky-Button {
+      width: 360px;
+      height: 108px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      gap: 16px;
+      padding: 12px 16px;
+      border-top: solid 1px #d6d6db;
+      background-color: #fff;
+    
+    /* added */
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      margin-top: 100px;
+  
+    }
+    
+    .Frame-1171280589 {
+      height: 20px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+    }
+    
+    .Text {
+      height: 16px;
+      flex-grow: 1;
+      /* font-family: NotoSans; commented*/
+      font-size: 12px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: left;
+      color: #54545e;
+    }
+    
+    .cnfButton {
+      height: 48px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      /* background-color: #c9ccd1; */
+      background-color: #db5e2b;
+    
+      /* added */
+      border: none;
+    }
+    .cnfButtonDisabled {
+      height: 48px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background-color: #c9ccd1;
+      /* background-color: #db5e2b; */
+    
+      /* added */
+      border: none;
+    }
+  
+    .Confirm {
+      width: 55px;  
+      height: 24px;
+      flex-grow: 0;
+      font-family: "NotoCustomMedium";
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: center;
+      color: #fff;
+    }
+  
+  
+    /* modal componenet*/
+  
+  
+    .modal-container {
+      width: 360px;
+      height: 516px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+      margin: -700px 0 212px; /*changed from 16 to 100px*/
+      padding: 0;
+    }
+  
+    .modal-frame {
+      width: 328px;
+      height: 313px; /*changed dimension from 300 to 313*/
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+      margin: 0 0 40px;
+      padding: 16px;
+      border-radius: 16px;
+      background-color: #fff;
+    }
+  
+    .content {
+      height: 116px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 12px;
+      padding: 0;
+  
+  /* added */
+  
+      margin-bottom: -5px;
+    }
+  
+    .frame {
+      height: 40px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0;
+    }
+  
+    
+    .modal-icon-static{
+          width: 40px;
+          height: 40px;
+          flex-grow: 0;
+          padding: 3.3px 1.1px 3.3px 5.6px;
+          /* background-color: #f37435; commented*/
+    }
+  
+    .close-button-frame {
+      width: 36px;
+      height: 36px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 8px;
+    }
+  
+    .close-button {
+      width: 20px;
+      height: 20px;
+      flex-grow: 0;
+      object-fit: contain;
+    }
+  
+    .modal-text {
+      height: 20px;
+      align-self: stretch;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 16px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+    }
+  
+    .Text-and-supporting-text {
+      height: 64px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 4px;
+      padding: 0;
+    }
+  
+    .modal-subtext {
+      height: 40px;
+      align-self: stretch;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3d3d47;
+    }
+  
+  
+    .Frame-1171280529 {
+      height: 188px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 16px;
+      padding: 0;
+    }
+  
+    .Container {
+      height: 56px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 8px;
+      border: solid 1px #f37435;
+      background-color: #fff;
+  
+  /* added */
+  
+      margin-bottom: -5px;
+    }
+  
+    label {
+      height: 16px;
+      align-self: stretch;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 12px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3d3d47;
+    }
+  
+    .Input-Text {
+      height: 20px;
+      flex-grow: 1;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+  
+  
+      /* added */
+      border: none;
+    }
+  
+    .Confirm {
+      width: 55px;
+      height: 24px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: center;
+      color: #fff;
+    }
+  
+    .button {
+      width: 296px;
+      height: 56px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      background-color: #c9ccd1;
+      border: none;
+    }
+  
+    .Frame-1171280999 {
+      width: 360px;
+      height: 800px;
+      flex-grow: 0;
+      background-color: #ededf0;
+      position: relative;
+    }
+  
+    .Frame-1171280588 {
+      /* width: 328px; */
+      /* height: 205px; */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 16px;
+      /* margin: 16px 16px 26px; */
+      padding: 0;
+    }
+  
+    .Frame-1171279919 {
+      width: 236px;
+      height: 24px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .arrow-left {
+      width: 14px;
+      height: 14px;
+      /* background-color: #12121c; commented */
+    }
+  
+    .Basic-Details {
+      width: 87px;
+      height: 20px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+    }
+  
+    .Step-25 {
+      width: 60px; /*updated from 47px*/
+      height: 16px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented */
+  
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: center; /*updated to center from left*/
+      color: #3d3d47;
+  
+      /* added */
+      border-radius: 5px;
+      background-color: #f9f9fb;
+    }
+  
+    .Frame-1171279920 {
+      width: 70px; /*updated to 70 from 328*/
+      height: 24px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+  
+    .header-help {
+      width: 27px;
+      height: 16px;
+      flex-grow: 0;
+      /* font-family: NotoSans; commented*/ 
+      font-size: 12px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ba4517;
+  
+      /* added */
+      margin-top: 5px;
+    }
+  
+    .flex-container{
+      display: flex;
+    }
+  
+    .Progress-bar-step-4 {
+      width: 328px;
+      height: 40px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 0;
+    }
+  
+    .Progess-bar {
+      width: 328px;
+      height: 4px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+    }
+  
+    .Step-1 {
+      height: 4px;
+      flex-grow: 1;
+      padding: 0 46.5px 0 0;
+      border-radius: 16px;
+      background-color: #db5e2b;
+    }
+  
+    .Rectangle-34624545 {
+      width: 8.8px;
+      height: 4px;
+      border-radius: 8px;
+      background-color: #db5e2b;
+    }
+  
+    .steps {
+      height: 4px;
+      flex-grow: 1;
+      padding: 0 67.2px 0 0;
+      border-radius: 16px;
+      background-color: #d6d6db;
+    }
+  
+    .progressOverride{
+      --lwc-progressBarColorBackgroundFill: #db5e2b; /*Not working as it is removed from the design tokens and no other design token or hook available for progress indicator https://developer.salesforce.com/docs/atlas.en-us.206.0.lightning.meta/lightning/tokens_standard_force_base.htm / https://developer.salesforce.com/docs/component-library/bundle/lightning-progress-indicator/example */
+    }
+  
+    .Choose-loan-amount {
+      align-self: stretch;
+      flex-grow: 1;
+      /* font-family: NotoSans;  commented*/
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: left;
+      color: #12121c;
+    }
+  
+    .Frame-1171280585 {
+      width: 328px;
+      height: 80px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0;
+      margin-top: -10px;
+  
+    }
+  
+    .Choose-the-funds-that-perfectly-match-your-goals {
+      height: 48px;
+      flex-grow: 1;
+      /* font-family: NotoSans;  commented*/
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3d3d47;
+    }
+  
+    .Input-frame {
+      width: 360px;
+      height: 110px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      padding: 16px 0 0;
+      background-color: #fff;
+  
+      /* added */
+      margin-top: 20px;
+    }
+  
+    .amount-background {
+      width: 360px;
+      /* height: 245px; */
+      margin: 0 0 0px;
+      padding: 0px 0 0px;
+      border-top-right-radius: 24px;
+      border-top-left-radius: 24px;
+      background-color: #f9f9fb;
+    }
+  
+    .moneyClass{
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+      margin-left: 72px;
+      margin-top: 60px;
+    }
+  
+    .input2 {
+      width: 328px;
+      height: 136px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      gap: 32px;
+      padding: 0;
+    }
+  
+  
+    .amount-input {
+      height: 56px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
+      /* padding: 0 16px; */
+      border-radius: 8px;
+      /* border: solid 1px #cf2433; */
+      background-color: #fff;
+  
+      /* input */
+      margin: 15px 15px 5px 15px;
+    }
+  
+    .alert {
+      width: 12.8px;
+      height: 12.8px;
+      /* background-color: #cf2433; commented */
+  
+      /* added */
+      margin-left: 14px;
+    }
+  
+    .Frame-1171280616 {
+      height: 50px;
+      align-self: stretch;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 0;
+    }
+  
+  
+    .amount-help {
+      width: 296px;
+      height: 24px;
+      flex-grow: 0;
+      /* font-family: NotoSans; */
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: center;
+      color: #3d3d47;
+  
+      /* added */
+      border: none;
+    }
+  
+    .Supporting-Text {
+      width: 248px;
+      height: 16px;
+      flex-grow: 0;
+      /* font-family: NotoSans; */
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      text-align: left;
+      color: #cf2433;
+  
+      /* added */
+      margin-left: 5px;
+      margin-top: 1px;
+    }
+  
+    .Frame-427320004 {
+      height: 25px;
+      align-self: stretch;
+      flex-grow: 0;
+      padding: 0 0 4px;
+    }
+  
+    .minValue {
+      width: 52px;
+      height: 20px;
+      margin: 0 100px 0 15px;
+      font-family: "NotoCustomMedium";
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3d3d47;
+    }
+  
+    .maxValue {
+      width: 72px;
+      height: 20px;
+      margin: 0 0 0 120px;
+      font-family: "NotoCustomMedium";
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: right;
+      color: #3d3d47;
+    }
+  
+
+    :host {
+      --slds-c-slider-track-color-background: #db5e2b;
+      --slds-c-slider-track-color-foreground: #e1e1e3;
+      --slds-c-slider-thumb-color-foreground: #db5e2b;
+      --slds-c-slider-thumb-color-foreground: #db5e2b;
+  
+  
+      --slds-c-checkbox-color-background-checked: #db5e2b;
+      --slds-c-checkbox-mark-color-foreground: white;
+      
+  }
+  
+  .range-hidden .slds-slider-label__range {
+    display: none !important;
+  }
+  
+  .slds-slider__value{
+    display: hidden;
+  }
+  
+  .Sticky-Button {
+    width: 360px;
+    height: 108px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    padding: 12px 16px;
+    border-top: solid 1px #d6d6db;
+    background-color: #fff;
+  
+  /* added */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 32px;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .centerAligned{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .descriptionContent{
+    margin-top: 16px;
+    display: flex;
+      flex-direction: column;
+      gap: 15px;
+  }
+  
+  .borderStyling{
+    border-top: solid 1px #d6d6db;
+      background-color: #ffffff;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+  }
+  
+  .Frame-1171280589 {
+    height: 20px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+  
+  .Text {
+    height: 16px;
+    flex-grow: 1;
+    font-family: "NotoCustomMedium";
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #54545e;
+  }
+  
+  .cnfButton {
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    /* background-color: #c9ccd1; */
+    background-color: #db5e2b;
+  
+    /* added */
+    border: none;
+  }
+  .cnfButtonDisabled {
+    height: 48px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #c9ccd1;
+    /* background-color: #db5e2b; */
+  
+    /* added */
+    border: none;
+  }
+  
+  .infoClass {
+    width: 16px;
+    height: 16px;
+    flex-grow: 0;
+    /* background-color: #54545e; commented*/
+  }
+  
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }
+  
+  .Input-Text1 {
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    border: 1px solid #f37435; 
+    border-radius: 8px; 
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  
+    text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: "NotoCustomSemiBold";
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 330px;
+    height: 4px;
+    border-radius: 5px;
+    background: #db5e2b;
+    outline: none;
+    width: 340px;
+    margin-left: 15px;
+  }
+  
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #db5e2b;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #db5e2b;
+    cursor: pointer;
+  }

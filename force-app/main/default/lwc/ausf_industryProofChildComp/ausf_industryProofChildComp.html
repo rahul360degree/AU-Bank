@@ -1,0 +1,44 @@
+<template>
+    <div class="container ">
+        <header class="custom-header">
+            <div class="logo">
+                <img src={AUlogoImg} alt="Company Logo">
+            </div>
+            <h1 class="header-title">{label.AUSF_ApplyForPersonalLoan}</h1>
+        </header>
+
+        <div class="dynamic-component">
+            <div class="sub-selection-header">
+                <img class="arrow-left" onclick={handleClose} src={activeBackButtonURL}></img>
+                <div class="sub-header-title">Select {fieldName}</div>
+            </div>
+            <div style="width: 354px;padding-left: 15px;">
+                <template if:true={hasSearch}>
+                    <span>
+                        <img src={searchIcon} class="search-icon-container">
+                    </span>
+                    <input type="search" value={searchTerm} oninput={handleSearchChange} placeholder={searchPlaceholder}
+                        class="input-search" />
+                    <span onclick={clearSearch} if:true={searchTerm}>
+                        <img src={closeIcon} class="clear-icon-container">
+                    </span>
+                </template>
+            </div>
+            <template if:true={filteredOptions.length}>
+                <div class="sub-options">
+                    <template for:each={filteredOptions} for:item="option">
+                        <div key={option} class="option-container">
+                            <div class="option-content" onclick={handleOptionClick} data-option={option.label}>
+                                <span class="option-text">{option.label}</span>
+                                <img src={arrowRight} class="right-icon">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <template if:false={filteredOptions.length}>
+                <div class="no-results">No options found</div>
+            </template>
+        </div>
+    </div>
+</template>

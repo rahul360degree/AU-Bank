@@ -1,0 +1,65 @@
+<!--
+  @description       : 
+  @author            : Ruturaj Chothe
+  @group             : 
+  @last modified on  : 07-02-2024
+  @last modified by  : Ruturaj Chothe
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   07-01-2024   Ruturaj Chothe   Initial Version
+-->
+<template>
+    <lightning-layout horizontal-align="center" multiple-rows="true">
+        <lightning-layout-item size="12" medium-device-size="12" small-device-size="12" large-device-size="12">
+            <div lwc:if={integrationErrorModal}>
+                <c-ausf_generic-error-cmp buttonname="Home" onclosemodalevent={handleHome}
+            errormessage={integrationErrorMessage} errortitle="Something went wrong!" style="position: absolute;"></c-ausf_generic-error-cmp>
+            </div>
+            <c-ausf_generic-error-cmp lwc:if={showModal} buttonname="Re-enter PAN" onclosemodalevent={handleReEnterPan} showreturntohome=true onreturnhome={handleReturnToHome}
+                errormessage={errorMessage} errortitle="Invalid PAN" style="position: absolute;"></c-ausf_generic-error-cmp>
+            <div lwc:if={showErrorScreen}>
+                <c-ausf_-generic-error-screen-component screen-name="Invalid PAN" error-title="Maximum_Attempts_Text" error-image="Group_427322087.png">
+                </c-ausf_-generic-error-screen-component>
+            </div>
+            <template if:false={showErrorScreen}>
+                <div class="container">
+                    <!-- <div class="shadow"></div> -->
+                    
+                    <!-- <header lwc:if={showContent} class="custom-header">
+                        <div class="logo">
+                            <img src={AUlogoImg} alt="Company Logo">
+                        </div>
+                        <h1 class="header-title">Apply for Personal Loan</h1>
+                    </header> -->
+                    <div class="header">
+                        <div class="header-logo">
+                            <img src={AUlogoImg}></img>
+                        </div>
+                        <div class="header-content">
+                            Apply for Personal Loan
+                        </div>
+                    </div>
+                    
+                    <div lwc:if={showAnimation} class="slds-align_absolute-center">
+                        <div lwc:if={getLoaderAnimationFlag} class="Animation slds-align_absolute-center slds-grid slds-wrap" >
+                            <c-lottie-player  src={loaderAnimationJSON} class="slds-size_1-of-1"
+                                background="transparent" speed="1" style="width: 308.276px; height: 177.039px;" loop
+                                autoplay></c-lottie-player>
+        
+                            <div class="Display-Heading slds-size_1-of-1">Please wait</div>
+                            <div class="Display-Msg slds-size_1-of-1">We are verifying your PAN</div>
+                        </div>        
+                        <div lwc:if={getPANSuccesAnimationFlag} class="Animation slds-align_absolute-center slds-grid slds-wrap">
+                            <c-lottie-player  src={panSuccessAnimationJSON} class="slds-size_1-of-1"
+                                background="transparent" speed="1" style="width: 308.276px; height: 177.039px;"
+                                autoplay></c-lottie-player>
+                            <div class="Display-Heading slds-size_1-of-1">Great!</div>
+                            <div class="Display-Msg slds-size_1-of-1">PAN Verified successfully</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

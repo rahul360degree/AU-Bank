@@ -1,0 +1,11 @@
+<template>
+    <c-ausf_-parent-container-d-i-y current-screen-name="Confirm Personal Details" onpasstoparent={handleFromChild}></c-ausf_-parent-container-d-i-y>
+    <template if:true={blnLoadChild}>
+        <c-ausf_-confirm-personal-details-cmp 
+            applicant-id={applicantId}
+            loan-application-id={recordId}
+            onbackevent={handleBackScreenMethod} 
+            onsubmitevent={handleNextScreenMethod}>
+        </c-ausf_-confirm-personal-details-cmp>
+    </template>
+</template>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Viewer</title>
+<style>
+    /* Ensure the iframe takes up the full screen */
+html, body {
+    margin: 0;
+    padding: 0;
+    max-height: 300%;
+    overflow: auto;
+    display: flex;
+flex-direction: column;
+border:none;
+    }
+    #content {
+    border:none;
+    max-height: 300%;
+    }
+    #controls {
+        display: none; /* Hide by default */
+        justify-content: center;
+        margin: 10px;
+        }
+    
+</style>
+<meta name="viewport">
+</head>
+<body>
+    <div id="controls">
+        <button onclick="zoomOut()">Zoom Out</button>
+        <button onclick="zoomIn()">Zoom In</button>
+        </div>
+<iframe id="content" scalesPageToFit="true" ></iframe>
+<!-- <div id="content"></div> -->
+<script>
+
+let scale = 1;
+function zoomIn() {
+scale += 0.1;
+setZoom(scale);
+}
+function zoomOut() {
+if (scale > 0.1) {
+scale -= 0.1;
+setZoom(scale);
+}
+}
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+if (isMobileDevice()) {
+    document.getElementById('controls').style.display = 'flex';
+    }
+function setZoom(scale) {
+const iframe = document.getElementById('content');
+iframe.contentWindow.postMessage({ type: 'setZoom', scale: scale }, '*');
+}
+// Listen for messages from the parent window
+window.addEventListener('message', function(event) {
+if (event.data && event.data.type === 'displayBlob') {
+const iframe = document.getElementById('content');
+iframe.src = event.data.payload;
+// Inject zoom script into the iframe once it loads
+iframe.onload = function() {
+const script = `
+window.addEventListener('message', function(event) {
+if (event.data.type === 'setZoom') {
+document.body.style.transform = 'scale(' + event.data.scale + ')';
+document.body.style.transformOrigin = '0 0';
+}
+}, false);
+if (/Mobi|Android/i.test(navigator.userAgent)) {
+    document.body.style.transform = 'scale(0.5)';
+    document.body.style.transformOrigin = '0 0';
+    document.documentElement.style.overflow = 'auto'; 
+    }
+    `;
+const scriptElement = iframe.contentDocument.createElement('script');
+scriptElement.textContent = script;
+iframe.contentDocument.body.appendChild(scriptElement);
+};
+}
+}, false);
+</script>
+</body>
+</html>

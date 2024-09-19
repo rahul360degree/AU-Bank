@@ -1,0 +1,24 @@
+<template>
+    <template if:true={showLoader}>
+        <c-ui-loader style="position: absolute; z-index: 2;"></c-ui-loader>
+    </template>
+    <template if:false={showLoader}>
+        <template if:true={apiFlag}>
+            <!-- Call Generic business proof API cmp -->
+            <c-ausf_generic-business-verification-api-cmp loan-application-id={loanApplicationId}
+                applicant-id={applicantId} selected-method={screenName} employment-id={employmentId}
+                onapiverification={handleApiVerifaction}></c-ausf_generic-business-verification-api-cmp>
+        </template>
+        <template if:false={apiFlag}>
+            <!-- Call Generic business proof Manual cmp -->
+            <template if:false={isApiSucess}>
+                <c-ausf_generic-buisness-proof-comp loan-application-id={loanApplicationId} applicant-id={applicantId}
+                    component-label-name={screenName}></c-ausf_generic-buisness-proof-comp>
+            </template>
+            <template if:true={isApiSucess}>
+                <c-ausf_generic-buisness-detail-cmp loan-application-id={loanApplicationId} applicant-id={applicantId}
+                    component-label-name={screenName}></c-ausf_generic-buisness-detail-cmp>
+            </template>
+        </template>
+    </template>
+</template>

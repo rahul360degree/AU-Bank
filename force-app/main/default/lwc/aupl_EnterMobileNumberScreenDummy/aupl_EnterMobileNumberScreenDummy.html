@@ -1,0 +1,122 @@
+<template>
+    <div class="custom-box">
+        <header class="custom-header">
+            <div class="logo">
+                <img src={AUlogoImg} alt="Company Logo">
+            </div>
+            <h1 class="header-title">Apply for Personal loan</h1>
+        </header>
+        <div class="transform">
+            <span class="Transform-your-dreams-into-reality-with">
+                Transform your dreams into reality with
+            </span>
+            <span class="AU-Digital-Loan">
+                AU Digital Loan
+            </span>
+        </div>
+        <div class="hemisphere">
+            <div class="inner-hemisphere">
+                  <img class="man-image" src={AUManImg} alt="Personal Loan Image"/>
+            </div>
+            <img class="study-image" src={AUStudyImg} alt="Study Image"/>
+            <img class="plane-image" src={AUPlaneImg} alt="Plane Image"/>
+            <img class="ring-image" src={AURingImg} alt="Ring Image"/>
+            <img class="health-image" src={AUHealthImg} alt="HealthCare Image"/>
+        </div>
+        <div class="custom-box1">
+            <img class="money-logo" src={AUMoneyImg} alt="Money Logo"/>
+            <div class="text-box">Loan up to <span class="text-bold">25 Lakhs</span></div>
+            <div class="vertical-line"></div>
+            <img class="rupee-logo" src={AURupeeImg} alt="Rupee Logo"/>
+            <div class="text-box-emi">Affordable <span class="text-bold">EMIs</span></div>
+            <div class="vertical-line1"></div>
+            <img class="calendar-logo" src={AUCalendarImg} alt="Calendar Logo"/>
+            <div class="text-box-tenure">Flexible <span class="text-bold">Tenure</span></div>
+        </div>
+        <div class="grey-box">
+            <div class="inner-box">
+                <div class="inner-text">
+                  <img class="people-logo" src={AUGroupImg} alt="People Logo"/>fulfil their dreams with AU Personal Loans
+                </div>
+            </div>
+            <div class="peach-box">
+                <div class="inner-peach-box">
+                    <template if:false={isChecked}>
+                        <input class="check-box" type="checkbox" name="checkbox" onclick={handleTermsPopup} required/>
+                    </template>  
+                    <template if:true={isChecked}>
+                        <img src={AUCheckboxImg} alt="checkbox Logo"/>
+                    </template> 
+                    <div class="terms-text">I agree to AU Small Finance Bank's
+                    <a onclick={handleTermsPopup} class="link-text">Terms of use</a><br/>
+                    and CIBIL's<a onclick ={handleUsagePopup} class="link-text">Usage Policy</a>
+                    </div>
+                </div>
+                <template if:true={isGettingStarted}>
+                    <c-aupl_-get-started-screen></c-aupl_-get-started-screen>
+                </template> 
+                <template if:false={isGettingStarted}>
+                    <div class="text-box-container"> 
+                        <input type="tel" class={phoneInputClass}
+                               value={phoneNumber} 
+                               placeholder="Enter Aadhaar linked mobile number"
+                               oninput={handleInput} 
+                               onblur={handleBlur}/> 
+                        <template lwc:if={phoneNumber.length}> 
+                             <label for="phone-input" class={phoneLabelClass}>Enter Aadhaar linked mobile number</label>
+                        </template>
+                            <button class="slds-button arrow-logo" disabled={isSubmitDisabled} onclick= {handleClick}>
+                               <template lwc:if={isSubmitDisabled}>
+                                 <img src={AUArrowImg} alt="Arrow Logo"/>
+                                </template>
+                                <template lwc:else> 
+                                  <img src={AUArrowOrgImg} alt="Arrow Org Logo"/>
+                                </template>
+                            </button>
+                    </div>
+                    <template if:true={errorMessage}>
+                        <div class="error-message">
+                            <img class="error-icon" src={AUErrorImg} alt="error icon"/>{errorMessage}
+                        </div>
+                    </template>
+                </template>                               
+                <div class = "lending-text-box">
+                    <a href={digitalLending} target="_blank" class = "lending-inner-text">AU Digital Lending.</a>
+                    <a href={personalLoan} target="_blank" class = "know-more-inner-text">Know more about AU Personal Loan</a>     
+                    <img class="chevronRight-logo" src={AUChevronRightImg} alt="Chevron Right"/>
+                </div>
+                
+            </div>
+        </div>
+        <template if:true={openModal}>    
+            <div class="terms-modal">
+               <div class ="terms-modal-header">
+                    <template if:true={openTermsPopup}>
+                        <h2>Terms and Conditions</h2>
+                    </template>
+                    <template if:true={openUsagePopup}>
+                        <h2>Usage Policy</h2>
+                    </template>
+                    <button class="slds-button" onclick ={handleModal}>
+                        <img class="terms-modal-header-img" src={closeImg} alt="close Icon"/>
+                    </button>
+                    
+               </div>
+                   <template if:true={openUsagePopup}>
+                      <lightning-modal-body class="usage-modal-body"> 
+                      </lightning-modal-body>
+                   </template> 
+                   <template if:true={openTermsPopup}>
+                       <lightning-modal-body class="terms-modal-body"> 
+                        </lightning-modal-body>
+                        <div class="agree-box">
+                            <button class="slds-button agree-button-box" onclick ={handleModal}>
+                                I agree
+                            </button>
+                        </div>
+                        
+                    </template> 
+            </div>             
+        </template>
+    </div>
+</template>

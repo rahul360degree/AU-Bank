@@ -1,0 +1,103 @@
+<!-- 
+  * @description       : 
+ * @author            : Charchit Nirayanwal
+ * @group             : 
+ * @last modified on  : 04-07-2024
+ * @last modified by  : Charchit Nirayanwal
+ * @Jira Story        : APL-683
+ * Modifications Log
+ * Ver   Date         Author           Modification
+ * 1.0   04-07-2024   Charchit Nirayanwal  Initial Version 
+ -->
+
+<template>
+    <div class="bg">
+        <template if:true={showErrorModal}>
+            <c-ausf_generic-error-cmp errormessage={errorMessageApi} errortitle="Something went wrong!"
+                buttonname="Try again" onclosemodalevent={handleCloseErrorModal}
+                class="generic-error"></c-ausf_generic-error-cmp>
+        </template>
+        <template if:true={showLoader}>
+            <template if:true={showLoader}>
+                <c-ui-loader class="generic-error"></c-ui-loader>
+            </template>
+        </template>
+
+        <template if:false={showLoader}>
+            <div>
+                <c-ausf_-generic-header-cmp show-contents={showContents} header-contents={headerContent}
+                    container-description={headerDescription} journey-steps={overallJourneySteps}
+                    current-journey={currentJourney} number-of-steps={stepsInCurrentJourney} active-step={currentStep}
+                    current-screen-name={screenName} enable-back-button={enableBackButton}></c-ausf_-generic-header-cmp>
+            </div>
+            <div class="Frame-1171279943">
+                <div class="PAN--Fetch-with-digilocker">
+                    <div class="Frame-1171280585">
+                        <div class="Frame-1171280583">
+                            <span class="PAN-details">
+                                {label.AUSF_EnterPanManualTitle}
+                            </span>
+                        </div>
+                        <div class="Frame-1171280584">
+                            <span class="We-require-your-PAN-so-that-we-can-identify-you">
+                                {label.AUSF_EnterPanManualSUBTitle}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Frame-1171279942">
+                    <div class="Frame-1171279941">
+                        <div class="Frame-1171280041">
+                            <div class="Frame-1171280040">
+                                <div class="Frame-1171279939">
+                                    <div class="Frame-1171279937">
+                                        <img src={EmblemURL} alt="Emblem">
+                                    </div>
+                                    <div class="Frame-1171279938">
+                                        <span class="Permanent-Account-Number">
+                                            {label.AUSF_EnterPanManualPAN}
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="Text-field">
+                                    <input type="text" class={PanInput} value={panNumber} onchange={HandlePanChange}
+                                        oninput={HandlePanChange} maxlength="10">
+                                    <template if:true={IsClearButtonEnabled}>
+                                        <div class="Frame">
+                                            <button onclick={clearPan} class="Clear"><img src={closeIconURL} alt="clear"
+                                                    srcset=""></button>
+                                        </div>
+                                    </template>
+                                </div>
+                                <div class="errorMessage">
+                                    <template if:true={IsInvalidPanERROR}>
+                                        <img class="warningErrorIcon" src={WarningIconURL} alt="Warning">
+                                        <div>
+                                            <span class="panErrorText">
+                                                {label.AUSF_EnterPanManualInvalidPanER}
+                                            </span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Sticky-Button">
+                    <span class="InfoTextFooter">
+                        {label.AUSF_EnterPanManualTextFooter}
+                    </span>
+                    <button class={VerifyButtonCSS} onclick={verifyPan} disabled={isVerifyPanDisabled}>
+                        <span class="ConfirmLabel">
+                            Verify
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+        </template>
+    </div>
+</template>

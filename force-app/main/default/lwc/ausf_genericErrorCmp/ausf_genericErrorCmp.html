@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : Ruturaj Chothe
+  @group             : 
+  @last modified on  : 07-02-2024
+  @last modified by  : Ruturaj Chothe
+  Modifications Log
+  Ver   Date         Author           Modification
+  1.0   06-27-2024   Ruturaj Chothe   Initial Version
+-->
+<template>
+  <div class="Modal-Container slds-align_absolute-center">
+    <lightning-modal-body role="dialog" class="slds-m-around_medium slds-fade-in-open Modal-Body">
+      <div class="Error-Window">
+        <div class="container">
+          <div class="Image-Container slds-align_absolute-center">
+            <img src={errorImage} alt="Error">
+          </div>
+          <div class="Error-Title">
+            {errortitle}
+          </div>
+          <span class="Error-Message">
+          </span>
+          <div class="slds-grid Button-Container slds-p-around_medium">
+            <div class="slds-size_1-of-1">
+              <lightning-button lwc:if={showRetryButton} variant="brand" label={buttonname} title={buttonname} stretch=true disable-animation
+                onclick={handleSubmit}></lightning-button>
+            </div>
+          </div>
+          <a class="Return-To-Home" lwc:if={showreturntohome} onclick={handleReturnHome}>Home</a>
+        </div>
+      </div>
+    </lightning-modal-body>
+  </div>
+</template>

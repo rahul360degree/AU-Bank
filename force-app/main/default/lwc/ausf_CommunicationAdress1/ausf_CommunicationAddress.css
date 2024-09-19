@@ -1,0 +1,38 @@
+.wheel-picker {
+    width: 6rem;
+    height: 10rem;
+    position: relative;
+    overflow: hidden; /* Hide scrollbar */
+  }
+  
+  .wheel-picker--list {
+    padding-left: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    height: 100%; /* Ensure the list takes up full height */
+    margin-right: -17px; /* Adjust for scrollbar width */
+    padding-right: 17px; /* Adjust for scrollbar width */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  .wheel-picker--list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .wheel-picker--item {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  
+  .wheel-picker--item > a {
+    text-decoration: none;
+    color: black;
+  }

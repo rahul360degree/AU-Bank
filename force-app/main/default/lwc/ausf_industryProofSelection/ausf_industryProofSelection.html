@@ -1,0 +1,39 @@
+<template>
+    <template if:false={showDynamicComponent}>
+        <div class="select-details">
+            <template if:false={isSelectTitleHide}>
+                <div class="details-title">Select a few details</div>
+            </template>
+            <template for:each={fields} for:item="field">
+                <div key={field.name} data-name={field.label} class={field.containerClass} onclick={handleFieldClick}>
+                    <div class="field-content">
+                        <span class={field.labelClass}>{field.label}
+                            <template if:true={field.selectedValue}>
+                                <div class="selected-value">
+                                    {field.selectedValue}
+                                </div>
+                            </template>
+                        </span>
+                        <img src={arrowDown} class="dropdown-icon">
+                    </div>
+                    <!-- <div class="field-content">
+                        <label class={field.labelClass} for={field.name}>
+                            {field.label}
+                        </label>
+                        <input type="text" id={field.name} name={field.name} value={field.selectedValue} readonly
+                            class="field-input" />
+                        <lightning-button-icon icon-name="utility:down" alternative-text="Dropdown" variant="bare"
+                            class="dropdown-icon" disabled={field.disabled}></lightning-button-icon>
+                    </div> -->
+
+                </div>
+            </template>
+        </div>
+    </template>
+
+    <template if:true={showDynamicComponent}>
+        <c-ausf_industry-proof-child-comp field-name={selectedField} options={dynamicOptions} onclose={handleClose}
+            onoptionselect={handleOptionSelect} has-search={hasSearch}
+            search-placeholder={searchPlaceholder}></c-ausf_industry-proof-child-comp>
+    </template>
+</template>

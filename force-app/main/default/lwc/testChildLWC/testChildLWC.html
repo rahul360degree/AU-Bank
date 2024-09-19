@@ -1,0 +1,27 @@
+<template>
+    <div class="dynamic-component">
+        <div class="sub-selection-header">
+            <img class="arrow-left" onclick={handleClose} src={activeBackButtonURL}></img>
+            <div class="sub-header-title">Select {fieldName}</div>
+        </div>
+        <div style="width: 354px;">
+            <template if:true={hasSearch}>
+                <lightning-input type="search" value={searchTerm} onchange={handleSearchChange}
+                    placeholder={searchPlaceholder}>
+                </lightning-input>
+            </template>
+        </div>
+        <div class="sub-options">
+            <template for:each={filteredOptions} for:item="option">
+                <div key={option} class="option-container">
+                    <div class="option-content" onclick={handleOptionClick} data-option={option}>
+                        <span class="option-text">{option}</span>
+                        <lightning-button-icon icon-name="utility:right" alternative-text="Dropdown" variant="bare"
+                            class="dropdown-icon">
+                        </lightning-button-icon>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

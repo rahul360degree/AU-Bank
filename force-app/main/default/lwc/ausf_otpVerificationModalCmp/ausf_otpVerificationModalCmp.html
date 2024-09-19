@@ -1,0 +1,110 @@
+<!--
+  @description       : 
+  @author            : Ruturaj Chothe
+  @group             : 
+  @last modified on  : 06-28-2024
+  @last modified by  : Ruturaj Chothe
+-->
+<template>
+    <div class="Modal-Container">
+        <template if:true={showLoader}>
+            <c-ui-loader style="z-index: 2; position:absolute;"></c-ui-loader>
+        </template>
+    </div>
+    <div class="Modal-Container slds-align_absolute-center">
+        
+        <lightning-modal-body role="dialog" class="Verification slds-m-around_medium slds-fade-in-open">
+            <div class="Verification-Content">
+                <div class="Verification-Header">
+                    Verfiy your Mobile Number
+                    <img class="slds-float_right close-icon" src={crossSymbolImage} onclick={closeOtpModal}>
+                </div>
+                <div class="Weve-sent-a-code-to-oliviauntitleduicom slds-text-body_regular">
+                    You will receive a
+                    <span class="text-style-1"> 6-digit code </span>
+                    on your mobile number ending with {mobileNum}
+                </div>
+                <div class="Enter-OTP">
+                    Enter OTP
+                </div>
+            </div> 
+            <div > <!-- class="Otp-Rectangle-Container" -->
+                <form>
+                    <div class="slds-grid slds-wrap slds-grid_align-center">
+                        <!-- div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input style="margin-left: 2px;" class="input-text-align_right Otp-Input" type="number" data-index="0" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input class="input-text-align_right Otp-Input" type="number" data-index="1" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input class="input-text-align_right Otp-Input" type="number" data-index="2" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input class="input-text-align_right Otp-Input" type="number" data-index="3" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input class="input-text-align_right Otp-Input" type="number" data-index="4" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-p-right_small ">
+                            <lightning-input class="input-text-align_right Otp-Input" type="number" data-index="5" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div -->
+
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-right_xx-small ">
+                            <lightning-input style="margin-left: 2px; text-align: center !important " class="Otp-Input" type="number" data-index="0" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-left_xx-small slds-var-p-right_xx-small ">
+                            <lightning-input style="text-align: center !important; " class="Otp-Input" type="number" data-index="1" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-left_xx-small slds-var-p-right_xx-small ">
+                            <lightning-input style="text-align: center !important; " class="Otp-Input" type="number" data-index="2" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-left_xx-small slds-var-p-right_xx-small ">
+                            <lightning-input class="Otp-Input" type="number" data-index="3" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-left_xx-small slds-var-p-right_xx-small ">
+                            <lightning-input style="text-align: center !important;" class="Otp-Input" type="number" data-index="4" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6 slds-var-p-left_xx-small slds-var-p-right_xx-small ">
+                            <lightning-input style="text-align: center !important;" class="Otp-Input" type="number" data-index="5" max-length="1" onchange={handleOtpChange}></lightning-input>
+                        </div>
+                        <!-- div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label" for="stacked-input-id-01"></label>
+                            <div class="slds-form-element__control">
+                                <input type="text" style="padding-left: 0px !important; text-align: center; " placeholder="" value="1" class="slds-input" />
+                            </div>
+                        </div -->
+
+                    </div>
+                </form>
+            </div>
+            <div class="Otp-Result">
+                {otpResult}
+            </div>
+            <div class="Didnt-Receive-Otp-Container Text">
+                <span class="Didnt-receive-OTP">
+                    Didn't receive OTP?
+                </span>
+                <a class={resendClass}  disabled={isSubmitDisabled} onclick={handleResend}> Resend</a>
+                <span style="color: #671773;"> {resendOtpTimer}</span>
+            </div>
+            <div class="Button-Separator"></div>
+            <!-- <div class="Submit-Button slds-grid">
+                <div class="slds-size_1-of-1">
+                    <lightning-button 
+                    variant="brand"
+                    label="Submit"
+                    title="Submit the OTP"
+                    disabled={isSubmitDisabled}
+                    stretch="true"
+                    disable-animation
+                    onclick={handleSubmit}></lightning-button>
+                </div>
+            </div> -->
+            <button class="Submit-Button" disabled={isSubmitDisabled} onclick={handleSubmit}>
+                <span class="submit">Submit</span>
+            </button>
+        </lightning-modal-body>
+    </div>
+    
+</template>
